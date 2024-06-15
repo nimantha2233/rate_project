@@ -4,6 +4,14 @@ import requests
 from bs4 import BeautifulSoup
 from . import supportfunctions as sf
 import logging
+from . import config as cf
+import os
+
+
+# Get the current working directory
+current_dir = os.getcwd()
+# Construct the relative path to the company_info.csv file
+pdfs_file_path = os.path.join(current_dir,'database', 'bronze', 'company_rate_cards')
 
 
 class Extractor:
@@ -22,6 +30,10 @@ class Extractor:
             0: self.loop_through_projects,
             1: self.govt_name_extractor
                                  }
+        self.service = None
+        self.new_pdfs = []
+        self.cost_list = []
+
 
 
     def check_page_num_produce_url(self, page : int) -> str:
@@ -58,24 +70,25 @@ class Extractor:
 
 
 
-    def extract_project_data(self, webpage_soup : BeautifulSoup, project_soup : BeautifulSoup):
+    def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
         '''Parse HTML, store project data, and then write row to CSV file.
 
         :Params:
             webpage_soup (BeautifulSoup): soup object for whole page.
 
-            project_soup (BeautifulSoup): Soup object for project webpage.
+            service_soup (BeautifulSoup): Soup object for service in search
+                                          page containing multiple services.
 
         :Returns: 
             Nothing, but parses soup and assigns values to object attrs.
         
         '''
         # Instantiate project object for new project with company name
-        project_obj = sf.Service(project_soup.select('p')[0].text.strip())
-        project_obj.parse_and_extract(webpage_soup, project_soup)
+        self.service = sf.Service(company = service_soup.select('p')[0].text.strip())
+        self.parse_and_extract(service_soup)
 
         # Write row to csv file
-        self.writer.write_row(project_obj.output_attrs_to_list())
+        self.writer.write_row(self.service.output_attrs_to_list())
 
 
     def loop_through_projects(self, webpage_soup : BeautifulSoup):
@@ -84,11 +97,12 @@ class Extractor:
         :Params:
             webpage_soup (BeautifulSoup): soup object for whole page.
         '''
-        for project_soup in webpage_soup.select('li.app-search-result'):
+        # service_soup is HTML content of a service on the service search page
+        for service_soup in webpage_soup.select('li.app-search-result'):
 
             # Check it is actually the company targetted
-            if self.company_name in project_soup.select('p')[0].text.strip():
-                self.extract_project_data(webpage_soup, project_soup)
+            if self.company_name.lower() in service_soup.select('p')[0].text.strip().lower():
+                self.extract_project_data(webpage_soup, service_soup)
 
 
     def loop_through_all_pages_for_company_search(self, webpage_soup : BeautifulSoup, page : int):
@@ -99,6 +113,9 @@ class Extractor:
             webpage (BeautifulSoup): soup from page 1 of search results
             page (int): starting page_number
         '''
+        # Check existing PDFs before scraping
+        existing_pdfs = set(os.listdir(pdfs_file_path))
+
         # Get the appropriate function based on the mode
         process_function = self.mode_function_map.get(self.mode)
         
@@ -111,7 +128,7 @@ class Extractor:
 
         # While there is an option to go back a page (doesn't exist if past page limit)
         while webpage_soup.select('div.govuk-pagination__prev') or page == 1:
-            self.logger.info(f'Current Page: {page}/{num_pages_to_search}')
+            self.logger.info(f'{self.company_name} ------ Current Page: {page}/{num_pages_to_search}')
             # Cycle through each project on search page
             # self.loop_through_projects(webpage_soup=webpage_soup)
             process_function(webpage_soup=webpage_soup)
@@ -121,6 +138,10 @@ class Extractor:
             page += 1
             URL = self.check_page_num_produce_url(page)
             webpage_soup = self.soup_from_url(URL)
+        
+        # Get new pdfs to log
+        all_pdfs = set(os.listdir(pdfs_file_path))
+        self.new_pdfs = list(all_pdfs - existing_pdfs)
 
 
 
@@ -136,7 +157,76 @@ class Extractor:
             # Check it is actually the company targetted
             if self.company_name in project_soup.select('p')[0].text.strip():
                 self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])
+
+    def parse_and_extract(self, service_soup : BeautifulSoup):
+        '''Assign values to attributes of class instance
+        
+        :Params:
+            page_soup (BeautifulSoup): soup from page containing services (service search results page)
+
+        :Returns: Nothing but assigns value to object attrs.
+        '''
+        # Assign attributes values (service details)
+        self.service.name = service_soup.select('a')[0].text.strip()
+        self.service.url = cf.Config.BASE_URL + service_soup.select('a')[0]['href'].strip()
+
+        # Access service page to obtain rates
+        self.service.page_soup = BeautifulSoup(requests.get(self.service.url).content, 'html5lib')
+        # Find rate card if exists and if unique add to the database
+        # Service cost
+        self.service.cost = self.service.page_soup.select(
+            'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
+                                        )[0].text.strip().replace('£','')
+        
+        # If the service cost is unique, download the rate card
+        if self.service.cost not in self.cost_list and contains_unit_or_person(self.service.cost):
+            # Add cost to list to avoid duplicate downloads
+            self.cost_list.append(self.service.cost)
+            self.find_and_download_rate_card()
+        
+
+        
+    def find_and_download_rate_card(self):
+        '''If rate card exists download to bronze layer
+        
+        :Returns:
+            None: This function operates by side-effect, downloading a PDF file.
+        '''
+        service_doc_elements = self.service.page_soup.select(
+                                    'div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'
+                                                            )
+        
+        for service_doc in service_doc_elements:
+            # Cleaner code otherwise go beyond line limit
+            service_doc_name = service_doc.select_one(
+                                           'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+                                                     ).text.strip()
             
+            if service_doc_name =='Skills Framework for the Information Age rate card':
+                #
+                pdf_url = service_doc.select_one(
+                    'p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href']
+                
+                # Get filename from url and concat with company name for comparison with our pdf lib
+                pdf_filename = self.service.company.replace(' ','') + '_' + pdf_url.split('/')[-1]
+                
+                # If a rate card already exists dont add (its a duplicate)
+                if pdf_filename not in cf.Config.PDF_FILES_LIST:
+
+                    # Download rate card
+                    r = requests.get(pdf_url)
+                    r.raise_for_status()  # Raise an error if the request was unsuccessful
+                    pdf_filepath = os.path.join(pdfs_file_path, pdf_filename) 
+                    # Save the PDF to a file
+                    with open(f'{pdf_filepath}', 'wb') as f:
+                        f.write(r.content)
+    
 
 
+            
+def contains_unit_or_person(text : str) -> bool:
+    '''Checks if unit or paerson str in input 
+    str and returns corresponding bool
+    '''
+    return 'unit' in text or 'person' in text
 

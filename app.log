@@ -1,0 +1,1127 @@
+2024-06-15 16:53:23,251 - __main__ - INFO - New run starting at 2024-06-15 16:53:23.251166
+2024-06-15 16:53:23,255 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 16:54:24,097 - __main__ - INFO - New run starting at 2024-06-15 16:54:24.097048
+2024-06-15 16:54:24,097 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 16:54:24,551 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 16:54:32,155 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 16:54:39,555 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 16:54:47,497 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 16:54:55,159 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 16:55:02,809 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 16:55:10,345 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 16:55:17,961 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 16:55:25,592 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 16:58:53,571 - __main__ - INFO - New run starting at 2024-06-15 16:58:53.571347
+2024-06-15 16:58:53,586 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 16:58:54,056 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 16:59:01,332 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 16:59:08,646 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 16:59:15,734 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 17:18:36,474 - __main__ - INFO - New run starting at 2024-06-15 17:18:36.474265
+2024-06-15 17:18:36,477 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 17:18:36,945 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 17:18:46,005 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 17:18:53,612 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 17:19:01,286 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 17:19:08,679 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 17:19:16,070 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 17:34:48,113 - __main__ - INFO - New run starting at 2024-06-15 17:34:48.113257
+2024-06-15 17:34:48,129 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 17:34:48,592 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 17:34:56,209 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 19:39:00,186 - __main__ - INFO - New run starting at 2024-06-15 19:39:00.186124
+2024-06-15 19:39:00,197 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 19:39:00,675 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 19:39:12,741 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 19:39:25,590 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 19:39:36,693 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 19:39:48,324 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 19:40:00,275 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 19:40:12,632 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 19:40:24,987 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 19:40:36,416 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 19:40:48,404 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 19:51:32,179 - __main__ - INFO - New run starting at 2024-06-15 19:51:32.179963
+2024-06-15 19:51:32,190 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 19:51:32,645 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 19:51:40,803 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 19:51:48,461 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 19:51:56,044 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 19:52:03,739 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 19:52:11,682 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 19:52:19,411 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 19:52:27,062 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 19:52:34,637 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 19:52:42,613 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:01:55,620 - __main__ - INFO - New run starting at 2024-06-15 20:01:55.620230
+2024-06-15 20:01:55,631 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:01:56,102 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:02:15,515 - __main__ - INFO - New run starting at 2024-06-15 20:02:15.515333
+2024-06-15 20:02:15,518 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:02:16,152 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:02:24,331 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:02:31,782 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:02:39,419 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:02:47,122 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:02:54,701 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:03:02,270 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:03:09,722 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:03:18,263 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:03:25,759 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:04:33,704 - __main__ - INFO - New run starting at 2024-06-15 20:04:33.704612
+2024-06-15 20:04:33,709 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:04:34,182 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:04:41,783 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:04:49,615 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:04:56,898 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:05:04,379 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:05:11,837 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:05:34,322 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:05:41,778 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:05:50,177 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:05:58,287 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:07:29,837 - __main__ - INFO - New run starting at 2024-06-15 20:07:29.837061
+2024-06-15 20:07:29,840 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:07:30,284 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:07:37,784 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:07:45,206 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:07:52,552 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:07:59,999 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:08:07,326 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:08:14,766 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:08:22,180 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:08:29,661 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:08:38,340 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:08:43,093 - root - INFO - New PDFs added for Capgemini UK plc: 0
+2024-06-15 20:10:51,738 - __main__ - INFO - New run starting at 2024-06-15 20:10:51.738217
+2024-06-15 20:10:51,741 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:10:52,222 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:10:59,787 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:11:07,499 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:11:14,791 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:11:22,453 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:11:29,844 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:11:37,519 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:11:45,244 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:11:52,709 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:12:00,104 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:12:17,930 - __main__ - INFO - New run starting at 2024-06-15 20:12:17.930930
+2024-06-15 20:12:17,942 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:12:18,402 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:12:25,770 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:12:33,240 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:12:40,585 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:12:48,018 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:12:55,551 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:13:03,038 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:13:10,423 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:13:17,900 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:13:25,600 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:14:16,688 - __main__ - INFO - New run starting at 2024-06-15 20:14:16.688950
+2024-06-15 20:14:16,692 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:14:17,151 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:14:24,509 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:14:31,794 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:14:39,269 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:14:46,629 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:14:53,968 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:15:01,582 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:15:09,157 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:15:16,513 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:15:23,967 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:16:00,323 - __main__ - INFO - New run starting at 2024-06-15 20:16:00.323020
+2024-06-15 20:16:00,326 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:16:00,793 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:16:08,619 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:16:16,016 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:16:23,387 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:16:31,372 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:16:38,893 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:16:46,304 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:16:54,269 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:17:02,186 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:17:09,607 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:17:14,513 - root - INFO - New PDFs added for Capgemini UK plc: 3
+2024-06-15 20:30:20,859 - __main__ - INFO - New run starting at 2024-06-15 20:30:20.859741
+2024-06-15 20:30:48,606 - __main__ - INFO - New run starting at 2024-06-15 20:30:48.606746
+2024-06-15 20:31:55,153 - __main__ - INFO - New run starting at 2024-06-15 20:31:55.153060
+2024-06-15 20:31:55,157 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:31:55,158 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 20:31:55,158 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 20:31:55,158 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 20:31:55,529 - utils.extractor - INFO - Current Page: 1/1
+2024-06-15 20:31:55,650 - utils.extractor - INFO - Current Page: 1/1
+2024-06-15 20:31:55,707 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 20:31:55,742 - utils.extractor - INFO - Current Page: 1/53
+2024-06-15 20:31:56,227 - utils.extractor - INFO - Current Page: 2/53
+2024-06-15 20:31:56,780 - utils.extractor - INFO - Current Page: 3/53
+2024-06-15 20:31:57,263 - utils.extractor - INFO - Current Page: 4/53
+2024-06-15 20:31:57,782 - utils.extractor - INFO - Current Page: 5/53
+2024-06-15 20:31:58,324 - utils.extractor - INFO - Current Page: 6/53
+2024-06-15 20:31:58,803 - utils.extractor - INFO - Current Page: 7/53
+2024-06-15 20:31:59,306 - utils.extractor - INFO - Current Page: 8/53
+2024-06-15 20:31:59,826 - utils.extractor - INFO - Current Page: 9/53
+2024-06-15 20:32:00,349 - utils.extractor - INFO - Current Page: 10/53
+2024-06-15 20:32:00,904 - utils.extractor - INFO - Current Page: 11/53
+2024-06-15 20:32:01,496 - utils.extractor - INFO - Current Page: 12/53
+2024-06-15 20:32:02,019 - utils.extractor - INFO - Current Page: 13/53
+2024-06-15 20:32:02,550 - utils.extractor - INFO - Current Page: 14/53
+2024-06-15 20:32:02,984 - utils.extractor - INFO - Current Page: 15/53
+2024-06-15 20:32:03,460 - utils.extractor - INFO - Current Page: 16/53
+2024-06-15 20:32:03,971 - utils.extractor - INFO - Current Page: 17/53
+2024-06-15 20:32:04,012 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 20:32:04,486 - utils.extractor - INFO - Current Page: 18/53
+2024-06-15 20:32:05,056 - utils.extractor - INFO - Current Page: 19/53
+2024-06-15 20:32:05,502 - utils.extractor - INFO - Current Page: 20/53
+2024-06-15 20:32:06,007 - utils.extractor - INFO - Current Page: 21/53
+2024-06-15 20:32:06,477 - utils.extractor - INFO - Current Page: 22/53
+2024-06-15 20:32:07,041 - utils.extractor - INFO - Current Page: 23/53
+2024-06-15 20:32:07,568 - utils.extractor - INFO - Current Page: 24/53
+2024-06-15 20:32:08,033 - utils.extractor - INFO - Current Page: 25/53
+2024-06-15 20:32:08,546 - utils.extractor - INFO - Current Page: 26/53
+2024-06-15 20:32:09,227 - utils.extractor - INFO - Current Page: 27/53
+2024-06-15 20:32:09,727 - utils.extractor - INFO - Current Page: 28/53
+2024-06-15 20:32:10,172 - utils.extractor - INFO - Current Page: 29/53
+2024-06-15 20:32:10,685 - utils.extractor - INFO - Current Page: 30/53
+2024-06-15 20:32:11,222 - utils.extractor - INFO - Current Page: 31/53
+2024-06-15 20:32:11,798 - utils.extractor - INFO - Current Page: 32/53
+2024-06-15 20:32:12,222 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 20:32:12,280 - utils.extractor - INFO - Current Page: 33/53
+2024-06-15 20:32:12,708 - utils.extractor - INFO - Current Page: 34/53
+2024-06-15 20:32:13,212 - utils.extractor - INFO - Current Page: 35/53
+2024-06-15 20:32:13,687 - utils.extractor - INFO - Current Page: 36/53
+2024-06-15 20:32:14,310 - utils.extractor - INFO - Current Page: 37/53
+2024-06-15 20:32:14,796 - utils.extractor - INFO - Current Page: 38/53
+2024-06-15 20:32:15,233 - utils.extractor - INFO - Current Page: 39/53
+2024-06-15 20:32:15,664 - utils.extractor - INFO - Current Page: 40/53
+2024-06-15 20:32:16,117 - utils.extractor - INFO - Current Page: 41/53
+2024-06-15 20:32:16,562 - utils.extractor - INFO - Current Page: 42/53
+2024-06-15 20:32:16,983 - utils.extractor - INFO - Current Page: 43/53
+2024-06-15 20:32:17,467 - utils.extractor - INFO - Current Page: 44/53
+2024-06-15 20:32:17,904 - utils.extractor - INFO - Current Page: 45/53
+2024-06-15 20:32:18,332 - utils.extractor - INFO - Current Page: 46/53
+2024-06-15 20:32:18,771 - utils.extractor - INFO - Current Page: 47/53
+2024-06-15 20:32:19,272 - utils.extractor - INFO - Current Page: 48/53
+2024-06-15 20:32:19,804 - utils.extractor - INFO - Current Page: 49/53
+2024-06-15 20:32:19,825 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 20:32:20,308 - utils.extractor - INFO - Current Page: 50/53
+2024-06-15 20:32:20,809 - utils.extractor - INFO - Current Page: 51/53
+2024-06-15 20:32:21,339 - utils.extractor - INFO - Current Page: 52/53
+2024-06-15 20:32:21,851 - utils.extractor - INFO - Current Page: 53/53
+2024-06-15 20:32:27,810 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 20:32:35,038 - utils.extractor - INFO - Current Page: 6/10
+2024-06-15 20:32:42,615 - utils.extractor - INFO - Current Page: 7/10
+2024-06-15 20:32:50,043 - utils.extractor - INFO - Current Page: 8/10
+2024-06-15 20:32:57,324 - utils.extractor - INFO - Current Page: 9/10
+2024-06-15 20:33:04,782 - utils.extractor - INFO - Current Page: 10/10
+2024-06-15 20:34:10,684 - __main__ - INFO - New run starting at 2024-06-15 20:34:10.684108
+2024-06-15 20:34:10,690 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:34:10,691 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 20:34:10,692 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 20:34:10,692 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 20:35:07,803 - __main__ - INFO - New run starting at 2024-06-15 20:35:07.803070
+2024-06-15 20:35:07,809 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 20:35:07,809 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 20:35:07,810 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 20:35:07,810 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 20:35:08,246 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-15 20:35:08,356 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 20:35:08,394 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-15 20:35:08,410 - utils.extractor - INFO - AND Digital ------ Current Page: 1/53
+2024-06-15 20:35:08,878 - utils.extractor - INFO - AND Digital ------ Current Page: 2/53
+2024-06-15 20:35:09,372 - utils.extractor - INFO - AND Digital ------ Current Page: 3/53
+2024-06-15 20:35:09,953 - utils.extractor - INFO - AND Digital ------ Current Page: 4/53
+2024-06-15 20:35:10,452 - utils.extractor - INFO - AND Digital ------ Current Page: 5/53
+2024-06-15 20:35:10,865 - utils.extractor - INFO - AND Digital ------ Current Page: 6/53
+2024-06-15 20:35:11,383 - utils.extractor - INFO - AND Digital ------ Current Page: 7/53
+2024-06-15 20:35:11,914 - utils.extractor - INFO - AND Digital ------ Current Page: 8/53
+2024-06-15 20:35:12,409 - utils.extractor - INFO - AND Digital ------ Current Page: 9/53
+2024-06-15 20:35:12,968 - utils.extractor - INFO - AND Digital ------ Current Page: 10/53
+2024-06-15 20:35:13,403 - utils.extractor - INFO - AND Digital ------ Current Page: 11/53
+2024-06-15 20:35:13,907 - utils.extractor - INFO - AND Digital ------ Current Page: 12/53
+2024-06-15 20:35:14,522 - utils.extractor - INFO - AND Digital ------ Current Page: 13/53
+2024-06-15 20:35:15,064 - utils.extractor - INFO - AND Digital ------ Current Page: 14/53
+2024-06-15 20:35:15,531 - utils.extractor - INFO - AND Digital ------ Current Page: 15/53
+2024-06-15 20:35:16,058 - utils.extractor - INFO - AND Digital ------ Current Page: 16/53
+2024-06-15 20:35:16,513 - utils.extractor - INFO - AND Digital ------ Current Page: 17/53
+2024-06-15 20:35:16,728 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-15 20:35:16,991 - utils.extractor - INFO - AND Digital ------ Current Page: 18/53
+2024-06-15 20:35:17,495 - utils.extractor - INFO - AND Digital ------ Current Page: 19/53
+2024-06-15 20:35:17,992 - utils.extractor - INFO - AND Digital ------ Current Page: 20/53
+2024-06-15 20:35:18,499 - utils.extractor - INFO - AND Digital ------ Current Page: 21/53
+2024-06-15 20:35:18,988 - utils.extractor - INFO - AND Digital ------ Current Page: 22/53
+2024-06-15 20:35:19,468 - utils.extractor - INFO - AND Digital ------ Current Page: 23/53
+2024-06-15 20:35:20,008 - utils.extractor - INFO - AND Digital ------ Current Page: 24/53
+2024-06-15 20:35:20,543 - utils.extractor - INFO - AND Digital ------ Current Page: 25/53
+2024-06-15 20:35:20,978 - utils.extractor - INFO - AND Digital ------ Current Page: 26/53
+2024-06-15 20:35:21,420 - utils.extractor - INFO - AND Digital ------ Current Page: 27/53
+2024-06-15 20:35:21,914 - utils.extractor - INFO - AND Digital ------ Current Page: 28/53
+2024-06-15 20:35:22,365 - utils.extractor - INFO - AND Digital ------ Current Page: 29/53
+2024-06-15 20:35:22,788 - utils.extractor - INFO - AND Digital ------ Current Page: 30/53
+2024-06-15 20:35:23,212 - utils.extractor - INFO - AND Digital ------ Current Page: 31/53
+2024-06-15 20:35:23,718 - utils.extractor - INFO - AND Digital ------ Current Page: 32/53
+2024-06-15 20:35:24,159 - utils.extractor - INFO - AND Digital ------ Current Page: 33/53
+2024-06-15 20:35:24,707 - utils.extractor - INFO - AND Digital ------ Current Page: 34/53
+2024-06-15 20:35:24,912 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 3/10
+2024-06-15 20:35:25,195 - utils.extractor - INFO - AND Digital ------ Current Page: 35/53
+2024-06-15 20:35:25,705 - utils.extractor - INFO - AND Digital ------ Current Page: 36/53
+2024-06-15 20:35:26,258 - utils.extractor - INFO - AND Digital ------ Current Page: 37/53
+2024-06-15 20:35:26,848 - utils.extractor - INFO - AND Digital ------ Current Page: 38/53
+2024-06-15 20:35:27,319 - utils.extractor - INFO - AND Digital ------ Current Page: 39/53
+2024-06-15 20:35:27,856 - utils.extractor - INFO - AND Digital ------ Current Page: 40/53
+2024-06-15 20:35:28,379 - utils.extractor - INFO - AND Digital ------ Current Page: 41/53
+2024-06-15 20:35:28,813 - utils.extractor - INFO - AND Digital ------ Current Page: 42/53
+2024-06-15 20:35:29,342 - utils.extractor - INFO - AND Digital ------ Current Page: 43/53
+2024-06-15 20:35:29,833 - utils.extractor - INFO - AND Digital ------ Current Page: 44/53
+2024-06-15 20:35:30,357 - utils.extractor - INFO - AND Digital ------ Current Page: 45/53
+2024-06-15 20:35:30,884 - utils.extractor - INFO - AND Digital ------ Current Page: 46/53
+2024-06-15 20:35:31,391 - utils.extractor - INFO - AND Digital ------ Current Page: 47/53
+2024-06-15 20:35:31,960 - utils.extractor - INFO - AND Digital ------ Current Page: 48/53
+2024-06-15 20:35:32,421 - utils.extractor - INFO - AND Digital ------ Current Page: 49/53
+2024-06-15 20:35:32,895 - utils.extractor - INFO - AND Digital ------ Current Page: 50/53
+2024-06-15 20:35:33,124 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 4/10
+2024-06-15 20:35:33,390 - utils.extractor - INFO - AND Digital ------ Current Page: 51/53
+2024-06-15 20:35:33,958 - utils.extractor - INFO - AND Digital ------ Current Page: 52/53
+2024-06-15 20:35:34,425 - utils.extractor - INFO - AND Digital ------ Current Page: 53/53
+2024-06-15 20:35:40,782 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 5/10
+2024-06-15 20:35:48,093 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 6/10
+2024-06-15 20:35:55,507 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 7/10
+2024-06-15 20:36:02,824 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 8/10
+2024-06-15 20:36:10,258 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 9/10
+2024-06-15 20:36:17,758 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 10/10
+2024-06-15 20:57:34,434 - __main__ - INFO - New run starting at 2024-06-15 20:57:34.434872
+2024-06-15 20:57:34,447 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 20:57:34,863 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:01:21,393 - __main__ - INFO - New run starting at 2024-06-15 21:01:21.393915
+2024-06-15 21:01:21,400 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 21:01:21,808 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:02:23,278 - __main__ - INFO - New run starting at 2024-06-15 21:02:23.278847
+2024-06-15 21:02:23,284 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 21:02:23,284 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 21:02:23,285 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 21:02:23,285 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 21:02:23,666 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-15 21:02:23,792 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:02:23,826 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-15 21:02:23,863 - utils.extractor - INFO - AND Digital ------ Current Page: 1/53
+2024-06-15 21:02:33,882 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-15 21:02:36,195 - utils.extractor - INFO - AND Digital ------ Current Page: 2/53
+2024-06-15 21:02:43,420 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 3/10
+2024-06-15 21:02:45,740 - utils.extractor - INFO - AND Digital ------ Current Page: 3/53
+2024-06-15 21:02:53,661 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 4/10
+2024-06-15 21:02:56,418 - utils.extractor - INFO - AND Digital ------ Current Page: 4/53
+2024-06-15 21:03:02,827 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 5/10
+2024-06-15 21:03:06,121 - utils.extractor - INFO - AND Digital ------ Current Page: 5/53
+2024-06-15 21:03:12,689 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 6/10
+2024-06-15 21:03:16,092 - utils.extractor - INFO - AND Digital ------ Current Page: 6/53
+2024-06-15 21:03:22,426 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 7/10
+2024-06-15 21:03:25,817 - utils.extractor - INFO - AND Digital ------ Current Page: 7/53
+2024-06-15 21:03:33,428 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 8/10
+2024-06-15 21:03:36,739 - utils.extractor - INFO - AND Digital ------ Current Page: 8/53
+2024-06-15 21:03:43,256 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 9/10
+2024-06-15 21:03:46,784 - utils.extractor - INFO - AND Digital ------ Current Page: 9/53
+2024-06-15 21:03:51,819 - utils.extractor - INFO - AND Digital ------ Current Page: 10/53
+2024-06-15 21:03:52,306 - utils.extractor - INFO - AND Digital ------ Current Page: 11/53
+2024-06-15 21:03:52,832 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 10/10
+2024-06-15 21:03:52,862 - utils.extractor - INFO - AND Digital ------ Current Page: 12/53
+2024-06-15 21:03:53,299 - utils.extractor - INFO - AND Digital ------ Current Page: 13/53
+2024-06-15 21:03:53,821 - utils.extractor - INFO - AND Digital ------ Current Page: 14/53
+2024-06-15 21:03:54,451 - utils.extractor - INFO - AND Digital ------ Current Page: 15/53
+2024-06-15 21:03:54,992 - utils.extractor - INFO - AND Digital ------ Current Page: 16/53
+2024-06-15 21:03:55,482 - utils.extractor - INFO - AND Digital ------ Current Page: 17/53
+2024-06-15 21:03:55,989 - utils.extractor - INFO - AND Digital ------ Current Page: 18/53
+2024-06-15 21:03:56,529 - utils.extractor - INFO - AND Digital ------ Current Page: 19/53
+2024-06-15 21:03:57,065 - utils.extractor - INFO - AND Digital ------ Current Page: 20/53
+2024-06-15 21:03:57,546 - utils.extractor - INFO - AND Digital ------ Current Page: 21/53
+2024-06-15 21:03:58,033 - utils.extractor - INFO - AND Digital ------ Current Page: 22/53
+2024-06-15 21:03:58,530 - utils.extractor - INFO - AND Digital ------ Current Page: 23/53
+2024-06-15 21:03:58,975 - utils.extractor - INFO - AND Digital ------ Current Page: 24/53
+2024-06-15 21:03:59,414 - utils.extractor - INFO - AND Digital ------ Current Page: 25/53
+2024-06-15 21:03:59,856 - utils.extractor - INFO - AND Digital ------ Current Page: 26/53
+2024-06-15 21:04:00,327 - utils.extractor - INFO - AND Digital ------ Current Page: 27/53
+2024-06-15 21:04:00,759 - utils.extractor - INFO - AND Digital ------ Current Page: 28/53
+2024-06-15 21:04:01,259 - utils.extractor - INFO - AND Digital ------ Current Page: 29/53
+2024-06-15 21:04:01,740 - utils.extractor - INFO - AND Digital ------ Current Page: 30/53
+2024-06-15 21:04:02,225 - utils.extractor - INFO - AND Digital ------ Current Page: 31/53
+2024-06-15 21:04:02,728 - utils.extractor - INFO - AND Digital ------ Current Page: 32/53
+2024-06-15 21:04:03,243 - utils.extractor - INFO - AND Digital ------ Current Page: 33/53
+2024-06-15 21:04:03,794 - utils.extractor - INFO - AND Digital ------ Current Page: 34/53
+2024-06-15 21:04:04,239 - utils.extractor - INFO - AND Digital ------ Current Page: 35/53
+2024-06-15 21:04:04,746 - utils.extractor - INFO - AND Digital ------ Current Page: 36/53
+2024-06-15 21:04:05,247 - utils.extractor - INFO - AND Digital ------ Current Page: 37/53
+2024-06-15 21:04:05,715 - utils.extractor - INFO - AND Digital ------ Current Page: 38/53
+2024-06-15 21:04:06,173 - utils.extractor - INFO - AND Digital ------ Current Page: 39/53
+2024-06-15 21:04:06,665 - utils.extractor - INFO - AND Digital ------ Current Page: 40/53
+2024-06-15 21:04:07,087 - utils.extractor - INFO - AND Digital ------ Current Page: 41/53
+2024-06-15 21:04:07,545 - utils.extractor - INFO - AND Digital ------ Current Page: 42/53
+2024-06-15 21:04:07,981 - utils.extractor - INFO - AND Digital ------ Current Page: 43/53
+2024-06-15 21:04:08,432 - utils.extractor - INFO - AND Digital ------ Current Page: 44/53
+2024-06-15 21:04:08,909 - utils.extractor - INFO - AND Digital ------ Current Page: 45/53
+2024-06-15 21:04:09,343 - utils.extractor - INFO - AND Digital ------ Current Page: 46/53
+2024-06-15 21:04:09,778 - utils.extractor - INFO - AND Digital ------ Current Page: 47/53
+2024-06-15 21:04:10,217 - utils.extractor - INFO - AND Digital ------ Current Page: 48/53
+2024-06-15 21:04:10,641 - utils.extractor - INFO - AND Digital ------ Current Page: 49/53
+2024-06-15 21:04:11,108 - utils.extractor - INFO - AND Digital ------ Current Page: 50/53
+2024-06-15 21:04:11,552 - utils.extractor - INFO - AND Digital ------ Current Page: 51/53
+2024-06-15 21:04:11,961 - utils.extractor - INFO - AND Digital ------ Current Page: 52/53
+2024-06-15 21:04:12,401 - utils.extractor - INFO - AND Digital ------ Current Page: 53/53
+2024-06-15 21:17:52,069 - __main__ - INFO - New run starting at 2024-06-15 21:17:52.069340
+2024-06-15 21:17:52,083 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 21:17:52,085 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 21:17:52,085 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 21:17:52,086 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 21:17:52,661 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-15 21:17:52,705 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:17:52,713 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-15 21:17:52,731 - utils.extractor - INFO - AND Digital ------ Current Page: 1/53
+2024-06-15 21:18:02,923 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-15 21:18:05,334 - utils.extractor - INFO - AND Digital ------ Current Page: 2/53
+2024-06-15 21:18:12,720 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 3/10
+2024-06-15 21:18:15,098 - utils.extractor - INFO - AND Digital ------ Current Page: 3/53
+2024-06-15 21:18:22,460 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 4/10
+2024-06-15 21:18:24,955 - utils.extractor - INFO - AND Digital ------ Current Page: 4/53
+2024-06-15 21:18:32,022 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 5/10
+2024-06-15 21:18:34,685 - utils.extractor - INFO - AND Digital ------ Current Page: 5/53
+2024-06-15 21:18:41,563 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 6/10
+2024-06-15 21:18:44,316 - utils.extractor - INFO - AND Digital ------ Current Page: 6/53
+2024-06-15 21:18:51,055 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 7/10
+2024-06-15 21:18:54,695 - utils.extractor - INFO - AND Digital ------ Current Page: 7/53
+2024-06-15 21:19:00,461 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 8/10
+2024-06-15 21:19:04,191 - utils.extractor - INFO - AND Digital ------ Current Page: 8/53
+2024-06-15 21:19:09,877 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 9/10
+2024-06-15 21:19:13,816 - utils.extractor - INFO - AND Digital ------ Current Page: 9/53
+2024-06-15 21:19:31,884 - __main__ - INFO - New run starting at 2024-06-15 21:19:31.884757
+2024-06-15 21:19:31,897 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 21:19:31,898 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 21:19:31,898 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 21:19:31,899 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 21:19:32,403 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-15 21:19:32,467 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:19:32,494 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-15 21:19:32,503 - utils.extractor - INFO - AND Digital ------ Current Page: 1/53
+2024-06-15 21:19:42,242 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-15 21:19:43,958 - utils.extractor - INFO - AND Digital ------ Current Page: 2/53
+2024-06-15 21:19:52,025 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 3/10
+2024-06-15 21:19:53,809 - utils.extractor - INFO - AND Digital ------ Current Page: 3/53
+2024-06-15 21:20:01,680 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 4/10
+2024-06-15 21:20:03,752 - utils.extractor - INFO - AND Digital ------ Current Page: 4/53
+2024-06-15 21:20:11,439 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 5/10
+2024-06-15 21:20:13,422 - utils.extractor - INFO - AND Digital ------ Current Page: 5/53
+2024-06-15 21:22:24,477 - __main__ - INFO - New run starting at 2024-06-15 21:22:24.477538
+2024-06-15 21:22:24,482 - utils.extractor - INFO - Scraping for Company: AND Digital
+2024-06-15 21:22:24,942 - utils.extractor - INFO - AND Digital ------ Current Page: 1/53
+2024-06-15 21:23:07,577 - __main__ - INFO - New run starting at 2024-06-15 21:23:07.577470
+2024-06-15 21:23:07,590 - utils.extractor - INFO - Scraping for Company: AND Digital Limited
+2024-06-15 21:23:07,979 - utils.extractor - INFO - AND Digital Limited ------ Current Page: 1/1
+2024-06-15 21:23:31,658 - __main__ - INFO - New run starting at 2024-06-15 21:23:31.658117
+2024-06-15 21:23:31,663 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 21:23:31,663 - utils.extractor - INFO - Scraping for Company: AND Digital Limited
+2024-06-15 21:23:31,665 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-15 21:23:31,665 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-15 21:23:32,152 - utils.extractor - INFO - AND Digital Limited ------ Current Page: 1/1
+2024-06-15 21:23:32,211 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-15 21:23:32,244 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-15 21:23:32,250 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-15 21:23:32,396 - utils.extractor - INFO - Scraping for Company: Slalom
+2024-06-15 21:23:32,398 - utils.extractor - INFO - Scraping for Company: Tata Consultancy Services Limited
+2024-06-15 21:23:33,022 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 1/5
+2024-06-15 21:23:33,040 - utils.extractor - INFO - Slalom ------ Current Page: 1/4
+2024-06-15 21:23:38,796 - utils.extractor - INFO - Scraping for Company: Wipro Limited
+2024-06-15 21:23:39,412 - utils.extractor - INFO - Wipro Limited ------ Current Page: 1/1
+2024-06-15 21:23:39,573 - utils.extractor - INFO - Scraping for Company: Fjord Consulting Group
+2024-06-15 21:23:40,145 - utils.extractor - INFO - Fjord Consulting Group ------ Current Page: 1/1
+2024-06-15 21:23:40,286 - utils.extractor - INFO - Scraping for Company: Mesh AI
+2024-06-15 21:23:40,874 - utils.extractor - INFO - Mesh AI ------ Current Page: 1/1
+2024-06-15 21:23:41,019 - utils.extractor - INFO - Scraping for Company: Sparta Global
+2024-06-15 21:23:41,385 - utils.extractor - INFO - Sparta Global ------ Current Page: 1/1
+2024-06-15 21:23:44,407 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-15 21:23:45,377 - utils.extractor - INFO - Slalom ------ Current Page: 2/4
+2024-06-15 21:23:45,481 - utils.extractor - INFO - Scraping for Company: Ten10
+2024-06-15 21:23:45,866 - utils.extractor - INFO - Ten10 ------ Current Page: 1/1
+2024-06-15 21:23:46,751 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 2/5
+2024-06-15 21:23:53,953 - utils.extractor - INFO - Scraping for Company: Credera
+2024-06-15 21:23:54,394 - utils.extractor - INFO - Credera ------ Current Page: 1/3
+2024-06-15 21:23:56,833 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 3/10
+2024-06-15 21:23:57,685 - utils.extractor - INFO - Slalom ------ Current Page: 3/4
+2024-06-15 21:23:59,957 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 3/5
+2024-06-15 21:24:07,567 - utils.extractor - INFO - Credera ------ Current Page: 2/3
+2024-06-15 21:24:10,035 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 4/10
+2024-06-15 21:24:11,167 - utils.extractor - INFO - Slalom ------ Current Page: 4/4
+2024-06-15 21:24:11,759 - utils.extractor - INFO - Scraping for Company: Infinite Lambda
+2024-06-15 21:24:12,101 - utils.extractor - INFO - Infinite Lambda ------ Current Page: 1/1
+2024-06-15 21:24:12,324 - utils.extractor - INFO - Scraping for Company: BetterGov
+2024-06-15 21:24:12,717 - utils.extractor - INFO - BetterGov ------ Current Page: 1/1
+2024-06-15 21:24:13,839 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 4/5
+2024-06-15 21:24:19,836 - utils.extractor - INFO - Credera ------ Current Page: 3/3
+2024-06-15 21:24:20,765 - utils.extractor - INFO - Scraping for Company: Cambridge Consultants Limited
+2024-06-15 21:24:21,125 - utils.extractor - INFO - Cambridge Consultants Limited ------ Current Page: 1/1
+2024-06-15 21:24:21,398 - utils.extractor - INFO - Scraping for Company: Capco Limited
+2024-06-15 21:24:21,814 - utils.extractor - INFO - Capco Limited ------ Current Page: 1/1
+2024-06-15 21:24:21,953 - utils.extractor - INFO - Scraping for Company: Cognizant Worldwide Limited
+2024-06-15 21:24:22,307 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 5/10
+2024-06-15 21:24:22,455 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 1/11
+2024-06-15 21:24:23,412 - utils.extractor - INFO - Scraping for Company: Infosys Limited
+2024-06-15 21:24:23,963 - utils.extractor - INFO - Infosys Limited ------ Current Page: 1/4
+2024-06-15 21:24:26,345 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 5/5
+2024-06-15 21:24:33,893 - utils.extractor - INFO - Scraping for Company: IQVIA LTD.
+2024-06-15 21:24:34,452 - utils.extractor - INFO - IQVIA LTD. ------ Current Page: 1/1
+2024-06-15 21:24:35,062 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 6/10
+2024-06-15 21:24:37,166 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 2/11
+2024-06-15 21:24:38,531 - utils.extractor - INFO - Infosys Limited ------ Current Page: 2/4
+2024-06-15 21:24:42,415 - utils.extractor - INFO - Scraping for Company: Kubrick Group
+2024-06-15 21:24:42,958 - utils.extractor - INFO - Kubrick Group ------ Current Page: 1/1
+2024-06-15 21:24:45,899 - utils.extractor - INFO - Scraping for Company: 11:FS
+2024-06-15 21:24:46,259 - utils.extractor - INFO - 11:FS ------ Current Page: 1/1
+2024-06-15 21:24:46,579 - utils.extractor - INFO - Scraping for Company: a1qa
+2024-06-15 21:24:46,966 - utils.extractor - INFO - a1qa ------ Current Page: 1/1
+2024-06-15 21:24:47,336 - utils.extractor - INFO - Scraping for Company: Accenture PLC
+2024-06-15 21:24:47,751 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 7/10
+2024-06-15 21:24:47,757 - utils.extractor - INFO - Accenture PLC ------ Current Page: 1/1
+2024-06-15 21:24:48,009 - utils.extractor - INFO - Scraping for Company: Adatis
+2024-06-15 21:24:48,590 - utils.extractor - INFO - Adatis ------ Current Page: 1/2
+2024-06-15 21:24:49,906 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 3/11
+2024-06-15 21:24:52,414 - utils.extractor - INFO - Infosys Limited ------ Current Page: 3/4
+2024-06-15 21:25:01,011 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 8/10
+2024-06-15 21:25:01,901 - utils.extractor - INFO - Adatis ------ Current Page: 2/2
+2024-06-15 21:25:03,584 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 4/11
+2024-06-15 21:25:06,100 - utils.extractor - INFO - Infosys Limited ------ Current Page: 4/4
+2024-06-15 21:25:07,041 - utils.extractor - INFO - Scraping for Company: Afiniti
+2024-06-15 21:25:07,386 - utils.extractor - INFO - Afiniti ------ Current Page: 1/1
+2024-06-15 21:25:07,688 - utils.extractor - INFO - Scraping for Company: Airwalk Reply
+2024-06-15 21:25:08,066 - utils.extractor - INFO - Airwalk Reply ------ Current Page: 1/1
+2024-06-15 21:25:08,208 - utils.extractor - INFO - Scraping for Company: Alchemmy
+2024-06-15 21:25:08,691 - utils.extractor - INFO - Alchemmy ------ Current Page: 1/2
+2024-06-15 21:25:12,513 - utils.extractor - INFO - Scraping for Company: Alix Partners
+2024-06-15 21:25:13,155 - utils.extractor - INFO - Alix Partners ------ Current Page: 1/1
+2024-06-15 21:25:13,311 - utils.extractor - INFO - Scraping for Company: Apexon
+2024-06-15 21:25:13,803 - utils.extractor - INFO - Apexon ------ Current Page: 1/1
+2024-06-15 21:25:13,993 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 9/10
+2024-06-15 21:25:14,117 - utils.extractor - INFO - Scraping for Company: Arthur D Little
+2024-06-15 21:25:14,513 - utils.extractor - INFO - Arthur D Little ------ Current Page: 1/1
+2024-06-15 21:25:14,864 - utils.extractor - INFO - Scraping for Company: Atos Group
+2024-06-15 21:25:15,346 - utils.extractor - INFO - Atos Group ------ Current Page: 1/1
+2024-06-15 21:25:15,499 - utils.extractor - INFO - Scraping for Company: Atos SE
+2024-06-15 21:25:15,874 - utils.extractor - INFO - Atos SE ------ Current Page: 1/1
+2024-06-15 21:25:16,171 - utils.extractor - INFO - Scraping for Company: Avanade Inc.
+2024-06-15 21:25:16,534 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 5/11
+2024-06-15 21:25:16,578 - utils.extractor - INFO - Avanade Inc. ------ Current Page: 1/1
+2024-06-15 21:25:16,877 - utils.extractor - INFO - Scraping for Company: Bain %26 Company
+2024-06-15 21:25:17,324 - utils.extractor - INFO - Bain %26 Company ------ Current Page: 1/1
+2024-06-15 21:25:17,671 - utils.extractor - INFO - Scraping for Company: Baringa
+2024-06-15 21:25:18,117 - utils.extractor - INFO - Baringa ------ Current Page: 1/2
+2024-06-15 21:25:21,378 - utils.extractor - INFO - Alchemmy ------ Current Page: 2/2
+2024-06-15 21:25:26,765 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 10/10
+2024-06-15 21:25:29,695 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 6/11
+2024-06-15 21:25:30,916 - utils.extractor - INFO - Baringa ------ Current Page: 2/2
+2024-06-15 21:25:32,293 - utils.extractor - INFO - Scraping for Company: Billigence
+2024-06-15 21:25:32,922 - utils.extractor - INFO - Billigence ------ Current Page: 1/1
+2024-06-15 21:25:33,502 - utils.extractor - INFO - Scraping for Company: BJSS
+2024-06-15 21:25:34,169 - utils.extractor - INFO - BJSS ------ Current Page: 1/3
+2024-06-15 21:25:34,337 - utils.extractor - INFO - Scraping for Company: Blueberry Consultants Ltd.
+2024-06-15 21:25:34,987 - utils.extractor - INFO - Blueberry Consultants Ltd. ------ Current Page: 1/1
+2024-06-15 21:25:35,152 - utils.extractor - INFO - Scraping for Company: Booz Allen Hamilton Holding Corp
+2024-06-15 21:25:35,153 - utils.extractor - INFO - Scraping for Company: Boston Consulting Group
+2024-06-15 21:25:35,701 - utils.extractor - INFO - Booz Allen Hamilton Holding Corp ------ Current Page: 1/1
+2024-06-15 21:25:35,708 - utils.extractor - INFO - Boston Consulting Group ------ Current Page: 1/1
+2024-06-15 21:25:35,848 - utils.extractor - INFO - Scraping for Company: Broadstones Tech
+2024-06-15 21:25:36,199 - utils.extractor - INFO - Broadstones Tech ------ Current Page: 1/1
+2024-06-15 21:25:36,455 - utils.extractor - INFO - Scraping for Company: Cambridge Design Partnership
+2024-06-15 21:25:36,829 - utils.extractor - INFO - Cambridge Design Partnership ------ Current Page: 1/1
+2024-06-15 21:25:37,094 - utils.extractor - INFO - Scraping for Company: Canon Inc.
+2024-06-15 21:25:37,656 - utils.extractor - INFO - Canon Inc. ------ Current Page: 1/1
+2024-06-15 21:25:37,799 - utils.extractor - INFO - Scraping for Company: Capita
+2024-06-15 21:25:38,543 - utils.extractor - INFO - Capita ------ Current Page: 1/3
+2024-06-15 21:25:39,659 - utils.extractor - INFO - Scraping for Company: Centric Consulting
+2024-06-15 21:25:40,160 - utils.extractor - INFO - Centric Consulting ------ Current Page: 1/1
+2024-06-15 21:25:40,338 - utils.extractor - INFO - Scraping for Company: CGI
+2024-06-15 21:25:41,020 - utils.extractor - INFO - CGI ------ Current Page: 1/3
+2024-06-15 21:25:42,648 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 7/11
+2024-06-15 21:25:46,504 - utils.extractor - INFO - Capita ------ Current Page: 2/3
+2024-06-15 21:25:47,260 - utils.extractor - INFO - BJSS ------ Current Page: 2/3
+2024-06-15 21:25:51,320 - utils.extractor - INFO - Capita ------ Current Page: 3/3
+2024-06-15 21:25:53,219 - utils.extractor - INFO - Scraping for Company: CIGNITI Technologies Ltd
+2024-06-15 21:25:53,555 - utils.extractor - INFO - CIGNITI Technologies Ltd ------ Current Page: 1/1
+2024-06-15 21:25:53,845 - utils.extractor - INFO - Scraping for Company: Clarasys
+2024-06-15 21:25:54,232 - utils.extractor - INFO - Clarasys ------ Current Page: 1/1
+2024-06-15 21:25:55,374 - utils.extractor - INFO - CGI ------ Current Page: 2/3
+2024-06-15 21:25:55,436 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 8/11
+2024-06-15 21:25:59,554 - utils.extractor - INFO - BJSS ------ Current Page: 3/3
+2024-06-15 21:26:03,125 - utils.extractor - INFO - Scraping for Company: Cognifide
+2024-06-15 21:26:03,475 - utils.extractor - INFO - Cognifide ------ Current Page: 1/1
+2024-06-15 21:26:03,847 - utils.extractor - INFO - Scraping for Company: Contino Ltd.
+2024-06-15 21:26:04,441 - utils.extractor - INFO - Contino Ltd. ------ Current Page: 1/1
+2024-06-15 21:26:04,584 - utils.extractor - INFO - Scraping for Company: Credo Consulting
+2024-06-15 21:26:04,957 - utils.extractor - INFO - Credo Consulting ------ Current Page: 1/1
+2024-06-15 21:26:05,237 - utils.extractor - INFO - Scraping for Company: Deloitte
+2024-06-15 21:26:05,754 - utils.extractor - INFO - Deloitte ------ Current Page: 1/6
+2024-06-15 21:26:05,897 - utils.extractor - INFO - Scraping for Company: Designit
+2024-06-15 21:26:06,230 - utils.extractor - INFO - Designit ------ Current Page: 1/1
+2024-06-15 21:26:06,481 - utils.extractor - INFO - Scraping for Company: Digital Workplace Group
+2024-06-15 21:26:06,863 - utils.extractor - INFO - Digital Workplace Group ------ Current Page: 1/1
+2024-06-15 21:26:07,084 - utils.extractor - INFO - Scraping for Company: DXC Technology
+2024-06-15 21:26:07,598 - utils.extractor - INFO - DXC Technology ------ Current Page: 1/4
+2024-06-15 21:26:08,007 - utils.extractor - INFO - DXC Technology ------ Current Page: 2/4
+2024-06-15 21:26:08,323 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 9/11
+2024-06-15 21:26:08,502 - utils.extractor - INFO - DXC Technology ------ Current Page: 3/4
+2024-06-15 21:26:09,059 - utils.extractor - INFO - DXC Technology ------ Current Page: 4/4
+2024-06-15 21:26:09,436 - utils.extractor - INFO - Scraping for Company: Eclature Technologies
+2024-06-15 21:26:09,823 - utils.extractor - INFO - CGI ------ Current Page: 3/3
+2024-06-15 21:26:09,839 - utils.extractor - INFO - Eclature Technologies ------ Current Page: 1/1
+2024-06-15 21:26:10,190 - utils.extractor - INFO - Scraping for Company: Eden McCallum
+2024-06-15 21:26:10,561 - utils.extractor - INFO - Eden McCallum ------ Current Page: 1/1
+2024-06-15 21:26:11,397 - utils.extractor - INFO - Scraping for Company: Edge Testing Solutions
+2024-06-15 21:26:11,670 - utils.extractor - INFO - Scraping for Company: Elixirr International Plc
+2024-06-15 21:26:11,750 - utils.extractor - INFO - Edge Testing Solutions ------ Current Page: 1/1
+2024-06-15 21:26:12,043 - utils.extractor - INFO - Scraping for Company: EPAM Systems Inc
+2024-06-15 21:26:12,051 - utils.extractor - INFO - Elixirr International Plc ------ Current Page: 1/1
+2024-06-15 21:26:12,188 - utils.extractor - INFO - Scraping for Company: Equal Experts
+2024-06-15 21:26:12,399 - utils.extractor - INFO - EPAM Systems Inc ------ Current Page: 1/1
+2024-06-15 21:26:12,685 - utils.extractor - INFO - Scraping for Company: EY
+2024-06-15 21:26:12,693 - utils.extractor - INFO - Equal Experts ------ Current Page: 1/2
+2024-06-15 21:26:13,135 - utils.extractor - INFO - EY ------ Current Page: 1/4
+2024-06-15 21:26:17,960 - utils.extractor - INFO - Deloitte ------ Current Page: 2/6
+2024-06-15 21:26:20,903 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 10/11
+2024-06-15 21:26:26,115 - utils.extractor - INFO - Equal Experts ------ Current Page: 2/2
+2024-06-15 21:26:26,507 - utils.extractor - INFO - EY ------ Current Page: 2/4
+2024-06-15 21:26:31,168 - utils.extractor - INFO - Deloitte ------ Current Page: 3/6
+2024-06-15 21:26:34,354 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 11/11
+2024-06-15 21:26:34,506 - utils.extractor - INFO - Scraping for Company: Faculty AI
+2024-06-15 21:26:34,859 - utils.extractor - INFO - Scraping for Company: Frog Design
+2024-06-15 21:26:35,024 - utils.extractor - INFO - Faculty AI ------ Current Page: 1/1
+2024-06-15 21:26:35,150 - utils.extractor - INFO - Scraping for Company: Frontier Economics
+2024-06-15 21:26:35,333 - utils.extractor - INFO - Frog Design ------ Current Page: 1/1
+2024-06-15 21:26:35,614 - utils.extractor - INFO - Scraping for Company: GeekTek
+2024-06-15 21:26:35,618 - utils.extractor - INFO - Frontier Economics ------ Current Page: 1/1
+2024-06-15 21:26:35,775 - utils.extractor - INFO - Scraping for Company: Genpact Ltd
+2024-06-15 21:26:35,994 - utils.extractor - INFO - GeekTek ------ Current Page: 1/1
+2024-06-15 21:26:36,343 - utils.extractor - INFO - Scraping for Company: HCL Technologies Ltd
+2024-06-15 21:26:36,348 - utils.extractor - INFO - Genpact Ltd ------ Current Page: 1/1
+2024-06-15 21:26:36,501 - utils.extractor - INFO - Scraping for Company: Hexaware Technologies Ltd
+2024-06-15 21:26:36,689 - utils.extractor - INFO - HCL Technologies Ltd ------ Current Page: 1/1
+2024-06-15 21:26:36,998 - utils.extractor - INFO - Hexaware Technologies Ltd ------ Current Page: 1/1
+2024-06-15 21:26:37,001 - utils.extractor - INFO - Scraping for Company: HP Inc
+2024-06-15 21:26:37,144 - utils.extractor - INFO - Scraping for Company: Icon PLC
+2024-06-15 21:26:37,333 - utils.extractor - INFO - HP Inc ------ Current Page: 1/1
+2024-06-15 21:26:37,588 - utils.extractor - INFO - Scraping for Company: IDEO
+2024-06-15 21:26:37,592 - utils.extractor - INFO - Icon PLC ------ Current Page: 1/1
+2024-06-15 21:26:37,714 - utils.extractor - INFO - Scraping for Company: Infostretch Corp
+2024-06-15 21:26:37,939 - utils.extractor - INFO - IDEO ------ Current Page: 1/1
+2024-06-15 21:26:38,123 - utils.extractor - INFO - Infostretch Corp ------ Current Page: 1/1
+2024-06-15 21:26:38,126 - utils.extractor - INFO - Scraping for Company: International Business Machines Corp
+2024-06-15 21:26:38,281 - utils.extractor - INFO - EY ------ Current Page: 3/4
+2024-06-15 21:26:38,318 - utils.extractor - INFO - Scraping for Company: JMAN Group
+2024-06-15 21:26:38,498 - utils.extractor - INFO - International Business Machines Corp ------ Current Page: 1/1
+2024-06-15 21:26:38,765 - utils.extractor - INFO - Scraping for Company: Kainos
+2024-06-15 21:26:38,770 - utils.extractor - INFO - JMAN Group ------ Current Page: 1/1
+2024-06-15 21:26:38,908 - utils.extractor - INFO - Scraping for Company: Kearney
+2024-06-15 21:26:39,335 - utils.extractor - INFO - Kainos ------ Current Page: 1/2
+2024-06-15 21:26:39,343 - utils.extractor - INFO - Kearney ------ Current Page: 1/1
+2024-06-15 21:26:39,480 - utils.extractor - INFO - Scraping for Company: KONICA MINOLTA INC
+2024-06-15 21:26:39,833 - utils.extractor - INFO - KONICA MINOLTA INC ------ Current Page: 1/1
+2024-06-15 21:26:40,118 - utils.extractor - INFO - Scraping for Company: KPMG
+2024-06-15 21:26:40,612 - utils.extractor - INFO - KPMG ------ Current Page: 1/5
+2024-06-15 21:26:42,203 - utils.extractor - INFO - Deloitte ------ Current Page: 4/6
+2024-06-15 21:26:50,810 - utils.extractor - INFO - EY ------ Current Page: 4/4
+2024-06-15 21:26:51,981 - utils.extractor - INFO - Kainos ------ Current Page: 2/2
+2024-06-15 21:26:53,733 - utils.extractor - INFO - KPMG ------ Current Page: 2/5
+2024-06-15 21:26:55,011 - utils.extractor - INFO - Deloitte ------ Current Page: 5/6
+2024-06-15 21:26:59,857 - utils.extractor - INFO - Scraping for Company: Laboratory Corp Of America Holdings
+2024-06-15 21:27:00,267 - utils.extractor - INFO - Laboratory Corp Of America Holdings ------ Current Page: 1/1
+2024-06-15 21:27:00,426 - utils.extractor - INFO - Scraping for Company: LockPath, Inc.
+2024-06-15 21:27:01,041 - utils.extractor - INFO - LockPath, Inc. ------ Current Page: 1/1
+2024-06-15 21:27:01,194 - utils.extractor - INFO - Scraping for Company: LogicManager
+2024-06-15 21:27:01,569 - utils.extractor - INFO - Scraping for Company: LogicSource, Inc.
+2024-06-15 21:27:01,778 - utils.extractor - INFO - LogicManager ------ Current Page: 1/1
+2024-06-15 21:27:01,915 - utils.extractor - INFO - Scraping for Company: Lovelytics
+2024-06-15 21:27:02,170 - utils.extractor - INFO - LogicSource, Inc. ------ Current Page: 1/1
+2024-06-15 21:27:02,318 - utils.extractor - INFO - Lovelytics ------ Current Page: 1/1
+2024-06-15 21:27:02,343 - utils.extractor - INFO - Scraping for Company: Lunar
+2024-06-15 21:27:02,517 - utils.extractor - INFO - Scraping for Company: Made Tech Group Plc
+2024-06-15 21:27:02,945 - utils.extractor - INFO - Lunar ------ Current Page: 1/1
+2024-06-15 21:27:02,952 - utils.extractor - INFO - Made Tech Group Plc ------ Current Page: 1/1
+2024-06-15 21:27:03,242 - utils.extractor - INFO - Scraping for Company: Mason Advisory
+2024-06-15 21:27:03,243 - utils.extractor - INFO - Scraping for Company: McKinsey
+2024-06-15 21:27:03,601 - utils.extractor - INFO - McKinsey ------ Current Page: 1/1
+2024-06-15 21:27:03,681 - utils.extractor - INFO - Mason Advisory ------ Current Page: 1/1
+2024-06-15 21:27:05,730 - utils.extractor - INFO - KPMG ------ Current Page: 3/5
+2024-06-15 21:27:06,382 - utils.extractor - INFO - Deloitte ------ Current Page: 6/6
+2024-06-15 21:27:06,541 - utils.extractor - INFO - Scraping for Company: METRICSTREAM INC
+2024-06-15 21:27:06,907 - utils.extractor - INFO - METRICSTREAM INC ------ Current Page: 1/1
+2024-06-15 21:27:07,209 - utils.extractor - INFO - Scraping for Company: MindTree Ltd
+2024-06-15 21:27:07,350 - utils.extractor - INFO - Scraping for Company: Mosaic Island
+2024-06-15 21:27:07,563 - utils.extractor - INFO - MindTree Ltd ------ Current Page: 1/1
+2024-06-15 21:27:07,878 - utils.extractor - INFO - Scraping for Company: Mphasis Ltd
+2024-06-15 21:27:07,884 - utils.extractor - INFO - Mosaic Island ------ Current Page: 1/1
+2024-06-15 21:27:08,240 - utils.extractor - INFO - Mphasis Ltd ------ Current Page: 1/1
+2024-06-15 21:27:08,379 - utils.extractor - INFO - Scraping for Company: mthree
+2024-06-15 21:27:08,906 - utils.extractor - INFO - mthree ------ Current Page: 1/1
+2024-06-15 21:27:09,040 - utils.extractor - INFO - Scraping for Company: Neoris
+2024-06-15 21:27:09,520 - utils.extractor - INFO - Neoris ------ Current Page: 1/1
+2024-06-15 21:27:09,676 - utils.extractor - INFO - Scraping for Company: NexInfo
+2024-06-15 21:27:10,255 - utils.extractor - INFO - NexInfo ------ Current Page: 1/1
+2024-06-15 21:27:10,394 - utils.extractor - INFO - Scraping for Company: North Highland
+2024-06-15 21:27:11,049 - utils.extractor - INFO - North Highland ------ Current Page: 1/3
+2024-06-15 21:27:11,564 - utils.extractor - INFO - Scraping for Company: OC%26C Strategy Consultants
+2024-06-15 21:27:12,063 - utils.extractor - INFO - OC%26C Strategy Consultants ------ Current Page: 1/1
+2024-06-15 21:27:12,215 - utils.extractor - INFO - Scraping for Company: Oliver Wyman
+2024-06-15 21:27:12,653 - utils.extractor - INFO - Oliver Wyman ------ Current Page: 1/1
+2024-06-15 21:27:12,781 - utils.extractor - INFO - Scraping for Company: OpenCredo
+2024-06-15 21:27:13,353 - utils.extractor - INFO - OpenCredo ------ Current Page: 1/1
+2024-06-15 21:27:13,628 - utils.extractor - INFO - Scraping for Company: Oracle Consulting
+2024-06-15 21:27:14,015 - utils.extractor - INFO - Oracle Consulting ------ Current Page: 1/1
+2024-06-15 21:27:14,303 - utils.extractor - INFO - Scraping for Company: PA Consulting Group
+2024-06-15 21:27:14,661 - utils.extractor - INFO - PA Consulting Group ------ Current Page: 1/1
+2024-06-15 21:27:14,808 - utils.extractor - INFO - Scraping for Company: Parexel International Corp
+2024-06-15 21:27:15,427 - utils.extractor - INFO - Parexel International Corp ------ Current Page: 1/1
+2024-06-15 21:27:15,567 - utils.extractor - INFO - Scraping for Company: Peru Consulting
+2024-06-15 21:27:16,064 - utils.extractor - INFO - Peru Consulting ------ Current Page: 1/1
+2024-06-15 21:27:16,269 - utils.extractor - INFO - Scraping for Company: Planit Testing
+2024-06-15 21:27:16,565 - utils.extractor - INFO - KPMG ------ Current Page: 4/5
+2024-06-15 21:27:16,670 - utils.extractor - INFO - Planit Testing ------ Current Page: 1/1
+2024-06-15 21:27:17,021 - utils.extractor - INFO - Scraping for Company: PPD Inc
+2024-06-15 21:27:17,395 - utils.extractor - INFO - PPD Inc ------ Current Page: 1/1
+2024-06-15 21:27:17,661 - utils.extractor - INFO - Scraping for Company: PRA Health Sciences Inc
+2024-06-15 21:27:18,046 - utils.extractor - INFO - PRA Health Sciences Inc ------ Current Page: 1/1
+2024-06-15 21:27:18,189 - utils.extractor - INFO - Scraping for Company: Project One
+2024-06-15 21:27:18,761 - utils.extractor - INFO - Project One ------ Current Page: 1/1
+2024-06-15 21:27:19,902 - utils.extractor - INFO - Scraping for Company: Projective
+2024-06-15 21:27:20,516 - utils.extractor - INFO - Projective ------ Current Page: 1/382
+2024-06-15 21:27:21,747 - utils.extractor - INFO - Projective ------ Current Page: 2/382
+2024-06-15 21:27:22,053 - utils.extractor - INFO - North Highland ------ Current Page: 2/3
+2024-06-15 21:27:22,251 - utils.extractor - INFO - Projective ------ Current Page: 3/382
+2024-06-15 21:27:22,839 - utils.extractor - INFO - Projective ------ Current Page: 4/382
+2024-06-15 21:27:23,371 - utils.extractor - INFO - Projective ------ Current Page: 5/382
+2024-06-15 21:27:23,963 - utils.extractor - INFO - Projective ------ Current Page: 6/382
+2024-06-15 21:27:24,425 - utils.extractor - INFO - Projective ------ Current Page: 7/382
+2024-06-15 21:27:24,862 - utils.extractor - INFO - Projective ------ Current Page: 8/382
+2024-06-15 21:27:25,455 - utils.extractor - INFO - Projective ------ Current Page: 9/382
+2024-06-15 21:27:26,043 - utils.extractor - INFO - Projective ------ Current Page: 10/382
+2024-06-15 21:27:26,360 - utils.extractor - INFO - Scraping for Company: Prolifics Inc
+2024-06-15 21:27:26,526 - utils.extractor - INFO - Projective ------ Current Page: 11/382
+2024-06-15 21:27:26,792 - utils.extractor - INFO - Prolifics Inc ------ Current Page: 1/1
+2024-06-15 21:27:27,051 - utils.extractor - INFO - Projective ------ Current Page: 12/382
+2024-06-15 21:27:27,461 - utils.extractor - INFO - KPMG ------ Current Page: 5/5
+2024-06-15 21:27:27,550 - utils.extractor - INFO - Projective ------ Current Page: 13/382
+2024-06-15 21:27:27,851 - utils.extractor - INFO - Scraping for Company: PwC
+2024-06-15 21:27:27,878 - utils.extractor - INFO - Scraping for Company: RICOH CO LTD
+2024-06-15 21:27:28,284 - utils.extractor - INFO - Projective ------ Current Page: 14/382
+2024-06-15 21:27:28,419 - utils.extractor - INFO - PwC ------ Current Page: 1/4
+2024-06-15 21:27:28,430 - utils.extractor - INFO - RICOH CO LTD ------ Current Page: 1/1
+2024-06-15 21:27:28,568 - utils.extractor - INFO - Scraping for Company: Roland Berger
+2024-06-15 21:27:28,910 - utils.extractor - INFO - Projective ------ Current Page: 15/382
+2024-06-15 21:27:29,071 - utils.extractor - INFO - Roland Berger ------ Current Page: 1/1
+2024-06-15 21:27:29,207 - utils.extractor - INFO - Scraping for Company: SEIKO EPSON CORP
+2024-06-15 21:27:29,450 - utils.extractor - INFO - Projective ------ Current Page: 16/382
+2024-06-15 21:27:29,593 - utils.extractor - INFO - SEIKO EPSON CORP ------ Current Page: 1/1
+2024-06-15 21:27:29,788 - utils.extractor - INFO - Scraping for Company: Simon Kutcher %26 Partners
+2024-06-15 21:27:29,893 - utils.extractor - INFO - Projective ------ Current Page: 17/382
+2024-06-15 21:27:30,190 - utils.extractor - INFO - Simon Kutcher %26 Partners ------ Current Page: 1/1
+2024-06-15 21:27:30,324 - utils.extractor - INFO - Scraping for Company: SkillStorm
+2024-06-15 21:27:30,643 - utils.extractor - INFO - Projective ------ Current Page: 18/382
+2024-06-15 21:27:30,857 - utils.extractor - INFO - SkillStorm ------ Current Page: 1/1
+2024-06-15 21:27:30,971 - utils.extractor - INFO - Scraping for Company: Softwire
+2024-06-15 21:27:31,192 - utils.extractor - INFO - Projective ------ Current Page: 19/382
+2024-06-15 21:27:31,347 - utils.extractor - INFO - Softwire ------ Current Page: 1/1
+2024-06-15 21:27:31,646 - utils.extractor - INFO - Projective ------ Current Page: 20/382
+2024-06-15 21:27:32,348 - utils.extractor - INFO - Projective ------ Current Page: 21/382
+2024-06-15 21:27:32,475 - utils.extractor - INFO - Scraping for Company: Spring Studios
+2024-06-15 21:27:32,828 - utils.extractor - INFO - Spring Studios ------ Current Page: 1/1
+2024-06-15 21:27:32,957 - utils.extractor - INFO - Projective ------ Current Page: 22/382
+2024-06-15 21:27:32,963 - utils.extractor - INFO - North Highland ------ Current Page: 3/3
+2024-06-15 21:27:33,195 - utils.extractor - INFO - Scraping for Company: Strategy %26 London
+2024-06-15 21:27:33,510 - utils.extractor - INFO - Projective ------ Current Page: 23/382
+2024-06-15 21:27:33,664 - utils.extractor - INFO - Strategy %26 London ------ Current Page: 1/1
+2024-06-15 21:27:33,810 - utils.extractor - INFO - Scraping for Company: Sutherland
+2024-06-15 21:27:34,118 - utils.extractor - INFO - Projective ------ Current Page: 24/382
+2024-06-15 21:27:34,341 - utils.extractor - INFO - Sutherland ------ Current Page: 1/1
+2024-06-15 21:27:34,533 - utils.extractor - INFO - Scraping for Company: Switchfast Technologies
+2024-06-15 21:27:35,046 - utils.extractor - INFO - Projective ------ Current Page: 25/382
+2024-06-15 21:27:35,059 - utils.extractor - INFO - Switchfast Technologies ------ Current Page: 1/1
+2024-06-15 21:27:35,348 - utils.extractor - INFO - Scraping for Company: Syneos Health Inc
+2024-06-15 21:27:35,637 - utils.extractor - INFO - Projective ------ Current Page: 26/382
+2024-06-15 21:27:35,780 - utils.extractor - INFO - Syneos Health Inc ------ Current Page: 1/1
+2024-06-15 21:27:35,972 - utils.extractor - INFO - Scraping for Company: TAG Solutions
+2024-06-15 21:27:36,438 - utils.extractor - INFO - Projective ------ Current Page: 27/382
+2024-06-15 21:27:36,856 - utils.extractor - INFO - TAG Solutions ------ Current Page: 1/1
+2024-06-15 21:27:36,969 - utils.extractor - INFO - Projective ------ Current Page: 28/382
+2024-06-15 21:27:37,209 - utils.extractor - INFO - Scraping for Company: Tech Mahindra Ltd
+2024-06-15 21:27:37,596 - utils.extractor - INFO - Projective ------ Current Page: 29/382
+2024-06-15 21:27:37,620 - utils.extractor - INFO - Tech Mahindra Ltd ------ Current Page: 1/1
+2024-06-15 21:27:38,279 - utils.extractor - INFO - Projective ------ Current Page: 30/382
+2024-06-15 21:27:38,316 - utils.extractor - INFO - Scraping for Company: Terillium
+2024-06-15 21:27:38,683 - utils.extractor - INFO - Terillium ------ Current Page: 1/1
+2024-06-15 21:27:38,766 - utils.extractor - INFO - Projective ------ Current Page: 31/382
+2024-06-15 21:27:38,912 - utils.extractor - INFO - Scraping for Company: Testhouse Ltd
+2024-06-15 21:27:39,311 - utils.extractor - INFO - Projective ------ Current Page: 32/382
+2024-06-15 21:27:39,454 - utils.extractor - INFO - PwC ------ Current Page: 2/4
+2024-06-15 21:27:39,464 - utils.extractor - INFO - Testhouse Ltd ------ Current Page: 1/1
+2024-06-15 21:27:39,724 - utils.extractor - INFO - Scraping for Company: The Berkeley Partnership
+2024-06-15 21:27:39,978 - utils.extractor - INFO - Projective ------ Current Page: 33/382
+2024-06-15 21:27:40,118 - utils.extractor - INFO - The Berkeley Partnership ------ Current Page: 1/1
+2024-06-15 21:27:40,534 - utils.extractor - INFO - Projective ------ Current Page: 34/382
+2024-06-15 21:27:40,574 - utils.extractor - INFO - Scraping for Company: The PSC
+2024-06-15 21:27:41,176 - utils.extractor - INFO - Projective ------ Current Page: 35/382
+2024-06-15 21:27:41,185 - utils.extractor - INFO - The PSC ------ Current Page: 1/1
+2024-06-15 21:27:41,664 - utils.extractor - INFO - Projective ------ Current Page: 36/382
+2024-06-15 21:27:42,266 - utils.extractor - INFO - Projective ------ Current Page: 37/382
+2024-06-15 21:27:42,805 - utils.extractor - INFO - Projective ------ Current Page: 38/382
+2024-06-15 21:27:43,350 - utils.extractor - INFO - Projective ------ Current Page: 39/382
+2024-06-15 21:27:43,965 - utils.extractor - INFO - Projective ------ Current Page: 40/382
+2024-06-15 21:27:44,469 - utils.extractor - INFO - Projective ------ Current Page: 41/382
+2024-06-15 21:27:44,771 - utils.extractor - INFO - Scraping for Company: Thoughtworks
+2024-06-15 21:27:45,046 - utils.extractor - INFO - Projective ------ Current Page: 42/382
+2024-06-15 21:27:45,160 - utils.extractor - INFO - Thoughtworks ------ Current Page: 1/1
+2024-06-15 21:27:45,179 - utils.extractor - INFO - Scraping for Company: Ultimus Fund Solutions
+2024-06-15 21:27:45,606 - utils.extractor - INFO - Projective ------ Current Page: 43/382
+2024-06-15 21:27:45,617 - utils.extractor - INFO - Ultimus Fund Solutions ------ Current Page: 1/1
+2024-06-15 21:27:45,744 - utils.extractor - INFO - Scraping for Company: Verisk Analytics Inc
+2024-06-15 21:27:46,236 - utils.extractor - INFO - Projective ------ Current Page: 44/382
+2024-06-15 21:27:46,249 - utils.extractor - INFO - Verisk Analytics Inc ------ Current Page: 1/1
+2024-06-15 21:27:46,385 - utils.extractor - INFO - Scraping for Company: Wavestone
+2024-06-15 21:27:46,747 - utils.extractor - INFO - Projective ------ Current Page: 45/382
+2024-06-15 21:27:46,971 - utils.extractor - INFO - Wavestone ------ Current Page: 1/1
+2024-06-15 21:27:47,424 - utils.extractor - INFO - Projective ------ Current Page: 46/382
+2024-06-15 21:27:47,969 - utils.extractor - INFO - Projective ------ Current Page: 47/382
+2024-06-15 21:27:48,460 - utils.extractor - INFO - Projective ------ Current Page: 48/382
+2024-06-15 21:27:49,418 - utils.extractor - INFO - Projective ------ Current Page: 49/382
+2024-06-15 21:27:49,923 - utils.extractor - INFO - PwC ------ Current Page: 3/4
+2024-06-15 21:27:50,057 - utils.extractor - INFO - Projective ------ Current Page: 50/382
+2024-06-15 21:27:50,552 - utils.extractor - INFO - Projective ------ Current Page: 51/382
+2024-06-15 21:27:51,177 - utils.extractor - INFO - Projective ------ Current Page: 52/382
+2024-06-15 21:27:51,718 - utils.extractor - INFO - Projective ------ Current Page: 53/382
+2024-06-15 21:27:52,320 - utils.extractor - INFO - Projective ------ Current Page: 54/382
+2024-06-15 21:27:52,777 - utils.extractor - INFO - Projective ------ Current Page: 55/382
+2024-06-15 21:27:53,081 - utils.extractor - INFO - Scraping for Company: Xerox Corp
+2024-06-15 21:27:53,353 - utils.extractor - INFO - Projective ------ Current Page: 56/382
+2024-06-15 21:27:53,526 - utils.extractor - INFO - Xerox Corp ------ Current Page: 1/1
+2024-06-15 21:27:53,694 - utils.extractor - INFO - Scraping for Company: Zoonou
+2024-06-15 21:27:53,694 - utils.extractor - INFO - Scraping for Company: ZS
+2024-06-15 21:27:53,838 - utils.extractor - INFO - Projective ------ Current Page: 57/382
+2024-06-15 21:27:54,172 - utils.extractor - INFO - Zoonou ------ Current Page: 1/1
+2024-06-15 21:27:54,179 - utils.extractor - INFO - ZS ------ Current Page: 1/1
+2024-06-15 21:27:54,311 - utils.extractor - INFO - Projective ------ Current Page: 58/382
+2024-06-15 21:27:55,013 - utils.extractor - INFO - Projective ------ Current Page: 59/382
+2024-06-15 21:27:55,503 - utils.extractor - INFO - Projective ------ Current Page: 60/382
+2024-06-15 21:27:56,020 - utils.extractor - INFO - Projective ------ Current Page: 61/382
+2024-06-15 21:27:56,496 - utils.extractor - INFO - Projective ------ Current Page: 62/382
+2024-06-15 21:27:57,118 - utils.extractor - INFO - Projective ------ Current Page: 63/382
+2024-06-15 21:27:57,641 - utils.extractor - INFO - Projective ------ Current Page: 64/382
+2024-06-15 21:27:58,131 - utils.extractor - INFO - Projective ------ Current Page: 65/382
+2024-06-15 21:27:58,705 - utils.extractor - INFO - Projective ------ Current Page: 66/382
+2024-06-15 21:27:59,298 - utils.extractor - INFO - Projective ------ Current Page: 67/382
+2024-06-15 21:27:59,839 - utils.extractor - INFO - Projective ------ Current Page: 68/382
+2024-06-15 21:28:00,374 - utils.extractor - INFO - PwC ------ Current Page: 4/4
+2024-06-15 21:28:00,445 - utils.extractor - INFO - Projective ------ Current Page: 69/382
+2024-06-15 21:28:01,013 - utils.extractor - INFO - Projective ------ Current Page: 70/382
+2024-06-15 21:28:01,724 - utils.extractor - INFO - Projective ------ Current Page: 71/382
+2024-06-15 21:28:02,297 - utils.extractor - INFO - Projective ------ Current Page: 72/382
+2024-06-15 21:28:02,889 - utils.extractor - INFO - Projective ------ Current Page: 73/382
+2024-06-15 21:28:03,438 - utils.extractor - INFO - Projective ------ Current Page: 74/382
+2024-06-15 21:28:03,928 - utils.extractor - INFO - Projective ------ Current Page: 75/382
+2024-06-15 21:28:04,392 - utils.extractor - INFO - Projective ------ Current Page: 76/382
+2024-06-15 21:28:04,849 - utils.extractor - INFO - Projective ------ Current Page: 77/382
+2024-06-15 21:28:05,321 - utils.extractor - INFO - Projective ------ Current Page: 78/382
+2024-06-15 21:28:05,816 - utils.extractor - INFO - Projective ------ Current Page: 79/382
+2024-06-15 21:28:06,406 - utils.extractor - INFO - Projective ------ Current Page: 80/382
+2024-06-15 21:28:06,962 - utils.extractor - INFO - Projective ------ Current Page: 81/382
+2024-06-15 21:28:07,435 - utils.extractor - INFO - Projective ------ Current Page: 82/382
+2024-06-15 21:28:07,896 - utils.extractor - INFO - Projective ------ Current Page: 83/382
+2024-06-15 21:28:08,384 - utils.extractor - INFO - Projective ------ Current Page: 84/382
+2024-06-15 21:28:08,836 - utils.extractor - INFO - Projective ------ Current Page: 85/382
+2024-06-15 21:28:09,323 - utils.extractor - INFO - Projective ------ Current Page: 86/382
+2024-06-15 21:28:09,785 - utils.extractor - INFO - Projective ------ Current Page: 87/382
+2024-06-15 21:28:10,319 - utils.extractor - INFO - Projective ------ Current Page: 88/382
+2024-06-15 21:28:10,778 - utils.extractor - INFO - Projective ------ Current Page: 89/382
+2024-06-15 21:28:11,231 - utils.extractor - INFO - Projective ------ Current Page: 90/382
+2024-06-15 21:28:11,973 - utils.extractor - INFO - Projective ------ Current Page: 91/382
+2024-06-15 21:28:12,487 - utils.extractor - INFO - Projective ------ Current Page: 92/382
+2024-06-15 21:28:12,958 - utils.extractor - INFO - Projective ------ Current Page: 93/382
+2024-06-15 21:28:13,477 - utils.extractor - INFO - Projective ------ Current Page: 94/382
+2024-06-15 21:28:13,950 - utils.extractor - INFO - Projective ------ Current Page: 95/382
+2024-06-15 21:28:14,463 - utils.extractor - INFO - Projective ------ Current Page: 96/382
+2024-06-15 21:28:14,932 - utils.extractor - INFO - Projective ------ Current Page: 97/382
+2024-06-15 21:28:15,478 - utils.extractor - INFO - Projective ------ Current Page: 98/382
+2024-06-15 21:28:15,955 - utils.extractor - INFO - Projective ------ Current Page: 99/382
+2024-06-15 21:28:16,443 - utils.extractor - INFO - Projective ------ Current Page: 100/382
+2024-06-15 21:28:16,923 - utils.extractor - INFO - Projective ------ Current Page: 101/382
+2024-06-15 21:28:17,400 - utils.extractor - INFO - Projective ------ Current Page: 102/382
+2024-06-15 21:28:17,865 - utils.extractor - INFO - Projective ------ Current Page: 103/382
+2024-06-15 21:28:18,350 - utils.extractor - INFO - Projective ------ Current Page: 104/382
+2024-06-15 21:28:18,794 - utils.extractor - INFO - Projective ------ Current Page: 105/382
+2024-06-15 21:28:19,279 - utils.extractor - INFO - Projective ------ Current Page: 106/382
+2024-06-15 21:28:19,774 - utils.extractor - INFO - Projective ------ Current Page: 107/382
+2024-06-15 21:28:20,214 - utils.extractor - INFO - Projective ------ Current Page: 108/382
+2024-06-15 21:28:20,685 - utils.extractor - INFO - Projective ------ Current Page: 109/382
+2024-06-15 21:28:21,163 - utils.extractor - INFO - Projective ------ Current Page: 110/382
+2024-06-15 21:28:21,646 - utils.extractor - INFO - Projective ------ Current Page: 111/382
+2024-06-15 21:28:22,125 - utils.extractor - INFO - Projective ------ Current Page: 112/382
+2024-06-15 21:28:22,629 - utils.extractor - INFO - Projective ------ Current Page: 113/382
+2024-06-15 21:28:23,158 - utils.extractor - INFO - Projective ------ Current Page: 114/382
+2024-06-15 21:28:23,654 - utils.extractor - INFO - Projective ------ Current Page: 115/382
+2024-06-15 21:28:24,103 - utils.extractor - INFO - Projective ------ Current Page: 116/382
+2024-06-15 21:28:24,578 - utils.extractor - INFO - Projective ------ Current Page: 117/382
+2024-06-15 21:28:25,087 - utils.extractor - INFO - Projective ------ Current Page: 118/382
+2024-06-15 21:28:25,555 - utils.extractor - INFO - Projective ------ Current Page: 119/382
+2024-06-15 21:28:26,007 - utils.extractor - INFO - Projective ------ Current Page: 120/382
+2024-06-15 21:28:26,478 - utils.extractor - INFO - Projective ------ Current Page: 121/382
+2024-06-15 21:28:26,943 - utils.extractor - INFO - Projective ------ Current Page: 122/382
+2024-06-15 21:28:27,381 - utils.extractor - INFO - Projective ------ Current Page: 123/382
+2024-06-15 21:28:27,841 - utils.extractor - INFO - Projective ------ Current Page: 124/382
+2024-06-15 21:28:28,323 - utils.extractor - INFO - Projective ------ Current Page: 125/382
+2024-06-15 21:28:28,805 - utils.extractor - INFO - Projective ------ Current Page: 126/382
+2024-06-15 21:28:29,275 - utils.extractor - INFO - Projective ------ Current Page: 127/382
+2024-06-15 21:28:29,756 - utils.extractor - INFO - Projective ------ Current Page: 128/382
+2024-06-15 21:28:30,231 - utils.extractor - INFO - Projective ------ Current Page: 129/382
+2024-06-15 21:28:30,735 - utils.extractor - INFO - Projective ------ Current Page: 130/382
+2024-06-15 21:28:31,239 - utils.extractor - INFO - Projective ------ Current Page: 131/382
+2024-06-15 21:28:31,691 - utils.extractor - INFO - Projective ------ Current Page: 132/382
+2024-06-15 21:28:32,185 - utils.extractor - INFO - Projective ------ Current Page: 133/382
+2024-06-15 21:28:32,648 - utils.extractor - INFO - Projective ------ Current Page: 134/382
+2024-06-15 21:28:33,096 - utils.extractor - INFO - Projective ------ Current Page: 135/382
+2024-06-15 21:28:33,558 - utils.extractor - INFO - Projective ------ Current Page: 136/382
+2024-06-15 21:28:34,008 - utils.extractor - INFO - Projective ------ Current Page: 137/382
+2024-06-15 21:28:34,463 - utils.extractor - INFO - Projective ------ Current Page: 138/382
+2024-06-15 21:28:35,015 - utils.extractor - INFO - Projective ------ Current Page: 139/382
+2024-06-15 21:28:35,477 - utils.extractor - INFO - Projective ------ Current Page: 140/382
+2024-06-15 21:28:35,920 - utils.extractor - INFO - Projective ------ Current Page: 141/382
+2024-06-15 21:28:36,408 - utils.extractor - INFO - Projective ------ Current Page: 142/382
+2024-06-15 21:28:36,889 - utils.extractor - INFO - Projective ------ Current Page: 143/382
+2024-06-15 21:28:37,360 - utils.extractor - INFO - Projective ------ Current Page: 144/382
+2024-06-15 21:28:37,814 - utils.extractor - INFO - Projective ------ Current Page: 145/382
+2024-06-15 21:28:38,271 - utils.extractor - INFO - Projective ------ Current Page: 146/382
+2024-06-15 21:28:38,796 - utils.extractor - INFO - Projective ------ Current Page: 147/382
+2024-06-15 21:28:39,270 - utils.extractor - INFO - Projective ------ Current Page: 148/382
+2024-06-15 21:28:39,797 - utils.extractor - INFO - Projective ------ Current Page: 149/382
+2024-06-15 21:28:40,296 - utils.extractor - INFO - Projective ------ Current Page: 150/382
+2024-06-15 21:28:40,798 - utils.extractor - INFO - Projective ------ Current Page: 151/382
+2024-06-15 21:28:41,276 - utils.extractor - INFO - Projective ------ Current Page: 152/382
+2024-06-15 21:28:41,810 - utils.extractor - INFO - Projective ------ Current Page: 153/382
+2024-06-15 21:28:42,283 - utils.extractor - INFO - Projective ------ Current Page: 154/382
+2024-06-15 21:28:42,779 - utils.extractor - INFO - Projective ------ Current Page: 155/382
+2024-06-15 21:28:43,285 - utils.extractor - INFO - Projective ------ Current Page: 156/382
+2024-06-15 21:28:43,821 - utils.extractor - INFO - Projective ------ Current Page: 157/382
+2024-06-15 21:28:44,306 - utils.extractor - INFO - Projective ------ Current Page: 158/382
+2024-06-15 21:28:44,815 - utils.extractor - INFO - Projective ------ Current Page: 159/382
+2024-06-15 21:28:45,316 - utils.extractor - INFO - Projective ------ Current Page: 160/382
+2024-06-15 21:28:45,797 - utils.extractor - INFO - Projective ------ Current Page: 161/382
+2024-06-15 21:28:46,304 - utils.extractor - INFO - Projective ------ Current Page: 162/382
+2024-06-15 21:28:46,833 - utils.extractor - INFO - Projective ------ Current Page: 163/382
+2024-06-15 21:28:47,353 - utils.extractor - INFO - Projective ------ Current Page: 164/382
+2024-06-15 21:28:47,835 - utils.extractor - INFO - Projective ------ Current Page: 165/382
+2024-06-15 21:28:48,310 - utils.extractor - INFO - Projective ------ Current Page: 166/382
+2024-06-15 21:28:48,803 - utils.extractor - INFO - Projective ------ Current Page: 167/382
+2024-06-15 21:28:49,270 - utils.extractor - INFO - Projective ------ Current Page: 168/382
+2024-06-15 21:28:49,748 - utils.extractor - INFO - Projective ------ Current Page: 169/382
+2024-06-15 21:28:50,221 - utils.extractor - INFO - Projective ------ Current Page: 170/382
+2024-06-15 21:28:50,686 - utils.extractor - INFO - Projective ------ Current Page: 171/382
+2024-06-15 21:28:51,178 - utils.extractor - INFO - Projective ------ Current Page: 172/382
+2024-06-15 21:28:51,657 - utils.extractor - INFO - Projective ------ Current Page: 173/382
+2024-06-15 21:28:52,131 - utils.extractor - INFO - Projective ------ Current Page: 174/382
+2024-06-15 21:28:52,591 - utils.extractor - INFO - Projective ------ Current Page: 175/382
+2024-06-15 21:28:53,155 - utils.extractor - INFO - Projective ------ Current Page: 176/382
+2024-06-15 21:28:53,604 - utils.extractor - INFO - Projective ------ Current Page: 177/382
+2024-06-15 21:28:54,087 - utils.extractor - INFO - Projective ------ Current Page: 178/382
+2024-06-15 21:28:54,606 - utils.extractor - INFO - Projective ------ Current Page: 179/382
+2024-06-15 21:28:55,079 - utils.extractor - INFO - Projective ------ Current Page: 180/382
+2024-06-15 21:28:55,547 - utils.extractor - INFO - Projective ------ Current Page: 181/382
+2024-06-15 21:28:56,104 - utils.extractor - INFO - Projective ------ Current Page: 182/382
+2024-06-15 21:28:56,580 - utils.extractor - INFO - Projective ------ Current Page: 183/382
+2024-06-15 21:28:57,042 - utils.extractor - INFO - Projective ------ Current Page: 184/382
+2024-06-15 21:28:57,538 - utils.extractor - INFO - Projective ------ Current Page: 185/382
+2024-06-15 21:28:57,985 - utils.extractor - INFO - Projective ------ Current Page: 186/382
+2024-06-15 21:28:58,440 - utils.extractor - INFO - Projective ------ Current Page: 187/382
+2024-06-15 21:28:58,915 - utils.extractor - INFO - Projective ------ Current Page: 188/382
+2024-06-15 21:28:59,379 - utils.extractor - INFO - Projective ------ Current Page: 189/382
+2024-06-15 21:28:59,846 - utils.extractor - INFO - Projective ------ Current Page: 190/382
+2024-06-15 21:29:00,351 - utils.extractor - INFO - Projective ------ Current Page: 191/382
+2024-06-15 21:29:00,906 - utils.extractor - INFO - Projective ------ Current Page: 192/382
+2024-06-15 21:29:01,375 - utils.extractor - INFO - Projective ------ Current Page: 193/382
+2024-06-15 21:29:01,924 - utils.extractor - INFO - Projective ------ Current Page: 194/382
+2024-06-15 21:29:02,534 - utils.extractor - INFO - Projective ------ Current Page: 195/382
+2024-06-15 21:29:02,995 - utils.extractor - INFO - Projective ------ Current Page: 196/382
+2024-06-15 21:29:03,453 - utils.extractor - INFO - Projective ------ Current Page: 197/382
+2024-06-15 21:29:03,923 - utils.extractor - INFO - Projective ------ Current Page: 198/382
+2024-06-15 21:29:04,386 - utils.extractor - INFO - Projective ------ Current Page: 199/382
+2024-06-15 21:29:04,862 - utils.extractor - INFO - Projective ------ Current Page: 200/382
+2024-06-15 21:29:05,348 - utils.extractor - INFO - Projective ------ Current Page: 201/382
+2024-06-15 21:29:05,814 - utils.extractor - INFO - Projective ------ Current Page: 202/382
+2024-06-15 21:29:06,253 - utils.extractor - INFO - Projective ------ Current Page: 203/382
+2024-06-15 21:29:06,767 - utils.extractor - INFO - Projective ------ Current Page: 204/382
+2024-06-15 21:29:07,234 - utils.extractor - INFO - Projective ------ Current Page: 205/382
+2024-06-15 21:29:07,690 - utils.extractor - INFO - Projective ------ Current Page: 206/382
+2024-06-15 21:29:08,147 - utils.extractor - INFO - Projective ------ Current Page: 207/382
+2024-06-15 21:29:08,601 - utils.extractor - INFO - Projective ------ Current Page: 208/382
+2024-06-15 21:29:09,092 - utils.extractor - INFO - Projective ------ Current Page: 209/382
+2024-06-15 21:29:09,556 - utils.extractor - INFO - Projective ------ Current Page: 210/382
+2024-06-15 21:29:10,038 - utils.extractor - INFO - Projective ------ Current Page: 211/382
+2024-06-15 21:29:10,571 - utils.extractor - INFO - Projective ------ Current Page: 212/382
+2024-06-15 21:29:11,052 - utils.extractor - INFO - Projective ------ Current Page: 213/382
+2024-06-15 21:29:11,515 - utils.extractor - INFO - Projective ------ Current Page: 214/382
+2024-06-15 21:29:11,974 - utils.extractor - INFO - Projective ------ Current Page: 215/382
+2024-06-15 21:29:12,438 - utils.extractor - INFO - Projective ------ Current Page: 216/382
+2024-06-15 21:29:12,952 - utils.extractor - INFO - Projective ------ Current Page: 217/382
+2024-06-15 21:29:13,428 - utils.extractor - INFO - Projective ------ Current Page: 218/382
+2024-06-15 21:29:13,910 - utils.extractor - INFO - Projective ------ Current Page: 219/382
+2024-06-15 21:29:14,391 - utils.extractor - INFO - Projective ------ Current Page: 220/382
+2024-06-15 21:29:14,887 - utils.extractor - INFO - Projective ------ Current Page: 221/382
+2024-06-15 21:29:15,407 - utils.extractor - INFO - Projective ------ Current Page: 222/382
+2024-06-15 21:29:15,862 - utils.extractor - INFO - Projective ------ Current Page: 223/382
+2024-06-15 21:29:16,365 - utils.extractor - INFO - Projective ------ Current Page: 224/382
+2024-06-15 21:29:16,830 - utils.extractor - INFO - Projective ------ Current Page: 225/382
+2024-06-15 21:29:17,320 - utils.extractor - INFO - Projective ------ Current Page: 226/382
+2024-06-15 21:29:17,765 - utils.extractor - INFO - Projective ------ Current Page: 227/382
+2024-06-15 21:29:18,220 - utils.extractor - INFO - Projective ------ Current Page: 228/382
+2024-06-15 21:29:18,742 - utils.extractor - INFO - Projective ------ Current Page: 229/382
+2024-06-15 21:29:19,207 - utils.extractor - INFO - Projective ------ Current Page: 230/382
+2024-06-15 21:29:19,662 - utils.extractor - INFO - Projective ------ Current Page: 231/382
+2024-06-15 21:29:20,142 - utils.extractor - INFO - Projective ------ Current Page: 232/382
+2024-06-15 21:29:20,606 - utils.extractor - INFO - Projective ------ Current Page: 233/382
+2024-06-15 21:29:21,101 - utils.extractor - INFO - Projective ------ Current Page: 234/382
+2024-06-15 21:29:21,571 - utils.extractor - INFO - Projective ------ Current Page: 235/382
+2024-06-15 21:29:22,007 - utils.extractor - INFO - Projective ------ Current Page: 236/382
+2024-06-15 21:29:22,460 - utils.extractor - INFO - Projective ------ Current Page: 237/382
+2024-06-15 21:29:22,913 - utils.extractor - INFO - Projective ------ Current Page: 238/382
+2024-06-15 21:29:23,378 - utils.extractor - INFO - Projective ------ Current Page: 239/382
+2024-06-15 21:29:23,863 - utils.extractor - INFO - Projective ------ Current Page: 240/382
+2024-06-15 21:29:24,371 - utils.extractor - INFO - Projective ------ Current Page: 241/382
+2024-06-15 21:29:24,824 - utils.extractor - INFO - Projective ------ Current Page: 242/382
+2024-06-15 21:29:25,302 - utils.extractor - INFO - Projective ------ Current Page: 243/382
+2024-06-15 21:29:25,796 - utils.extractor - INFO - Projective ------ Current Page: 244/382
+2024-06-15 21:29:26,264 - utils.extractor - INFO - Projective ------ Current Page: 245/382
+2024-06-15 21:29:26,775 - utils.extractor - INFO - Projective ------ Current Page: 246/382
+2024-06-15 21:29:27,217 - utils.extractor - INFO - Projective ------ Current Page: 247/382
+2024-06-15 21:29:27,683 - utils.extractor - INFO - Projective ------ Current Page: 248/382
+2024-06-15 21:29:28,135 - utils.extractor - INFO - Projective ------ Current Page: 249/382
+2024-06-15 21:29:28,614 - utils.extractor - INFO - Projective ------ Current Page: 250/382
+2024-06-15 21:29:29,070 - utils.extractor - INFO - Projective ------ Current Page: 251/382
+2024-06-15 21:29:29,531 - utils.extractor - INFO - Projective ------ Current Page: 252/382
+2024-06-15 21:29:29,996 - utils.extractor - INFO - Projective ------ Current Page: 253/382
+2024-06-15 21:29:30,455 - utils.extractor - INFO - Projective ------ Current Page: 254/382
+2024-06-15 21:29:30,943 - utils.extractor - INFO - Projective ------ Current Page: 255/382
+2024-06-15 21:29:31,422 - utils.extractor - INFO - Projective ------ Current Page: 256/382
+2024-06-15 21:29:31,899 - utils.extractor - INFO - Projective ------ Current Page: 257/382
+2024-06-15 21:29:32,388 - utils.extractor - INFO - Projective ------ Current Page: 258/382
+2024-06-15 21:29:32,875 - utils.extractor - INFO - Projective ------ Current Page: 259/382
+2024-06-15 21:29:33,335 - utils.extractor - INFO - Projective ------ Current Page: 260/382
+2024-06-15 21:29:33,786 - utils.extractor - INFO - Projective ------ Current Page: 261/382
+2024-06-15 21:29:34,304 - utils.extractor - INFO - Projective ------ Current Page: 262/382
+2024-06-15 21:29:34,836 - utils.extractor - INFO - Projective ------ Current Page: 263/382
+2024-06-15 21:29:35,308 - utils.extractor - INFO - Projective ------ Current Page: 264/382
+2024-06-15 21:29:35,805 - utils.extractor - INFO - Projective ------ Current Page: 265/382
+2024-06-15 21:29:36,276 - utils.extractor - INFO - Projective ------ Current Page: 266/382
+2024-06-15 21:29:36,755 - utils.extractor - INFO - Projective ------ Current Page: 267/382
+2024-06-15 21:29:37,277 - utils.extractor - INFO - Projective ------ Current Page: 268/382
+2024-06-15 21:29:37,789 - utils.extractor - INFO - Projective ------ Current Page: 269/382
+2024-06-15 21:29:38,273 - utils.extractor - INFO - Projective ------ Current Page: 270/382
+2024-06-15 21:29:38,759 - utils.extractor - INFO - Projective ------ Current Page: 271/382
+2024-06-15 21:29:39,255 - utils.extractor - INFO - Projective ------ Current Page: 272/382
+2024-06-15 21:29:39,736 - utils.extractor - INFO - Projective ------ Current Page: 273/382
+2024-06-15 21:29:40,214 - utils.extractor - INFO - Projective ------ Current Page: 274/382
+2024-06-15 21:29:40,702 - utils.extractor - INFO - Projective ------ Current Page: 275/382
+2024-06-15 21:29:41,186 - utils.extractor - INFO - Projective ------ Current Page: 276/382
+2024-06-15 21:29:41,679 - utils.extractor - INFO - Projective ------ Current Page: 277/382
+2024-06-15 21:29:42,177 - utils.extractor - INFO - Projective ------ Current Page: 278/382
+2024-06-15 21:29:42,721 - utils.extractor - INFO - Projective ------ Current Page: 279/382
+2024-06-15 21:29:43,218 - utils.extractor - INFO - Projective ------ Current Page: 280/382
+2024-06-15 21:29:43,683 - utils.extractor - INFO - Projective ------ Current Page: 281/382
+2024-06-15 21:29:44,141 - utils.extractor - INFO - Projective ------ Current Page: 282/382
+2024-06-15 21:29:44,585 - utils.extractor - INFO - Projective ------ Current Page: 283/382
+2024-06-15 21:29:45,049 - utils.extractor - INFO - Projective ------ Current Page: 284/382
+2024-06-15 21:29:45,539 - utils.extractor - INFO - Projective ------ Current Page: 285/382
+2024-06-15 21:29:46,021 - utils.extractor - INFO - Projective ------ Current Page: 286/382
+2024-06-15 21:29:46,509 - utils.extractor - INFO - Projective ------ Current Page: 287/382
+2024-06-15 21:29:46,987 - utils.extractor - INFO - Projective ------ Current Page: 288/382
+2024-06-15 21:29:47,435 - utils.extractor - INFO - Projective ------ Current Page: 289/382
+2024-06-15 21:29:47,905 - utils.extractor - INFO - Projective ------ Current Page: 290/382
+2024-06-15 21:29:48,359 - utils.extractor - INFO - Projective ------ Current Page: 291/382
+2024-06-15 21:29:48,818 - utils.extractor - INFO - Projective ------ Current Page: 292/382
+2024-06-15 21:29:49,284 - utils.extractor - INFO - Projective ------ Current Page: 293/382
+2024-06-15 21:29:49,748 - utils.extractor - INFO - Projective ------ Current Page: 294/382
+2024-06-15 21:29:50,225 - utils.extractor - INFO - Projective ------ Current Page: 295/382
+2024-06-15 21:29:50,753 - utils.extractor - INFO - Projective ------ Current Page: 296/382
+2024-06-15 21:29:51,213 - utils.extractor - INFO - Projective ------ Current Page: 297/382
+2024-06-15 21:29:51,681 - utils.extractor - INFO - Projective ------ Current Page: 298/382
+2024-06-15 21:29:52,139 - utils.extractor - INFO - Projective ------ Current Page: 299/382
+2024-06-15 21:29:52,612 - utils.extractor - INFO - Projective ------ Current Page: 300/382
+2024-06-15 21:29:53,081 - utils.extractor - INFO - Projective ------ Current Page: 301/382
+2024-06-15 21:29:53,562 - utils.extractor - INFO - Projective ------ Current Page: 302/382
+2024-06-15 21:29:54,055 - utils.extractor - INFO - Projective ------ Current Page: 303/382
+2024-06-15 21:29:54,513 - utils.extractor - INFO - Projective ------ Current Page: 304/382
+2024-06-15 21:29:54,989 - utils.extractor - INFO - Projective ------ Current Page: 305/382
+2024-06-15 21:29:55,462 - utils.extractor - INFO - Projective ------ Current Page: 306/382
+2024-06-15 21:29:55,917 - utils.extractor - INFO - Projective ------ Current Page: 307/382
+2024-06-15 21:29:56,389 - utils.extractor - INFO - Projective ------ Current Page: 308/382
+2024-06-15 21:29:56,852 - utils.extractor - INFO - Projective ------ Current Page: 309/382
+2024-06-15 21:29:57,324 - utils.extractor - INFO - Projective ------ Current Page: 310/382
+2024-06-15 21:29:57,795 - utils.extractor - INFO - Projective ------ Current Page: 311/382
+2024-06-15 21:29:58,316 - utils.extractor - INFO - Projective ------ Current Page: 312/382
+2024-06-15 21:29:58,795 - utils.extractor - INFO - Projective ------ Current Page: 313/382
+2024-06-15 21:29:59,291 - utils.extractor - INFO - Projective ------ Current Page: 314/382
+2024-06-15 21:29:59,800 - utils.extractor - INFO - Projective ------ Current Page: 315/382
+2024-06-15 21:30:00,295 - utils.extractor - INFO - Projective ------ Current Page: 316/382
+2024-06-15 21:30:00,768 - utils.extractor - INFO - Projective ------ Current Page: 317/382
+2024-06-15 21:30:01,246 - utils.extractor - INFO - Projective ------ Current Page: 318/382
+2024-06-15 21:30:01,766 - utils.extractor - INFO - Projective ------ Current Page: 319/382
+2024-06-15 21:30:02,371 - utils.extractor - INFO - Projective ------ Current Page: 320/382
+2024-06-15 21:30:02,977 - utils.extractor - INFO - Projective ------ Current Page: 321/382
+2024-06-15 21:30:03,544 - utils.extractor - INFO - Projective ------ Current Page: 322/382
+2024-06-15 21:30:04,098 - utils.extractor - INFO - Projective ------ Current Page: 323/382
+2024-06-15 21:30:04,660 - utils.extractor - INFO - Projective ------ Current Page: 324/382
+2024-06-15 21:30:05,230 - utils.extractor - INFO - Projective ------ Current Page: 325/382
+2024-06-15 21:30:05,795 - utils.extractor - INFO - Projective ------ Current Page: 326/382
+2024-06-15 21:30:06,348 - utils.extractor - INFO - Projective ------ Current Page: 327/382
+2024-06-15 21:30:06,885 - utils.extractor - INFO - Projective ------ Current Page: 328/382
+2024-06-15 21:30:07,433 - utils.extractor - INFO - Projective ------ Current Page: 329/382
+2024-06-15 21:30:07,958 - utils.extractor - INFO - Projective ------ Current Page: 330/382
+2024-06-15 21:30:08,460 - utils.extractor - INFO - Projective ------ Current Page: 331/382
+2024-06-15 21:30:08,971 - utils.extractor - INFO - Projective ------ Current Page: 332/382
+2024-06-15 21:30:09,578 - utils.extractor - INFO - Projective ------ Current Page: 333/382
+2024-06-15 21:30:10,063 - utils.extractor - INFO - Projective ------ Current Page: 334/382
+2024-06-15 21:30:10,527 - utils.extractor - INFO - Projective ------ Current Page: 335/382
+2024-06-15 21:30:11,016 - utils.extractor - INFO - Projective ------ Current Page: 336/382
+2024-06-15 21:30:11,479 - utils.extractor - INFO - Projective ------ Current Page: 337/382
+2024-06-15 21:30:11,962 - utils.extractor - INFO - Projective ------ Current Page: 338/382
+2024-06-15 21:30:12,438 - utils.extractor - INFO - Projective ------ Current Page: 339/382
+2024-06-15 21:30:12,926 - utils.extractor - INFO - Projective ------ Current Page: 340/382
+2024-06-15 21:30:13,392 - utils.extractor - INFO - Projective ------ Current Page: 341/382
+2024-06-15 21:30:13,997 - utils.extractor - INFO - Projective ------ Current Page: 342/382
+2024-06-15 21:30:14,481 - utils.extractor - INFO - Projective ------ Current Page: 343/382
+2024-06-15 21:30:14,965 - utils.extractor - INFO - Projective ------ Current Page: 344/382
+2024-06-15 21:30:15,419 - utils.extractor - INFO - Projective ------ Current Page: 345/382
+2024-06-15 21:30:15,972 - utils.extractor - INFO - Projective ------ Current Page: 346/382
+2024-06-15 21:30:16,437 - utils.extractor - INFO - Projective ------ Current Page: 347/382
+2024-06-15 21:30:16,916 - utils.extractor - INFO - Projective ------ Current Page: 348/382
+2024-06-15 21:30:17,372 - utils.extractor - INFO - Projective ------ Current Page: 349/382
+2024-06-15 21:30:17,819 - utils.extractor - INFO - Projective ------ Current Page: 350/382
+2024-06-15 21:30:18,280 - utils.extractor - INFO - Projective ------ Current Page: 351/382
+2024-06-15 21:30:18,766 - utils.extractor - INFO - Projective ------ Current Page: 352/382
+2024-06-15 21:30:19,239 - utils.extractor - INFO - Projective ------ Current Page: 353/382
+2024-06-15 21:30:19,711 - utils.extractor - INFO - Projective ------ Current Page: 354/382
+2024-06-15 21:30:20,179 - utils.extractor - INFO - Projective ------ Current Page: 355/382
+2024-06-15 21:30:20,655 - utils.extractor - INFO - Projective ------ Current Page: 356/382
+2024-06-15 21:30:21,155 - utils.extractor - INFO - Projective ------ Current Page: 357/382
+2024-06-15 21:30:21,751 - utils.extractor - INFO - Projective ------ Current Page: 358/382
+2024-06-15 21:30:22,236 - utils.extractor - INFO - Projective ------ Current Page: 359/382
+2024-06-15 21:30:22,724 - utils.extractor - INFO - Projective ------ Current Page: 360/382
+2024-06-15 21:30:23,194 - utils.extractor - INFO - Projective ------ Current Page: 361/382
+2024-06-15 21:30:23,774 - utils.extractor - INFO - Projective ------ Current Page: 362/382
+2024-06-15 21:30:24,326 - utils.extractor - INFO - Projective ------ Current Page: 363/382
+2024-06-15 21:30:24,816 - utils.extractor - INFO - Projective ------ Current Page: 364/382
+2024-06-15 21:30:25,297 - utils.extractor - INFO - Projective ------ Current Page: 365/382
+2024-06-15 21:30:25,763 - utils.extractor - INFO - Projective ------ Current Page: 366/382
+2024-06-15 21:30:26,266 - utils.extractor - INFO - Projective ------ Current Page: 367/382
+2024-06-15 21:30:26,746 - utils.extractor - INFO - Projective ------ Current Page: 368/382
+2024-06-15 21:30:27,278 - utils.extractor - INFO - Projective ------ Current Page: 369/382
+2024-06-15 21:30:27,762 - utils.extractor - INFO - Projective ------ Current Page: 370/382
+2024-06-15 21:30:28,254 - utils.extractor - INFO - Projective ------ Current Page: 371/382
+2024-06-15 21:30:28,775 - utils.extractor - INFO - Projective ------ Current Page: 372/382
+2024-06-15 21:30:29,251 - utils.extractor - INFO - Projective ------ Current Page: 373/382
+2024-06-15 21:30:29,737 - utils.extractor - INFO - Projective ------ Current Page: 374/382
+2024-06-15 21:30:30,216 - utils.extractor - INFO - Projective ------ Current Page: 375/382
+2024-06-15 21:30:30,691 - utils.extractor - INFO - Projective ------ Current Page: 376/382
+2024-06-15 21:30:31,187 - utils.extractor - INFO - Projective ------ Current Page: 377/382
+2024-06-15 21:30:31,651 - utils.extractor - INFO - Projective ------ Current Page: 378/382
+2024-06-15 21:30:32,193 - utils.extractor - INFO - Projective ------ Current Page: 379/382
+2024-06-15 21:30:32,648 - utils.extractor - INFO - Projective ------ Current Page: 380/382
+2024-06-15 21:30:33,121 - utils.extractor - INFO - Projective ------ Current Page: 381/382
+2024-06-15 21:30:33,550 - utils.extractor - INFO - Projective ------ Current Page: 382/382

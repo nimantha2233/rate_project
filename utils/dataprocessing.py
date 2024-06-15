@@ -110,7 +110,7 @@ class DataProcessor:
         
         NOTE: Unfinished -> Need to reassign the clean dfs into the dict.
         '''
-        for df_array in list(dict_array.values()):
+        for df_array in list(dict_array_of_dfs.values()):
             for list_element in df_array:
                 df = list_element[1]
                 df_clean = df.drop(columns=['original_idx', 'cost_split', 'cost_len', 'cost_numbers', 'num_of_nums_in_cost'])
