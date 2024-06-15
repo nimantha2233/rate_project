@@ -17,3 +17,11 @@
 2024-06-15 16:59:01,332 - utils.extractor - INFO - Current Page: 2/10
 2024-06-15 16:59:08,646 - utils.extractor - INFO - Current Page: 3/10
 2024-06-15 16:59:15,734 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 17:18:36,474 - __main__ - INFO - New run starting at 2024-06-15 17:18:36.474265
+2024-06-15 17:18:36,477 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-15 17:18:36,945 - utils.extractor - INFO - Current Page: 1/10
+2024-06-15 17:18:46,005 - utils.extractor - INFO - Current Page: 2/10
+2024-06-15 17:18:53,612 - utils.extractor - INFO - Current Page: 3/10
+2024-06-15 17:19:01,286 - utils.extractor - INFO - Current Page: 4/10
+2024-06-15 17:19:08,679 - utils.extractor - INFO - Current Page: 5/10
+2024-06-15 17:19:16,070 - utils.extractor - INFO - Current Page: 6/10

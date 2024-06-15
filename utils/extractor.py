@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from . import supportfunctions as sf
 import logging
+from . import config as cf
 
 
 class Extractor:
@@ -58,21 +59,22 @@ class Extractor:
 
 
 
-    def extract_project_data(self, webpage_soup : BeautifulSoup, project_soup : BeautifulSoup):
+    def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
         '''Parse HTML, store project data, and then write row to CSV file.
 
         :Params:
             webpage_soup (BeautifulSoup): soup object for whole page.
 
-            project_soup (BeautifulSoup): Soup object for project webpage.
+            service_soup (BeautifulSoup): Soup object for service in search
+                                          page containing multiple services.
 
         :Returns: 
             Nothing, but parses soup and assigns values to object attrs.
         
         '''
         # Instantiate project object for new project with company name
-        service_obj = sf.Service(project_soup.select('p')[0].text.strip())
-        service_obj.parse_and_extract(webpage_soup, project_soup)
+        service_obj = sf.Service(service_soup.select('p')[0].text.strip())
+        self.parse_and_extract(service_obj, service_soup)
 
         # Write row to csv file
         self.writer.write_row(service_obj.output_attrs_to_list())
@@ -84,11 +86,12 @@ class Extractor:
         :Params:
             webpage_soup (BeautifulSoup): soup object for whole page.
         '''
-        for project_soup in webpage_soup.select('li.app-search-result'):
+        # service_soup is HTML content of a service on the service search page
+        for service_soup in webpage_soup.select('li.app-search-result'):
 
             # Check it is actually the company targetted
-            if self.company_name in project_soup.select('p')[0].text.strip():
-                self.extract_project_data(webpage_soup, project_soup)
+            if self.company_name in service_soup.select('p')[0].text.strip():
+                self.extract_project_data(webpage_soup, service_soup)
 
 
     def loop_through_all_pages_for_company_search(self, webpage_soup : BeautifulSoup, page : int):
@@ -136,6 +139,25 @@ class Extractor:
             # Check it is actually the company targetted
             if self.company_name in project_soup.select('p')[0].text.strip():
                 self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])
+
+    def parse_and_extract(self, service_obj : sf.Service, service_soup : BeautifulSoup):
+        '''Assign values to attributes of class instance
+        
+        :Params:
+            page_soup (BeautifulSoup): soup from page containing services (service search results page)
+
+        :Returns: Nothing but assigns value to object attrs.
+        '''
+        # Assign attributes values (service details)
+        service_obj.name = service_soup.select('a')[0].text.strip()
+        service_obj.url = cf.Config.BASE_URL + service_soup.select('a')[0]['href'].strip()
+
+        # Access service page to obtain rates
+        service_page_soup = BeautifulSoup(requests.get(service_obj.url).content, 'html5lib')
+        # Service cost
+        service_obj.cost = service_page_soup.select(
+            'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
+                                        )[0].text.strip().replace('£','')
             
 
 
