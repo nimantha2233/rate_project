@@ -7,33 +7,59 @@ import logging
 from datetime import datetime
 import pandas as pd
 import os
+import concurrent.futures
+import requests
 
 # Get the current working directory
 current_dir = os.getcwd()
 
 # Construct the relative path to the company_info.csv file
 company_info_path = os.path.join(current_dir,'database', 'gold', 'company_info.csv')
-
+company_new_pdfs = {}
 
 
 
 def main():
+
+    global company_new_pdfs
     '''Run main logic from here'''
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main_logger = logging.getLogger(__name__)
     # main_logger.info(f'New run starting at {datetime.now()} to find government company names')
     main_logger.info(f'New run starting at {datetime.now()}')
+    company_new_pdfs = {}
 
-    # writer = sf.WriteToCSV(filepath= r'govt_company_names_comparison.csv'
-    #                        , column_names= ['company_name','govt_name']
-    #                       )
+    # Instantiate instance of writer
     writer = sf.WriteToCSV()
     writer.write_headers()
     # Read in company names
     df = pd.read_csv(filepath_or_buffer = company_info_path, index_col = 0)
     companies = df['govt_url_name'].to_list()
 
-    for company_name in companies:
+    max_workers = 4
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = [executor.submit(scrape_company, company, writer) for company in companies]
+        
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                result = future.result()
+            except Exception as e:
+                print(f"Error fetching data for {company}: {e}")
+
+
+    # If new pdfs were added log this.
+    for company, count in company_new_pdfs.items():
+        if count != 0:
+            logging.info(f'New PDFs added for {company}: {count}')
+
+
+    return 0
+
+def scrape_company(company_name : str, writer : sf.WriteToCSV):
+        '''Scraper logic for individual company'''
+        global company_new_pdfs
+        
         # Instantiate Extractor object for a unique company
         extract = extractor.Extractor(company_name = company_name, writer = writer)
 
@@ -41,10 +67,11 @@ def main():
         webpage_soup = extract.soup_from_url(URL)
 
         # Start at page 1 then page incremented in function
-        extract.loop_through_all_pages_for_company_search(webpage_soup = webpage_soup, page = 1)        
+        extract.loop_through_all_pages_for_company_search(webpage_soup = webpage_soup, page = 1)     
+        new_pdfs = extract.new_pdfs
+        company_new_pdfs[company_name] = len(new_pdfs)   
 
 
-    return 0
 
 if __name__ == '__main__':
     main()

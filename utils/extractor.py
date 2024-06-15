@@ -32,6 +32,7 @@ class Extractor:
                                  }
         self.service = None
         self.new_pdfs = []
+        self.cost_list = []
 
 
 
@@ -100,7 +101,7 @@ class Extractor:
         for service_soup in webpage_soup.select('li.app-search-result'):
 
             # Check it is actually the company targetted
-            if self.company_name in service_soup.select('p')[0].text.strip():
+            if self.company_name.lower() in service_soup.select('p')[0].text.strip().lower():
                 self.extract_project_data(webpage_soup, service_soup)
 
 
@@ -127,7 +128,7 @@ class Extractor:
 
         # While there is an option to go back a page (doesn't exist if past page limit)
         while webpage_soup.select('div.govuk-pagination__prev') or page == 1:
-            self.logger.info(f'Current Page: {page}/{num_pages_to_search}')
+            self.logger.info(f'{self.company_name} ------ Current Page: {page}/{num_pages_to_search}')
             # Cycle through each project on search page
             # self.loop_through_projects(webpage_soup=webpage_soup)
             process_function(webpage_soup=webpage_soup)
@@ -139,7 +140,7 @@ class Extractor:
             webpage_soup = self.soup_from_url(URL)
         
         # Get new pdfs to log
-        all_pdfs = set(os.listdir(self.database_dir))
+        all_pdfs = set(os.listdir(pdfs_file_path))
         self.new_pdfs = list(all_pdfs - existing_pdfs)
 
 
@@ -172,14 +173,18 @@ class Extractor:
         # Access service page to obtain rates
         self.service.page_soup = BeautifulSoup(requests.get(self.service.url).content, 'html5lib')
         # Find rate card if exists and if unique add to the database
-        self.find_and_download_rate_card()
         # Service cost
         self.service.cost = self.service.page_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
                                         )[0].text.strip().replace('£','')
         
+        # If the service cost is unique, download the rate card
+        if self.service.cost not in self.cost_list and contains_unit_or_person(self.service.cost):
+            # Add cost to list to avoid duplicate downloads
+            self.cost_list.append(self.service.cost)
+            self.find_and_download_rate_card()
         
-        
+
         
     def find_and_download_rate_card(self):
         '''If rate card exists download to bronze layer
@@ -216,15 +221,12 @@ class Extractor:
                     with open(f'{pdf_filepath}', 'wb') as f:
                         f.write(r.content)
     
-    def get_new_pdfs(self):
-        '''Return new pdfs'''
-        return self.new_pdfs
-                    
-
-
 
 
             
-
-
+def contains_unit_or_person(text : str) -> bool:
+    '''Checks if unit or paerson str in input 
+    str and returns corresponding bool
+    '''
+    return 'unit' in text or 'person' in text
 
