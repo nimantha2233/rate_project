@@ -23,6 +23,7 @@ class Extractor:
             0: self.loop_through_projects,
             1: self.govt_name_extractor
                                  }
+        self.service = None
 
 
     def check_page_num_produce_url(self, page : int) -> str:
@@ -73,11 +74,11 @@ class Extractor:
         
         '''
         # Instantiate project object for new project with company name
-        service_obj = sf.Service(service_soup.select('p')[0].text.strip())
-        self.parse_and_extract(service_obj, service_soup)
+        self.service = sf.Service(company = service_soup.select('p')[0].text.strip())
+        self.parse_and_extract(service_soup)
 
         # Write row to csv file
-        self.writer.write_row(service_obj.output_attrs_to_list())
+        self.writer.write_row(self.service.output_attrs_to_list())
 
 
     def loop_through_projects(self, webpage_soup : BeautifulSoup):
@@ -140,7 +141,7 @@ class Extractor:
             if self.company_name in project_soup.select('p')[0].text.strip():
                 self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])
 
-    def parse_and_extract(self, service_obj : sf.Service, service_soup : BeautifulSoup):
+    def parse_and_extract(self, service_soup : BeautifulSoup):
         '''Assign values to attributes of class instance
         
         :Params:
@@ -149,15 +150,26 @@ class Extractor:
         :Returns: Nothing but assigns value to object attrs.
         '''
         # Assign attributes values (service details)
-        service_obj.name = service_soup.select('a')[0].text.strip()
-        service_obj.url = cf.Config.BASE_URL + service_soup.select('a')[0]['href'].strip()
+        self.service.name = service_soup.select('a')[0].text.strip()
+        self.service.url = cf.Config.BASE_URL + service_soup.select('a')[0]['href'].strip()
 
         # Access service page to obtain rates
-        service_page_soup = BeautifulSoup(requests.get(service_obj.url).content, 'html5lib')
+        self.service.page_soup = BeautifulSoup(requests.get(self.service.url).content, 'html5lib')
         # Service cost
-        service_obj.cost = service_page_soup.select(
+        self.service.cost = self.service.page_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
                                         )[0].text.strip().replace('£','')
+        
+        
+        
+        
+    # def find_and_download_rate_card(self):
+    #     for service_doc in service_page_soup.select('div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'):
+    #         if service_doc.select_one(
+    #             'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+    #             ).text.strip() == 'Skills Framework for the Information Age rate card':
+    #             pdf_url = service_doc.select_one('p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href']
+    #             print(service_doc.select_one('p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href'])
             
 
 

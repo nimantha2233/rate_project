@@ -16,7 +16,7 @@ company_info_path = os.path.join(current_dir,'database', 'gold', 'company_info.c
 
 
 def main():
-    ''''''
+    '''Run main logic from here'''
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main_logger = logging.getLogger(__name__)
     # main_logger.info(f'New run starting at {datetime.now()} to find government company names')

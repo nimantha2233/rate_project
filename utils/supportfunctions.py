@@ -19,6 +19,7 @@ class Service:
         self.cost = 'No cost'
         self.company = company
         self.url = 'No URL'
+        self.page_soup = None
 
 
     def output_attrs_to_list(self):
@@ -26,24 +27,24 @@ class Service:
         return [self.company, self.name, self.cost, self.url]
     
 
-    def parse_and_extract(self, page_soup : BeautifulSoup, service : BeautifulSoup):
-        '''Assign values to attributes of class instance
+    # def parse_and_extract(self, page_soup : BeautifulSoup, service : BeautifulSoup):
+    #     '''Assign values to attributes of class instance
         
-        :Params:
-            page_soup (BeautifulSoup): soup from page containing services
+    #     :Params:
+    #         page_soup (BeautifulSoup): soup from page containing services
 
-        :Returns: Nothing but assigns value to object attrs.
-        '''
-        # Assign attributes values (service details)
-        self.name = service.select('a')[0].text.strip()
-        self.url = cf.Config.BASE_URL + service.select('a')[0]['href'].strip()
+    #     :Returns: Nothing but assigns value to object attrs.
+    #     '''
+    #     # Assign attributes values (service details)
+    #     self.name = service.select('a')[0].text.strip()
+    #     self.url = cf.Config.BASE_URL + service.select('a')[0]['href'].strip()
 
-        # Access Project page to obtain rates
-        service_soup = BeautifulSoup(requests.get(self.url).content, 'html5lib')
-        # Service cost
-        self.cost = service_soup.select(
-            'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
-                                        )[0].text.strip().replace('£','')
+    #     # Access Project page to obtain rates
+    #     service_soup = BeautifulSoup(requests.get(self.url).content, 'html5lib')
+    #     # Service cost
+    #     self.cost = service_soup.select(
+    #         'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
+    #                                     )[0].text.strip().replace('£','')
 
 
 class WriteToCSV:
