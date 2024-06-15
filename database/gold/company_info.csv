@@ -1,0 +1,135 @@
+,company_name,ticker,govt_company_name,govt_name_same_as_normal,govt_url_name
+0,Capgemini SE,CAP.PA,Capgemini UK plc,No,Capgemini UK plc
+1,AND Digital,,AND Digital,Yes,AND Digital
+2,Dufrain,,Dufrain,Yes,Dufrain
+3,FDM Group (Holdings) Ltd,FDM.L,FDM Group,No,FDM Group
+4,Slalom,,Slalom,Yes,Slalom
+5,Tata Consultancy Services Limited,TCS.BO,Tata Consultancy Services Limited,Yes,Tata Consultancy Services Limited
+6,Wipro Limited,WIT,Wipro Limited,Yes,Wipro Limited
+7,Fjord Consulting Group,,Fjord Consulting Group,Yes,Fjord Consulting Group
+8,Mesh AI,,Mesh AI,Yes,Mesh AI
+9,Sparta Global,,Sparta Global,Yes,Sparta Global
+10,Ten10,,Ten10,Yes,Ten10
+11,Credera,,Credera,Yes,Credera
+12,Infinite Lambda,,Infinite Lambda,Yes,Infinite Lambda
+13,BetterGov,,BetterGov,Yes,BetterGov
+14,Cambridge Consultants Limited,,Cambridge Consultants Limited,Yes,Cambridge Consultants Limited
+15,Capco Limited,,Capco Limited,Yes,Capco Limited
+16,Cognizant Technology Solutions Corporation,CTSH,Cognizant Worldwide Limited,No,Cognizant Worldwide Limited
+17,Infosys Limited,INFY,Infosys Limited,Yes,Infosys Limited
+18,IQVIA Holdings Inc,IQV,IQVIA LTD.,No,IQVIA LTD.
+19,Kubrick Group Limited,,Kubrick Group,No,Kubrick Group
+20,11:FS,,11:FS,Yes,11:FS
+21,a1qa,,a1qa,Yes,a1qa
+22,Accenture PLC,ACN,Accenture PLC,Yes,Accenture PLC
+23,Adatis,,Adatis,Yes,Adatis
+24,Afiniti,,Afiniti,Yes,Afiniti
+25,Airwalk Reply,,Airwalk Reply,Yes,Airwalk Reply
+26,Alchemmy,,Alchemmy,Yes,Alchemmy
+27,Alix Partners,,Alix Partners,Yes,Alix Partners
+28,Apexon,,Apexon,Yes,Apexon
+29,Arthur D Little,,Arthur D Little,Yes,Arthur D Little
+30,Atos Group,,Atos Group,Yes,Atos Group
+31,Atos SE,ATO.PA,Atos SE,Yes,Atos SE
+32,Avanade Inc.,,Avanade Inc.,Yes,Avanade Inc.
+33,Bain & Company,,Bain & Company,Yes,Bain %26 Company
+34,Baringa,,Baringa,Yes,Baringa
+35,Billigence,,Billigence,Yes,Billigence
+36,BJSS,,BJSS,Yes,BJSS
+37,Blueberry Consultants Ltd.,,Blueberry Consultants Ltd.,Yes,Blueberry Consultants Ltd.
+38,Booz Allen Hamilton Holding Corp,BAH,Booz Allen Hamilton Holding Corp,Yes,Booz Allen Hamilton Holding Corp
+39,Boston Consulting Group,,Boston Consulting Group,Yes,Boston Consulting Group
+40,Broadstones Tech,,Broadstones Tech,Yes,Broadstones Tech
+41,Cambridge Design Partnership,,Cambridge Design Partnership,Yes,Cambridge Design Partnership
+42,Canon Inc.,7751.T,Canon Inc.,Yes,Canon Inc.
+43,Capita,CPI.L,Capita,Yes,Capita
+44,Centric Consulting,,Centric Consulting,Yes,Centric Consulting
+45,CGI,,CGI,Yes,CGI
+46,CIGNITI Technologies Ltd,CIGNITITEC.BO,CIGNITI Technologies Ltd,Yes,CIGNITI Technologies Ltd
+47,Clarasys,,Clarasys,Yes,Clarasys
+48,Cognifide,,Cognifide,Yes,Cognifide
+49,Contino Ltd.,,Contino Ltd.,Yes,Contino Ltd.
+50,Credo Consulting,,Credo Consulting,Yes,Credo Consulting
+51,Deloitte,,Deloitte,Yes,Deloitte
+52,Designit,,Designit,Yes,Designit
+53,Digital Workplace Group,,Digital Workplace Group,Yes,Digital Workplace Group
+54,DXC Technology,DXC,DXC Technology,Yes,DXC Technology
+55,Eclature Technologies,,Eclature Technologies,Yes,Eclature Technologies
+56,Eden McCallum,,Eden McCallum,Yes,Eden McCallum
+57,Edge Testing Solutions,,Edge Testing Solutions,Yes,Edge Testing Solutions
+58,Elixirr International Plc,ELIX.L,Elixirr International Plc,Yes,Elixirr International Plc
+59,EPAM Systems Inc,EPAM,EPAM Systems Inc,Yes,EPAM Systems Inc
+60,Equal Experts,,Equal Experts,Yes,Equal Experts
+61,EY,,EY,Yes,EY
+62,Faculty AI,,Faculty AI,Yes,Faculty AI
+63,Frog Design,,Frog Design,Yes,Frog Design
+64,Frontier Economics,,Frontier Economics,Yes,Frontier Economics
+65,GeekTek,,GeekTek,Yes,GeekTek
+66,Genpact Ltd,G,Genpact Ltd,Yes,Genpact Ltd
+67,HCL Technologies Ltd,HCLTECH.BO,HCL Technologies Ltd,Yes,HCL Technologies Ltd
+68,Hexaware Technologies Ltd,,Hexaware Technologies Ltd,Yes,Hexaware Technologies Ltd
+69,HP Inc,HPQ,HP Inc,Yes,HP Inc
+70,Icon PLC,ICLR,Icon PLC,Yes,Icon PLC
+71,IDEO,,IDEO,Yes,IDEO
+72,Infostretch Corp,,Infostretch Corp,Yes,Infostretch Corp
+73,International Business Machines Corp,IBM,International Business Machines Corp,Yes,International Business Machines Corp
+74,JMAN Group,,JMAN Group,Yes,JMAN Group
+75,Kainos,KNOS.L,Kainos,Yes,Kainos
+76,Kearney,,Kearney,Yes,Kearney
+77,KONICA MINOLTA INC,KNCAF,KONICA MINOLTA INC,Yes,KONICA MINOLTA INC
+78,KPMG,,KPMG,Yes,KPMG
+79,Laboratory Corp Of America Holdings,LAB.F,Laboratory Corp Of America Holdings,Yes,Laboratory Corp Of America Holdings
+80,"LockPath, Inc.",,"LockPath, Inc.",Yes,"LockPath, Inc."
+81,LogicManager,,LogicManager,Yes,LogicManager
+82,"LogicSource, Inc.",,"LogicSource, Inc.",Yes,"LogicSource, Inc."
+83,Lovelytics,,Lovelytics,Yes,Lovelytics
+84,Lunar,,Lunar,Yes,Lunar
+85,Made Tech Group Plc,MTEC.L,Made Tech Group Plc,Yes,Made Tech Group Plc
+86,Mason Advisory,,Mason Advisory,Yes,Mason Advisory
+87,McKinsey,,McKinsey,Yes,McKinsey
+88,METRICSTREAM INC,,METRICSTREAM INC,Yes,METRICSTREAM INC
+89,MindTree Ltd,,MindTree Ltd,Yes,MindTree Ltd
+90,Mosaic Island,,Mosaic Island,Yes,Mosaic Island
+91,Mphasis Ltd,MPHASIS.BO,Mphasis Ltd,Yes,Mphasis Ltd
+92,mthree,,mthree,Yes,mthree
+93,Neoris,,Neoris,Yes,Neoris
+94,NexInfo,,NexInfo,Yes,NexInfo
+95,North Highland,,North Highland,Yes,North Highland
+96,OC&C Strategy Consultants,,OC&C Strategy Consultants,Yes,OC%26C Strategy Consultants
+97,Oliver Wyman,,Oliver Wyman,Yes,Oliver Wyman
+98,OpenCredo,,OpenCredo,Yes,OpenCredo
+99,Oracle Consulting,,Oracle Consulting,Yes,Oracle Consulting
+100,PA Consulting Group,,PA Consulting Group,Yes,PA Consulting Group
+101,Parexel International Corp,,Parexel International Corp,Yes,Parexel International Corp
+102,Peru Consulting,,Peru Consulting,Yes,Peru Consulting
+103,Planit Testing,,Planit Testing,Yes,Planit Testing
+104,PPD Inc,,PPD Inc,Yes,PPD Inc
+105,PRA Health Sciences Inc,,PRA Health Sciences Inc,Yes,PRA Health Sciences Inc
+106,Project One,,Project One,Yes,Project One
+107,Projective,,Projective,Yes,Projective
+108,Prolifics,,Prolifics Inc,No,Prolifics Inc
+109,PwC,,PwC,Yes,PwC
+110,RICOH CO LTD,RICO.L,RICOH CO LTD,Yes,RICOH CO LTD
+111,Roland Berger,,Roland Berger,Yes,Roland Berger
+112,SEIKO EPSON CORP,SEKEY,SEIKO EPSON CORP,Yes,SEIKO EPSON CORP
+113,Simon Kutcher & Partners,,Simon Kutcher & Partners,Yes,Simon Kutcher %26 Partners
+114,SkillStorm,,SkillStorm,Yes,SkillStorm
+115,Softwire,,Softwire,Yes,Softwire
+116,Spring Studios,,Spring Studios,Yes,Spring Studios
+117,Strategy & London,,Strategy & London,Yes,Strategy %26 London
+118,Sutherland,,Sutherland,Yes,Sutherland
+119,Switchfast Technologies,,Switchfast Technologies,Yes,Switchfast Technologies
+120,Syneos Health Inc,,Syneos Health Inc,Yes,Syneos Health Inc
+121,TAG Solutions,,TAG Solutions,Yes,TAG Solutions
+122,Tech Mahindra Ltd,TECHM.BO,Tech Mahindra Ltd,Yes,Tech Mahindra Ltd
+123,Terillium,,Terillium,Yes,Terillium
+124,Testhouse Ltd,,Testhouse Ltd,Yes,Testhouse Ltd
+125,The Berkeley Partnership,,The Berkeley Partnership,Yes,The Berkeley Partnership
+126,The PSC,,The PSC,Yes,The PSC
+127,Thoughtworks,7W8.F,Thoughtworks,Yes,Thoughtworks
+128,Ultimus Fund Solutions,,Ultimus Fund Solutions,Yes,Ultimus Fund Solutions
+129,Verisk Analytics Inc,VRSK,Verisk Analytics Inc,Yes,Verisk Analytics Inc
+130,Wavestone,WAVE.PA,Wavestone,Yes,Wavestone
+131,Xerox Corp,,Xerox Corp,Yes,Xerox Corp
+132,Zoonou,,Zoonou,Yes,Zoonou
+133,ZS,,ZS,Yes,ZS
