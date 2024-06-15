@@ -15,6 +15,8 @@ current_dir = os.getcwd()
 company_info_path = os.path.join(current_dir,'database', 'gold', 'company_info.csv')
 
 
+
+
 def main():
     '''Run main logic from here'''
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')

@@ -5,6 +5,13 @@ from bs4 import BeautifulSoup
 from . import supportfunctions as sf
 import logging
 from . import config as cf
+import os
+
+
+# Get the current working directory
+current_dir = os.getcwd()
+# Construct the relative path to the company_info.csv file
+pdfs_file_path = os.path.join(current_dir,'database', 'bronze', 'company_rate_cards')
 
 
 class Extractor:
@@ -24,6 +31,8 @@ class Extractor:
             1: self.govt_name_extractor
                                  }
         self.service = None
+        self.new_pdfs = []
+
 
 
     def check_page_num_produce_url(self, page : int) -> str:
@@ -103,6 +112,9 @@ class Extractor:
             webpage (BeautifulSoup): soup from page 1 of search results
             page (int): starting page_number
         '''
+        # Check existing PDFs before scraping
+        existing_pdfs = set(os.listdir(pdfs_file_path))
+
         # Get the appropriate function based on the mode
         process_function = self.mode_function_map.get(self.mode)
         
@@ -125,6 +137,10 @@ class Extractor:
             page += 1
             URL = self.check_page_num_produce_url(page)
             webpage_soup = self.soup_from_url(URL)
+        
+        # Get new pdfs to log
+        all_pdfs = set(os.listdir(self.database_dir))
+        self.new_pdfs = list(all_pdfs - existing_pdfs)
 
 
 
@@ -155,6 +171,8 @@ class Extractor:
 
         # Access service page to obtain rates
         self.service.page_soup = BeautifulSoup(requests.get(self.service.url).content, 'html5lib')
+        # Find rate card if exists and if unique add to the database
+        self.find_and_download_rate_card()
         # Service cost
         self.service.cost = self.service.page_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
@@ -163,13 +181,49 @@ class Extractor:
         
         
         
-    # def find_and_download_rate_card(self):
-    #     for service_doc in service_page_soup.select('div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'):
-    #         if service_doc.select_one(
-    #             'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
-    #             ).text.strip() == 'Skills Framework for the Information Age rate card':
-    #             pdf_url = service_doc.select_one('p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href']
-    #             print(service_doc.select_one('p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href'])
+    def find_and_download_rate_card(self):
+        '''If rate card exists download to bronze layer
+        
+        :Returns:
+            None: This function operates by side-effect, downloading a PDF file.
+        '''
+        service_doc_elements = self.service.page_soup.select(
+                                    'div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'
+                                                            )
+        
+        for service_doc in service_doc_elements:
+            # Cleaner code otherwise go beyond line limit
+            service_doc_name = service_doc.select_one(
+                                           'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+                                                     ).text.strip()
+            
+            if service_doc_name =='Skills Framework for the Information Age rate card':
+                #
+                pdf_url = service_doc.select_one(
+                    'p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href']
+                
+                # Get filename from url and concat with company name for comparison with our pdf lib
+                pdf_filename = self.service.company.replace(' ','') + '_' + pdf_url.split('/')[-1]
+                
+                # If a rate card already exists dont add (its a duplicate)
+                if pdf_filename not in cf.Config.PDF_FILES_LIST:
+
+                    # Download rate card
+                    r = requests.get(pdf_url)
+                    r.raise_for_status()  # Raise an error if the request was unsuccessful
+                    pdf_filepath = os.path.join(pdfs_file_path, pdf_filename) 
+                    # Save the PDF to a file
+                    with open(f'{pdf_filepath}', 'wb') as f:
+                        f.write(r.content)
+    
+    def get_new_pdfs(self):
+        '''Return new pdfs'''
+        return self.new_pdfs
+                    
+
+
+
+
             
 
 
