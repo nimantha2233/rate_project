@@ -6,9 +6,13 @@ from utils import extractor
 import logging
 from datetime import datetime
 import pandas as pd
+import os
 
+# Get the current working directory
+current_dir = os.getcwd()
 
-
+# Construct the relative path to the company_info.csv file
+company_info_path = os.path.join(current_dir,'database', 'gold', 'company_info.csv')
 
 
 def main():
@@ -24,7 +28,7 @@ def main():
     writer = sf.WriteToCSV()
     writer.write_headers()
     # Read in company names
-    df = pd.read_csv(r'C:\Users\NimanthaFernando\Innovation_Team_Projects\Market_Intelligence\rate_project\company_info.csv', index_col = 0)
+    df = pd.read_csv(filepath_or_buffer = company_info_path, index_col = 0)
     companies = df['govt_url_name'].to_list()
 
     for company_name in companies:

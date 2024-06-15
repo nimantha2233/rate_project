@@ -71,11 +71,11 @@ class Extractor:
         
         '''
         # Instantiate project object for new project with company name
-        project_obj = sf.Service(project_soup.select('p')[0].text.strip())
-        project_obj.parse_and_extract(webpage_soup, project_soup)
+        service_obj = sf.Service(project_soup.select('p')[0].text.strip())
+        service_obj.parse_and_extract(webpage_soup, project_soup)
 
         # Write row to csv file
-        self.writer.write_row(project_obj.output_attrs_to_list())
+        self.writer.write_row(service_obj.output_attrs_to_list())
 
 
     def loop_through_projects(self, webpage_soup : BeautifulSoup):

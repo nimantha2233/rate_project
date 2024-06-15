@@ -4,6 +4,12 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 from . import config as cf
+import os
+
+current_dir = os.getcwd()
+
+# Construct the relative path to the company_info.csv file
+company_service_rates_path = os.path.join(current_dir,'database', 'bronze', 'company_Service_rates', 'company_info_last_run.csv')
 
 
 class Service:
@@ -20,29 +26,29 @@ class Service:
         return [self.company, self.name, self.cost, self.url]
     
 
-    def parse_and_extract(self, page_soup : BeautifulSoup, project : BeautifulSoup):
+    def parse_and_extract(self, page_soup : BeautifulSoup, service : BeautifulSoup):
         '''Assign values to attributes of class instance
         
         :Params:
-            page_soup (BeautifulSoup): soup from page containing projects
+            page_soup (BeautifulSoup): soup from page containing services
 
         :Returns: Nothing but assigns value to object attrs.
         '''
-        # Assign attributes values (project details)
-        self.name = project.select('a')[0].text.strip()
-        self.url = cf.Config.BASE_URL + project.select('a')[0]['href'].strip()
+        # Assign attributes values (service details)
+        self.name = service.select('a')[0].text.strip()
+        self.url = cf.Config.BASE_URL + service.select('a')[0]['href'].strip()
 
         # Access Project page to obtain rates
-        project_soup = BeautifulSoup(requests.get(self.url).content, 'html5lib')
+        service_soup = BeautifulSoup(requests.get(self.url).content, 'html5lib')
         # Service cost
-        self.cost = project_soup.select(
+        self.cost = service_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
                                         )[0].text.strip().replace('£','')
 
 
 class WriteToCSV:
     def __init__(self, column_names = ['Company', 'Project', 'Cost', 'URL'], 
-                filepath = r'C:\Users\NimanthaFernando\Innovation_Team_Projects\Market_Intelligence\govt_contracts.csv'):
+                filepath = company_service_rates_path):
         
         self.filepath = filepath
         self.column_names = column_names
