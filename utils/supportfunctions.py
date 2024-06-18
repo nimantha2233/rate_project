@@ -20,35 +20,17 @@ class Service:
         self.company = company
         self.url = 'No URL'
         self.page_soup = None
+        self.rate_card_id = 'n/a'
 
 
     def output_attrs_to_list(self):
         '''Output data to list for writing to csv file'''
-        return [self.company, self.name, self.cost, self.url]
+        return [self.company, self.name, self.cost, self.url, self.rate_card_id]
     
-
-    # def parse_and_extract(self, page_soup : BeautifulSoup, service : BeautifulSoup):
-    #     '''Assign values to attributes of class instance
-        
-    #     :Params:
-    #         page_soup (BeautifulSoup): soup from page containing services
-
-    #     :Returns: Nothing but assigns value to object attrs.
-    #     '''
-    #     # Assign attributes values (service details)
-    #     self.name = service.select('a')[0].text.strip()
-    #     self.url = cf.Config.BASE_URL + service.select('a')[0]['href'].strip()
-
-    #     # Access Project page to obtain rates
-    #     service_soup = BeautifulSoup(requests.get(self.url).content, 'html5lib')
-    #     # Service cost
-    #     self.cost = service_soup.select(
-    #         'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
-    #                                     )[0].text.strip().replace('£','')
 
 
 class WriteToCSV:
-    def __init__(self, column_names = ['Company', 'Project', 'Cost', 'URL'], 
+    def __init__(self, column_names = ['Company', 'Project', 'Cost', 'URL', 'rate_card_id'], 
                 filepath = company_service_rates_path):
         
         self.filepath = filepath

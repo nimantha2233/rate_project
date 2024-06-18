@@ -31,8 +31,9 @@ class Extractor:
             1: self.govt_name_extractor
                                  }
         self.service = None
-        self.new_pdfs = []
-        self.cost_list = []
+        self.cost_dict = {}
+        self.__ratecard_element = None
+        #self.ratecard_handler = RateCardHandler(pdfs_file_path, cf.Config.BASE_URL, self.logger)
 
 
 
@@ -67,42 +68,6 @@ class Extractor:
         r = requests.get(URL)
         soup = BeautifulSoup(r.content, 'html5lib')
         return soup
-
-
-
-    def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
-        '''Parse HTML, store project data, and then write row to CSV file.
-
-        :Params:
-            webpage_soup (BeautifulSoup): soup object for whole page.
-
-            service_soup (BeautifulSoup): Soup object for service in search
-                                          page containing multiple services.
-
-        :Returns: 
-            Nothing, but parses soup and assigns values to object attrs.
-        
-        '''
-        # Instantiate project object for new project with company name
-        self.service = sf.Service(company = service_soup.select('p')[0].text.strip())
-        self.parse_and_extract(service_soup)
-
-        # Write row to csv file
-        self.writer.write_row(self.service.output_attrs_to_list())
-
-
-    def loop_through_projects(self, webpage_soup : BeautifulSoup):
-        '''Loop through each project in list of project soups
-        
-        :Params:
-            webpage_soup (BeautifulSoup): soup object for whole page.
-        '''
-        # service_soup is HTML content of a service on the service search page
-        for service_soup in webpage_soup.select('li.app-search-result'):
-
-            # Check it is actually the company targetted
-            if self.company_name.lower() in service_soup.select('p')[0].text.strip().lower():
-                self.extract_project_data(webpage_soup, service_soup)
 
 
     def loop_through_all_pages_for_company_search(self, webpage_soup : BeautifulSoup, page : int):
@@ -145,18 +110,41 @@ class Extractor:
 
 
 
-
-    def govt_name_extractor(self, webpage_soup : BeautifulSoup):
+    def loop_through_projects(self, webpage_soup : BeautifulSoup):
         '''Loop through each project in list of project soups
         
         :Params:
             webpage_soup (BeautifulSoup): soup object for whole page.
         '''
-        for project_soup in webpage_soup.select('li.app-search-result'):
-            
+        # service_soup is HTML content of a service on the service search page
+        for service_soup in webpage_soup.select('li.app-search-result'):
+
             # Check it is actually the company targetted
-            if self.company_name in project_soup.select('p')[0].text.strip():
-                self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])
+            if self.company_name.lower() in service_soup.select('p')[0].text.strip().lower():
+                self.extract_project_data(webpage_soup, service_soup)
+
+
+
+    def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
+        '''Parse HTML, store project data, and then write row to CSV file.
+
+        :Params:
+            webpage_soup (BeautifulSoup): soup object for whole page.
+
+            service_soup (BeautifulSoup): Soup object for service in search
+                                          page containing multiple services.
+
+        :Returns: 
+            Nothing, but parses soup and assigns values to object attrs.
+        
+        '''
+        # Instantiate project object for new project with company name
+        self.service = sf.Service(company = service_soup.select('p')[0].text.strip())
+        self.parse_and_extract(service_soup)
+
+        # Write row to csv file
+        self.writer.write_row(self.service.output_attrs_to_list())
+
 
     def parse_and_extract(self, service_soup : BeautifulSoup):
         '''Assign values to attributes of class instance
@@ -177,17 +165,28 @@ class Extractor:
         self.service.cost = self.service.page_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
                                         )[0].text.strip().replace('£','')
-        
-        # If the service cost is unique, download the rate card
-        if self.service.cost not in self.cost_list and contains_unit_or_person(self.service.cost):
-            # Add cost to list to avoid duplicate downloads
-            self.cost_list.append(self.service.cost)
-            self.find_and_download_rate_card()
-        
 
         
-    def find_and_download_rate_card(self):
-        '''If rate card exists download to bronze layer
+        # Check if a ratecard exists and the service cost describes a cost per person/unit
+        if self.check_rate_card_exists() and contains_unit_or_person(self.service.cost):
+            
+            # unique per unit cost 
+            if self.service.cost not in self.cost_dict.keys():            
+
+                # Get ratecard details
+                ratecard_filename, ratecard_url = self.get_ratecard_details()
+                print(ratecard_filename)
+                # Check detail against local directory and download if unique
+                self.download_ratecard_if_unique(ratecard_filename=ratecard_filename, ratecard_url=ratecard_url)
+            
+            else:
+                # service unit cost already exists
+                # assign ratecard filename to attrs id
+                self.service.rate_card_id = self.cost_dict[self.service.cost]   
+     
+        
+    def check_rate_card_exists(self):
+        '''Check if a rate card exists for service
         
         :Returns:
             None: This function operates by side-effect, downloading a PDF file.
@@ -201,26 +200,74 @@ class Extractor:
             service_doc_name = service_doc.select_one(
                                            'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
                                                      ).text.strip()
-            
-            if service_doc_name =='Skills Framework for the Information Age rate card':
-                #
-                pdf_url = service_doc.select_one(
-                    'p[class="dm-attachment__title govuk-!-font-size-16"] > a')['href']
-                
-                # Get filename from url and concat with company name for comparison with our pdf lib
-                pdf_filename = self.service.company.replace(' ','') + '_' + pdf_url.split('/')[-1]
-                
-                # If a rate card already exists dont add (its a duplicate)
-                if pdf_filename not in cf.Config.PDF_FILES_LIST:
 
-                    # Download rate card
-                    r = requests.get(pdf_url)
-                    r.raise_for_status()  # Raise an error if the request was unsuccessful
-                    pdf_filepath = os.path.join(pdfs_file_path, pdf_filename) 
-                    # Save the PDF to a file
-                    with open(f'{pdf_filepath}', 'wb') as f:
-                        f.write(r.content)
+            # Check if service doc is a rate card
+            if service_doc_name =='Skills Framework for the Information Age rate card':
+                # Assign ratecard element to service attribute
+                self.__ratecard_element = service_doc.select_one(
+                                           'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+                                                     )
+                return True
+            
+        
+        return False
+
+
+    def get_ratecard_details(self) -> tuple:
+        '''Output ratecard filename and url
+        
+        :Returns:
+            ratecard_filename (str): filename of ratecard in local dir.
+            ratecard_url (str): URL to download ratecard
+        '''
+
+        ratecard_url = self.__ratecard_element['href']
+        
+        # Get filename from url and concat with company name for comparison with our pdf lib
+        ratecard_filename = self.service.company.replace(' ','') + '_' + ratecard_url.split('/')[-1]
+
+        return (ratecard_filename, ratecard_url)
+
+
+    def download_ratecard_if_unique(self, ratecard_filename, ratecard_url):
+        '''If rate card exists download to bronze layer
+        
+        :Returns:
+            None: This function operates by side-effect, downloading a PDF file.
+        '''
+        if ratecard_filename not in cf.Config.PDF_FILES_LIST:
+
+            # Download rate card
+            r = requests.get(ratecard_url)
+            r.raise_for_status()  # Raise an error if the request was unsuccessful
+            pdf_filepath = os.path.join(pdfs_file_path, ratecard_filename) 
+            # Save the PDF to a file
+            with open(f'{pdf_filepath}', 'wb') as f:
+                f.write(r.content)
+            
+            # New k-v pair mapping cost to ratecard
+            self.cost_dict[self.service.cost] = ratecard_filename
+            # Assign the ratecard_filename to this services' attribute
+            self.service.rate_card_id = ratecard_filename
+        
+        else:
+            # ratecard_filename exists so assign it to rate_card id
+            self.service.rate_card_id = ratecard_filename
+            
     
+
+    def govt_name_extractor(self, webpage_soup : BeautifulSoup):
+        '''Loop through each project in list of project soups
+        
+        :Params:
+            webpage_soup (BeautifulSoup): soup object for whole page.
+        '''
+        for project_soup in webpage_soup.select('li.app-search-result'):
+            
+            # Check it is actually the company targetted
+            if self.company_name in project_soup.select('p')[0].text.strip():
+                self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])  
+
 
 
             
@@ -230,3 +277,92 @@ def contains_unit_or_person(text : str) -> bool:
     '''
     return 'unit' in text or 'person' in text
 
+
+
+# class RateCardHandler:
+#     def __init__(self):
+#         pass
+
+            
+#     def check_rate_card_exists(self):
+#         '''Check if a rate card exists for service
+        
+#         :Returns:
+#             None: This function operates by side-effect, downloading a PDF file.
+#         '''
+#         service_doc_elements = self.service.page_soup.select(
+#                                     'div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'
+#                                                             )
+        
+#         for service_doc in service_doc_elements:
+#             # Cleaner code otherwise go beyond line limit
+#             service_doc_name = service_doc.select_one(
+#                                            'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+#                                                      ).text.strip()
+
+#             # Check if service doc is a rate card
+#             if service_doc_name =='Skills Framework for the Information Age rate card':
+#                 # Assign ratecard element to service attribute
+#                 self.__ratecard_element = service_doc.select_one(
+#                                            'p[class="dm-attachment__title govuk-!-font-size-16"] > a'
+#                                                      )
+#                 return True
+            
+        
+#         return False
+
+
+#     def get_ratecard_details(self) -> tuple:
+#         '''Output ratecard filename and url
+        
+#         :Returns:
+#             ratecard_filename (str): filename of ratecard in local dir.
+#             ratecard_url (str): URL to download ratecard
+#         '''
+
+#         ratecard_url = self.__ratecard_element['href']
+        
+#         # Get filename from url and concat with company name for comparison with our pdf lib
+#         ratecard_filename = self.service.company.replace(' ','') + '_' + ratecard_url.split('/')[-1]
+
+#         return (ratecard_filename, ratecard_url)
+
+
+#     def download_ratecard_if_unique(self, ratecard_filename, ratecard_url):
+#         '''If rate card exists download to bronze layer
+        
+#         :Returns:
+#             None: This function operates by side-effect, downloading a PDF file.
+#         '''
+#         if ratecard_filename not in cf.Config.PDF_FILES_LIST:
+
+#             # Download rate card
+#             r = requests.get(ratecard_url)
+#             r.raise_for_status()  # Raise an error if the request was unsuccessful
+#             pdf_filepath = os.path.join(pdfs_file_path, ratecard_filename) 
+#             # Save the PDF to a file
+#             with open(f'{pdf_filepath}', 'wb') as f:
+#                 f.write(r.content)
+            
+#             # New k-v pair mapping cost to ratecard
+#             self.cost_dict[self.service.cost] = ratecard_filename
+#             # Assign the ratecard_filename to this services' attribute
+#             self.service.rate_card_id = ratecard_filename
+        
+#         else:
+#             # ratecard_filename exists so assign it to rate_card id
+#             self.service.rate_card_id = ratecard_filename
+            
+    
+
+#     def govt_name_extractor(self, webpage_soup : BeautifulSoup):
+#         '''Loop through each project in list of project soups
+        
+#         :Params:
+#             webpage_soup (BeautifulSoup): soup object for whole page.
+#         '''
+#         for project_soup in webpage_soup.select('li.app-search-result'):
+            
+#             # Check it is actually the company targetted
+#             if self.company_name in project_soup.select('p')[0].text.strip():
+#                 self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])  
