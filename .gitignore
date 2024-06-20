@@ -14,3 +14,7 @@ dev.py
 
 # .ipynb files
 *.ipynb
+
+# DuckDB
+*.db
+*.db.wal
