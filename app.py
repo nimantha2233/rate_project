@@ -9,20 +9,25 @@ import pandas as pd
 import os
 import concurrent.futures
 import requests
+import hashlib
 
 # Get the current working directory
 current_dir = os.getcwd()
+companies_to_scrape = []
 
 # Construct the relative path to the company_info.csv file
 company_info_path = os.path.join(current_dir,'database', 'gold', 'company_info.csv')
 company_new_pdfs = {}
-
+company_rate_card_dict = {}
+incomplete_service_dict = {}
 
 
 def main():
 
     global company_new_pdfs
     '''Run main logic from here'''
+    global company_rate_card_dict
+
     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     main_logger = logging.getLogger(__name__)
     # main_logger.info(f'New run starting at {datetime.now()} to find government company names')
@@ -33,10 +38,16 @@ def main():
     writer = sf.WriteToCSV()
     writer.write_headers()
     # Read in company names
-    df = pd.read_csv(filepath_or_buffer = company_info_path, index_col = 0)
-    companies = df['govt_url_name'].to_list()
+    df_full_companies_metadata = pd.read_csv(filepath_or_buffer = company_info_path, index_col = 0)
+    # Filter dataframe so only companies in company list are scraped
+    if companies_to_scrape:
+        df_companies = sf.filter_company_df(company_list=companies_to_scrape
+                             , df_all_companies=df_full_companies_metadata)
+        companies = df_companies['govt_url_name'].to_list()
+    else:
+        companies = df_full_companies_metadata['govt_url_name'].to_list()
 
-    max_workers = 4
+    max_workers = 8
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(scrape_company, company, writer) for company in companies]
@@ -53,12 +64,36 @@ def main():
         if count != 0:
             logging.info(f'New PDFs added for {company}: {count}')
 
+    company_names = list(company_rate_card_dict.keys())
+    num_rate_cards = list(company_rate_card_dict.values())
+    ratecard_metadata_path = os.path.join(current_dir,'database', 'bronze','rate_card_metadata.csv')
+    pd.DataFrame(
+        {'company_name' : company_names
+         , 'num_rate_cards' : num_rate_cards
+        }
+                ).to_csv(ratecard_metadata_path)
+    
+    # Create a list to store the service-company pairs
+    service_company_list = []
 
+    # Iterate through the dictionary
+    for company, services in incomplete_service_dict.items():
+        for service in services:
+            service_company_list.append((service, company))
+
+    # Convert the list to a pandas DataFrame
+    df = pd.DataFrame(service_company_list, columns=["service", "company_name"])
+    incomplete_rows_filepath = os.path.join(current_dir,'database', 'bronze','incomplete_rows.csv')
+    df.to_csv(incomplete_rows_filepath)
+
+    pdf_path = os.path.join(
+            current_dir,'database', 'bronze', 'company_rate_cards')
+    find_and_remove_duplicates(folder_path=pdf_path)
     return 0
 
 def scrape_company(company_name : str, writer : sf.WriteToCSV):
         '''Scraper logic for individual company'''
-        global company_new_pdfs
+        global company_new_pdfs, company_rate_card_dict
         
         # Instantiate Extractor object for a unique company
         extract = extractor.Extractor(company_name = company_name, writer = writer)
@@ -69,7 +104,48 @@ def scrape_company(company_name : str, writer : sf.WriteToCSV):
         # Start at page 1 then page incremented in function
         extract.loop_through_all_pages_for_company_search(webpage_soup = webpage_soup, page = 1)     
         new_pdfs = extract.new_pdfs
-        company_new_pdfs[company_name] = len(new_pdfs)   
+        company_new_pdfs[company_name] = len(new_pdfs) 
+        num_rate_cards = extract.has_ratecard()  
+        company_rate_card_dict[company_name] = num_rate_cards
+        incomplete_service_dict[company_name] = extract.incomplete_service_data
+
+
+
+def hash_file(file_path):
+    """Generate SHA-256 hash of the file."""
+    hasher = hashlib.sha256()
+    with open(file_path, 'rb') as f:
+        buf = f.read()
+        hasher.update(buf)
+    return hasher.hexdigest()
+
+def find_and_remove_duplicates(folder_path) -> None:
+    """Find and remove duplicate files in the given folder.
+    
+    :Params:
+        folder_path (str): Path to directory containing pdf rate cards (duplicate files)
+
+    :Returns:
+        N/A: Removes duplicate rate cards from directory
+    """
+    file_hashes = {}
+    duplicates = []
+
+    for pdf_directory, _, files in os.walk(folder_path):
+        for filename in files:
+            if filename.lower().endswith('.pdf'):
+                file_path = os.path.join(pdf_directory, filename)
+                file_hash = hash_file(file_path)
+
+                if file_hash in file_hashes:
+                    duplicates.append(file_path)
+                else:
+                    file_hashes[file_hash] = file_path
+    # Removing duplicates
+    for duplicate in duplicates:
+        os.remove(duplicate)
+
+
 
 
 
@@ -85,108 +161,3 @@ if __name__ == '__main__':
 
 
 
-
-
-# def main():
-#     '''Main application logic'''
-#     logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-#     main_logger = logging.getLogger(__name__)
-#     main_logger.info(f'New run starting at {datetime.now()}')
-
-#     writer = sf.WriteToCSV()
-#     writer.write_headers()
-#     df = pd.read_csv(r'C:\Users\NimanthaFernando\Innovation_Team_Projects\Market_Intelligence\rate_project\company_info.csv', index_col= 0)
-#     new_companies = df[df['govt_company_name'] == '0']['company_name'].to_list()
-
-#     for company_name in conf.Config.company_dict['govt_company_name'][0:1]:
-#         # Instantiate Extractor object for a unique company
-#         extract = extractor.Extractor(company_name = company_name, writer = writer)
-
-#         URL = extract.check_page_num_produce_url(page = 1)
-#         webpage_soup = extract.soup_from_url(URL)
-
-#         # Start at page 1 then page incremented in function
-#         extract.loop_through_all_pages_for_company_search(webpage_soup = webpage_soup, page = 1)
-
-#     return 0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def check_page_num_produce_url(page : int, company_name : str) -> str:
-#     '''Check if page 1 or not as URL format is slighly different'''
-#     # Page 1 has slightly different url (no page key-val pair)
-#     if page > 1:
-#         URL = fr'https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/search?page={page}&q={"%20".join(company_name.split())}'
-#     else:
-#         URL = fr'https://www.applytosupply.digitalmarketplace.service.gov.uk/g-cloud/search?q={"%20".join(company_name.split())}'
-
-#     return URL
-        
-# def soup_from_url(URL : str) -> BeautifulSoup:
-#     '''For URL input Do get req. and produce soup object
-    
-#     :Params:
-#         URL(str): the URL of page to fetch
-
-#     :Returns:
-#         BeatifulSoup: Soup object from page    
-#     '''
-#     r = requests.get(URL)
-#     soup = BeautifulSoup(r.content, 'html5lib')
-#     return soup
-
-
-
-# def extract_project_data(webpage_soup : BeautifulSoup, project_soup : BeautifulSoup, writer : sf.WriteToCSV ):
-#     '''Parse HTML, store project data, and then write row to CSV file.
-     
-#     '''
-#     # Instantiate project object for new project
-#     project_obj = sf.Project(project_soup.select('p')[0].text.strip())
-#     project_obj.parse_and_extract(webpage_soup)
-
-#     # Write row to csv file
-#     writer.write_row(project_obj.output_attrs_to_list())
-
-
-# def loop_through_projects(webpage_soup : BeautifulSoup,  writer : sf.WriteToCSV):
-#     '''Loop through each project in list of project soups'''
-#     for project_soup in webpage_soup.select('li.app-search-result'):
-
-#         # Check it is actually the company targetted
-#         if company_name in project_soup.select('p')[0].text.strip():
-#             extract_project_data(webpage_soup, project_soup, writer=writer)
-
-
-# def loop_through_all_pages_for_company_search(webpage_soup : BeautifulSoup, page : int,  writer : sf.WriteToCSV):
-#     '''For a given given initial webpage soup for a given company search 
-#     loop through pages containing search results until reaching page limit
-#     '''
-#     # While there is an option to go back a page (doesn't exist if past page limit)
-#     while webpage_soup.select('div.govuk-pagination__prev') or page == 1:
-#         print(f'On page: {page}')
-
-#         # Cycle through each project on search page
-#         loop_through_projects(webpage_soup=webpage_soup,  writer=writer)
-
-#         # Increment page and get new soup from next page
-#         page += 1
-#         URL = check_page_num_produce_url(page, company_name=company_name)
-#         webpage_soup = soup_from_url(URL)
