@@ -37,7 +37,6 @@ class Extractor:
         self.incomplete_service_data = []
 
 
-
     def check_page_num_produce_url(self, page : int) -> str:
         '''Check if page 1 or not as URL format is slighly different
         
@@ -111,7 +110,6 @@ class Extractor:
         self.new_pdfs = list(all_pdfs - existing_pdfs)
 
 
-
     def loop_through_projects(self, webpage_soup : BeautifulSoup):
         '''Loop through each project in list of project soups
         
@@ -127,7 +125,6 @@ class Extractor:
             # Check it is actually the company targetted
             if self.company_name.lower() in company_offering_service:
                 self.extract_project_data(webpage_soup, service_soup)
-
 
 
     def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
@@ -152,7 +149,6 @@ class Extractor:
         else:
             # Number of data points not what is required
             self.incomplete_service_data.append(self.service.name)
-
 
 
     def parse_and_extract(self, service_soup : BeautifulSoup):

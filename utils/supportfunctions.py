@@ -132,3 +132,20 @@ def filter_company_df(company_list : list[str], df_all_companies : pd.DataFrame)
 
 
 
+def get_filepath(*args) -> str:
+    '''Generate a file path in the current working directory
+    using additional path components provided as arguments.
+
+    :Params:
+        *args: Additional path components to be joined.
+
+    :Returns:
+        str: Resultant file path.
+    '''
+    current_dir = os.getcwd()
+     
+    
+    resultant_path = os.path.join(current_dir, *args)
+    
+
+    return resultant_path
