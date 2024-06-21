@@ -49,9 +49,12 @@ def main():
 
     max_workers = 8
 
+    # Create a ThreadPoolExecutor with the specified max_workers
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+        # Submit tasks (scrape_company function) to the thread pool and run them
         futures = [executor.submit(scrape_company, company, writer) for company in companies]
         
+        # All tasks in pool finished now loop through the results
         for future in concurrent.futures.as_completed(futures):
             try:
                 result = future.result()
