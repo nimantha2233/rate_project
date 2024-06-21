@@ -4300,3 +4300,62 @@
 2024-06-20 11:19:40,183 - root - INFO - New PDFs added for Cognizant Worldwide Limited: 90
 2024-06-20 11:19:40,183 - root - INFO - New PDFs added for PwC: 9
 2024-06-20 11:19:40,183 - root - INFO - New PDFs added for Projective: 11
+2024-06-20 13:11:39,986 - __main__ - INFO - New run starting at 2024-06-20 13:11:39.986186
+2024-06-20 13:11:40,001 - utils.extractor - INFO - Scraping for Company: Capgemini UK plc
+2024-06-20 13:11:40,001 - utils.extractor - INFO - Scraping for Company: AND Digital Limited
+2024-06-20 13:11:40,001 - utils.extractor - INFO - Scraping for Company: Dufrain
+2024-06-20 13:11:40,002 - utils.extractor - INFO - Scraping for Company: FDM Group
+2024-06-20 13:11:40,002 - utils.extractor - INFO - Scraping for Company: Slalom
+2024-06-20 13:11:40,004 - utils.extractor - INFO - Scraping for Company: Tata Consultancy Services Limited
+2024-06-20 13:11:40,004 - utils.extractor - INFO - Scraping for Company: Wipro Limited
+2024-06-20 13:11:40,006 - utils.extractor - INFO - Scraping for Company: Fjord Consulting Group
+2024-06-20 13:11:40,857 - utils.extractor - INFO - Dufrain ------ Current Page: 1/1
+2024-06-20 13:11:40,875 - utils.extractor - INFO - Wipro Limited ------ Current Page: 1/1
+2024-06-20 13:11:40,887 - utils.extractor - INFO - FDM Group ------ Current Page: 1/1
+2024-06-20 13:11:40,896 - utils.extractor - INFO - Slalom ------ Current Page: 1/4
+2024-06-20 13:11:40,900 - utils.extractor - INFO - Fjord Consulting Group ------ Current Page: 1/1
+2024-06-20 13:11:40,921 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 1/10
+2024-06-20 13:11:40,932 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 1/5
+2024-06-20 13:11:40,949 - utils.extractor - INFO - AND Digital Limited ------ Current Page: 1/1
+2024-06-20 13:11:41,526 - utils.extractor - INFO - Scraping for Company: Mesh AI
+2024-06-20 13:11:41,530 - utils.extractor - INFO - Scraping for Company: Sparta Global
+2024-06-20 13:11:41,531 - utils.extractor - INFO - Scraping for Company: Ten10
+2024-06-20 13:11:41,532 - utils.extractor - INFO - Scraping for Company: Credera
+2024-06-20 13:11:42,633 - utils.extractor - INFO - Ten10 ------ Current Page: 1/1
+2024-06-20 13:11:42,824 - utils.extractor - INFO - Mesh AI ------ Current Page: 1/1
+2024-06-20 13:11:42,845 - utils.extractor - INFO - Sparta Global ------ Current Page: 1/1
+2024-06-20 13:11:42,897 - utils.extractor - INFO - Credera ------ Current Page: 1/3
+2024-06-20 13:11:43,456 - utils.extractor - INFO - Scraping for Company: Infinite Lambda
+2024-06-20 13:11:44,239 - utils.extractor - INFO - Infinite Lambda ------ Current Page: 1/1
+2024-06-20 13:11:44,364 - utils.extractor - INFO - Scraping for Company: BetterGov
+2024-06-20 13:11:45,004 - utils.extractor - INFO - BetterGov ------ Current Page: 1/1
+2024-06-20 13:11:50,940 - utils.extractor - INFO - Scraping for Company: Cambridge Consultants Limited
+2024-06-20 13:11:51,929 - utils.extractor - INFO - Cambridge Consultants Limited ------ Current Page: 1/1
+2024-06-20 13:11:52,060 - utils.extractor - INFO - Scraping for Company: Capco Limited
+2024-06-20 13:11:52,704 - utils.extractor - INFO - Capco Limited ------ Current Page: 1/1
+2024-06-20 13:11:53,389 - utils.extractor - INFO - Scraping for Company: Cognizant Worldwide Limited
+2024-06-20 13:11:53,544 - utils.extractor - INFO - Scraping for Company: Infosys Limited
+2024-06-20 13:11:54,269 - utils.extractor - INFO - Infosys Limited ------ Current Page: 1/4
+2024-06-20 13:11:54,291 - utils.extractor - INFO - Cognizant Worldwide Limited ------ Current Page: 1/11
+2024-06-20 13:12:01,575 - utils.extractor - INFO - Scraping for Company: IQVIA LTD.
+2024-06-20 13:12:02,630 - utils.extractor - INFO - IQVIA LTD. ------ Current Page: 1/1
+2024-06-20 13:12:02,801 - utils.extractor - INFO - Scraping for Company: Kubrick Group
+2024-06-20 13:12:03,529 - utils.extractor - INFO - Kubrick Group ------ Current Page: 1/1
+2024-06-20 13:12:09,652 - utils.extractor - INFO - Slalom ------ Current Page: 2/4
+2024-06-20 13:12:10,724 - utils.extractor - INFO - Capgemini UK plc ------ Current Page: 2/10
+2024-06-20 13:12:10,887 - utils.extractor - INFO - Scraping for Company: 11:FS
+2024-06-20 13:12:11,859 - utils.extractor - INFO - Credera ------ Current Page: 2/3
+2024-06-20 13:12:11,886 - utils.extractor - INFO - 11:FS ------ Current Page: 1/1
+2024-06-20 13:12:12,034 - utils.extractor - INFO - Scraping for Company: a1qa
+2024-06-20 13:12:12,857 - utils.extractor - INFO - a1qa ------ Current Page: 1/1
+2024-06-20 13:12:13,005 - utils.extractor - INFO - Scraping for Company: Accenture PLC
+2024-06-20 13:12:13,830 - utils.extractor - INFO - Tata Consultancy Services Limited ------ Current Page: 2/5
+2024-06-20 13:12:13,899 - utils.extractor - INFO - Accenture PLC ------ Current Page: 1/1
+2024-06-20 13:12:14,036 - utils.extractor - INFO - Scraping for Company: Adatis
+2024-06-20 13:12:14,894 - utils.extractor - INFO - Adatis ------ Current Page: 1/2
+2024-06-20 13:12:20,972 - utils.extractor - INFO - Scraping for Company: Afiniti
+2024-06-20 13:12:22,130 - utils.extractor - INFO - Afiniti ------ Current Page: 1/1
+2024-06-20 13:12:22,283 - utils.extractor - INFO - Scraping for Company: Airwalk Reply
+2024-06-20 13:12:23,412 - utils.extractor - INFO - Airwalk Reply ------ Current Page: 1/1
+2024-06-20 13:12:23,785 - utils.extractor - INFO - Scraping for Company: Alchemmy
+2024-06-20 13:12:24,937 - utils.extractor - INFO - Alchemmy ------ Current Page: 1/2
