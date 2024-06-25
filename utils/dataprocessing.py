@@ -15,7 +15,7 @@ from time import time
 class DataProcessor:
     '''Process data from scraping via reading csv file'''
 
-    def __init__(self, filepath = r'C:\Users\NimanthaFernando\Innovation_Team_Projects\Market_Intelligence\govt_contracts.csv'):
+    def __init__(self, filepath : str):
         self.filepath = filepath
         self.df = pd.read_csv(filepath_or_buffer = filepath)
 
@@ -43,19 +43,23 @@ class DataProcessor:
         '''
 
         # Remove non-useful words
-        self.df['cost_split'] = self.df['Cost'].str.replace(' to ', ' ').str.replace(' a ', ' ')\
+        self.df['cost_split'] = self.df['Cost'].str.replace(' to ', ' ')\
+            .str.replace(' a ', ' ')\
             .str.replace(',','')\
             .str.replace(' an ', ' ')\
             .apply(lambda x: x.split(' '))
 
 
-
     def create_metadata_and_derived_cols(self):
-        ''' Create new columns used for later processing of the data as well as for end-user useage (base and max)
+        ''' Create new columns used for later processing of the data as well
+            as for end-user useage (base and max)
         
-        
-        '''
+        :Params:
+            None: Cleaning of main DataFrame
 
+        :Returns:
+            None: Class attribute DataFrame is transformed after the method calll
+        '''
 
         # Determine number of words in the cost desc. (len(x))
         self.df['cost_len'] = self.df['cost_split'].apply(lambda x: len(x))
@@ -68,7 +72,6 @@ class DataProcessor:
         self.df['max_price'] = self.df['cost_numbers'].apply(lambda x: 'N/A' if len(x) == 1 else x[1])
 
 
-    
     def create_array_of_dfs(self) -> dict:
         '''Output an dict with two entries based on whether the row is contains a cost that is a price range or not:  
         1. Not a price range just 1 price.
@@ -134,11 +137,20 @@ class RateCardProcessor:
                                              )
         self.df_final1 = None
         self.df_final2_price_range = None
-        cleaned_rate_card_dict = None
+        self.cleaned_rate_card_dict = None
 
 
-    def proccess_rate_cards(self):
-        '''Process all rate cards and output csv file containing all ratecards.'''
+    def proccess_rate_cards(self) -> pd.DataFrame:
+        '''Process all rate cards and output csv file containing all ratecards.
+        
+        :Params:
+            None: This function executes a chain of commands in the pipeline 
+                  to extract and transform the rate card data in pdfs to useable Pandas DataFrames
+
+        :Returns:
+            df_final1: DataFrame of rate cards from pdfs for rate cards showing 
+                       a single price not a range
+        '''
         print('Extracting all tables from rate card pdfs...')
         rate_card_raw_tables_dict = self.extract_all_tables_from_pdfs()
         print('Filtering out non-rate card tables...')
@@ -146,10 +158,11 @@ class RateCardProcessor:
         print('Cleaning rate card dfs...')
         cleaned_rate_card_dict = self.clean_rate_card_dfs(rate_cards_dict)
         self.cleaned_rate_card_dict = cleaned_rate_card_dict 
+        df_concat = self.concat_all_dfs(cleaned_rate_card_dict=cleaned_rate_card_dict)
+        self.separate_and_clean_unique_rate_cards(df_concat=df_concat)
 
 
-
-        return cleaned_rate_card_dict
+        return self.df_final1
 
 
     def extract_all_tables_from_pdfs(self, path_to_rate_cards : list[str] = 
@@ -170,7 +183,7 @@ class RateCardProcessor:
             # Get ratecard pdf filepath
             rate_card_filepath = sf.get_filepath(*path_to_rate_cards, rate_card_filename)    
             # Extract tables in pdf to list of tables 
-            tables_list = tabula.read_pdf(rate_card_filepath, pages='all', lattice = True, multiple_tables=True)
+            tables_list = tabula.read_pdf(rate_card_filepath, pages='all', lattice = True, multiple_tables=True, stream = True)
             # Get company name from pdf
             rate_card_id = rate_card_filename.split('.')[0]
             # Append tables_list to dict, key is rate card id so we can link final dfs to a rate card pdf
@@ -210,7 +223,7 @@ class RateCardProcessor:
                     no_missing_values = not df_table['Unnamed: 0'].isna().any()
 
                     if no_missing_values:
-                        contains_keyword = df_table['Unnamed: 0'].str.contains('1.follow', case=False).any()
+                        contains_keyword = df_table['Unnamed: 0'].str.contains('.follow', case=False).any()
 
                         if contains_keyword:
                                 # These are the rate card tables
@@ -233,20 +246,22 @@ class RateCardProcessor:
         transformed_rate_cards_dict = defaultdict(list)
 
         # Iterate through each pdf
-        for rate_card_id, rate_cards_list in rate_cards_dict.items(): 
-            # rename and clean columns (remove spaces and '\r' chars in names) 
-            df_rate_card, new_cols = self.rename_columns(rate_cards_list=rate_cards_list)
-            # Create a new columns and transform vals in another
-            df_rate_card_final = self.create_and_transform_column_values(
-                                df_rate_card=df_rate_card, new_cols=new_cols
-                                , rate_card_id=rate_card_id)
+        for rate_card_id, rate_cards_list in rate_cards_dict.items():
+            # iterate through df rate cards from same pdf 
+            for df_rate_card in rate_cards_list:
+                # rename and clean columns (remove spaces and '\r' chars in names) 
+                df_rate_card, new_cols = self.rename_columns(df_rate_card=df_rate_card)
+                # Create a new columns and transform vals in another
+                df_rate_card_final = self.create_and_transform_column_values(
+                                    df_rate_card=df_rate_card, new_cols=new_cols
+                                    , rate_card_id=rate_card_id)
 
-            transformed_rate_cards_dict[rate_card_id].append(df_rate_card_final)
+                transformed_rate_cards_dict[rate_card_id].append(df_rate_card_final)
                 
         return transformed_rate_cards_dict
 
 
-    def rename_columns(self, rate_cards_list):
+    def rename_columns(self, df_rate_card):
         '''For rate card dfs from a single pdf clean and standardise column names.
         
         :Params:
@@ -265,26 +280,25 @@ class RateCardProcessor:
             ,'procurement_and_management_support' : 'people_and_skills'
             ,'client_interface' : 'relationships_and_engagement'
                         }
-    
-        for df_rate_card in rate_cards_list:
-            old_cols = df_rate_card.columns
-            new_cols = ['level']
 
-            # First col name is cleaned manually above (has to be renamed not transformed like others)
-            for col_name in old_cols[1:]:
-                # clean col names
-                new_col_name = col_name.replace('\r', ' ').replace(' ','_').lower()
-                new_cols.append(new_col_name)
-                df_rate_card[col_name] = df_rate_card[col_name].apply(lambda x: str(x).replace('£', '').replace(',',''))
+        old_cols = df_rate_card.columns
+        new_cols = ['level']
 
-            # Map old to new to use in rename cols method
-            cols_dict = {old : new for old, new in zip(old_cols,new_cols)}
-            
-            # Rename columns to cleaned names
-            df_rate_card = df_rate_card.rename(columns=cols_dict)
-            # Some columns have been incorrectly named so rename these to the common standard
-            if new_cols == list(cols_mapping.keys()):
-                df_rate_card = df_rate_card.rename(columns=cols_mapping)
+        # First col name is cleaned manually above (has to be renamed not transformed like others)
+        for col_name in old_cols[1:]:
+            # clean col names
+            new_col_name = col_name.replace('\r', ' ').replace(' ','_').lower()
+            new_cols.append(new_col_name)
+            df_rate_card[col_name] = df_rate_card[col_name].apply(lambda x: str(x).replace('£', '').replace(',',''))
+
+        # Map old to new to use in rename cols method
+        cols_dict = {old : new for old, new in zip(old_cols,new_cols)}
+        
+        # Rename columns to cleaned names
+        df_rate_card = df_rate_card.rename(columns=cols_dict)
+        # Some columns have been incorrectly named so rename these to the common standard
+        if new_cols == list(cols_mapping.keys()):
+            df_rate_card = df_rate_card.rename(columns=cols_mapping)          
 
 
         return df_rate_card, new_cols
@@ -310,7 +324,7 @@ class RateCardProcessor:
         return df_rate_card
     
 
-    def concat_all_dfs(self, clean_rate_cards_dict) -> pd.DataFrame:
+    def concat_all_dfs(self, cleaned_rate_card_dict = None) -> pd.DataFrame:
         '''Intake a dict where the values are a list of dfs. Unravel these and concatenate them together
         
         :Params:
@@ -319,9 +333,9 @@ class RateCardProcessor:
         :Returns:
             pd.DataFrame: concatenated rate cards
         '''
-
+        
         list_of_final_rate_card_dfs = [] 
-        for df_list in list(clean_rate_cards_dict.values()):
+        for df_list in list(cleaned_rate_card_dict.values()):
             for df_rate_card in df_list:
                 list_of_final_rate_card_dfs.append(df_rate_card)
 
@@ -345,7 +359,7 @@ class RateCardProcessor:
         # Clean and assign df_final (1 price)
         df_concat[cols_with_prices] = df_concat[~mask_not_digit_string][cols_with_prices].map(lambda x: x.replace('-', 'N/A'))
         self.df_final1 = df_concat
-        self.df_final1 = self.df_final1[cols_with_prices].fillna('N/A')
+        self.df_final1[cols_with_prices] = self.df_final1[cols_with_prices].fillna('N/A')
         
         # Filter to obtain cells with a hyphen (price range)
         mask_price_range = df['strategy_and_architecture'].map(lambda x: '-' in x)

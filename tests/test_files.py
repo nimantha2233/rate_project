@@ -42,10 +42,9 @@ def data_processor():
     '''
     # Setup fixture to instantiate DataProcessor with sample data
     process_rate_cards = dataprocessing.RateCardProcessor()
-
     process_rate_cards.proccess_rate_cards()
-    df_concat = process_rate_cards.concat_all_dfs(clean_rate_cards_dict=process_rate_cards.cleaned_rate_card_dict)
-    process_rate_cards.separate_and_clean_unique_rate_cards(df_concat=df_concat)
+    # df_concat = process_rate_cards.concat_all_dfs(clean_rate_cards_dict=process_rate_cards.cleaned_rate_card_dict)
+    # process_rate_cards.separate_and_clean_unique_rate_cards(df_concat=df_concat)
     return process_rate_cards
 
 

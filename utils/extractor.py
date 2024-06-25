@@ -256,7 +256,7 @@ class RateCardHandler:
                                                      ).text.strip()
 
             # Check if service doc is a rate card
-            if service_doc_name =='Skills Framework for the Information Age rate card':
+            if service_doc_name == 'Skills Framework for the Information Age rate card':
                 # Assign ratecard element to service attribute
                 self.__ratecard_element = service_doc.select_one(
                                            'p[class="dm-attachment__title govuk-!-font-size-16"] > a'

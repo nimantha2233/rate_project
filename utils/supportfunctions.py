@@ -8,7 +8,7 @@ import os
 import hashlib
 import pandas as pd
 import threading
-
+from collections import defaultdict
 # Create a lock object
 write_lock = threading.Lock()
 
@@ -62,6 +62,7 @@ class WriteToCSV:
 
 
 class RateCardDirectoryCleaner: 
+
     def __init__(self,filepath : str = os.path.join(
             current_dir,'database', 'bronze', 'company_rate_cards')):
         
@@ -91,6 +92,8 @@ class RateCardDirectoryCleaner:
         """
         file_hashes = {}
         duplicates = []
+        pdf_duplicate_dict = {}
+        filename_to_hash_dict_dict = {}
 
         for pdf_directory, _, files in os.walk(self.filepath):
             for filename in files:
@@ -99,11 +102,19 @@ class RateCardDirectoryCleaner:
                     print(file_path_to_pdf)
                     print(type(file_path_to_pdf))
                     file_hash = self.hash_file()
+                    # Map the file hash to the filename
+                    filename_to_hash_dict_dict[filename] = file_hash
 
                     if file_hash in file_hashes:
                         duplicates.append(file_path_to_pdf)
+                        # Get filename of first instance of 
+                        original_pdf_filename = filename_to_hash_dict_dict[file_hash]
+                        pdf_duplicate_dict[original_pdf_filename].append(filename)
                     else:
+                        # this filename will be kept in the dir
                         file_hashes[file_hash] = file_path_to_pdf
+                        pdf_duplicate_dict[filename] = []
+
         # Removing duplicates
         for duplicate in duplicates:
             print(f"Removing duplicate file: {duplicate}")
