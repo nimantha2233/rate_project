@@ -125,10 +125,19 @@ class DataProcessor:
 
         return df_dict
 
-    def clean_dfs(self, dict_of_dfs):
-        '''Remove unncessary rows etc to produce final DFs for Output to xlsx files
+    def clean_dfs(self, dict_of_dfs : dict) -> dict:
+        '''Remove unncessary rows etc to produce final DFs.
+
+        NOTE: The dicts in the params and returns are both nested dicts (same dimension).
+
+        :Params:
+            dict_of_dfs (dict): Dict containg unclean DataFrames.
+
+        :Returns:
+            dict_of_dfs (dict): Dict containing clean DataFrames.
+
         
-        NOTE: Unfinished -> Need to reassign the clean dfs into the dict.
+        
         '''
         # Values are dicts themselves
         for price_type, df_dict in list(dict_of_dfs.items()):
@@ -334,7 +343,9 @@ class RateCardProcessor:
             df_rate_card (pd.DataFrame): cleaned dataframe
         '''
         # Create separate first col in two with one have level name and other has level id
-        df_rate_card['level_name'] = df_rate_card[new_cols[0]].apply(lambda x: x[2:].replace('\r', ' '))
+        df_rate_card['level_name'] = df_rate_card[new_cols[0]].apply(lambda x: x[2:]\
+                                                              .replace('\r', ' ').replace('.','').strip())
+        
         df_rate_card[new_cols[0]] = df_rate_card[new_cols[0]].apply(lambda x: x[0])
         # Add new col where val is the id of the rate card
         df_rate_card['rate_card_id'] = rate_card_id                
@@ -382,10 +393,7 @@ class RateCardProcessor:
         # Filter to obtain cells with a hyphen (price range)
         mask_price_range = df['strategy_and_architecture'].map(lambda x: '-' in x)
         df_price_range_rate_card = df[mask_price_range].reset_index(drop = True)
-        # Split the price range into a 2 element list [min, max]
-        # df_final = df_price_range_rate_card[cols_with_prices].map(lambda x: x.split('-') if '-' in x else x)
 
-        # df_price_range_rate_card[cols_with_prices].map(lambda x: x.split('-') if '-' in x else x)
         for col in cols_with_prices:
             # Iterate thorugh list elements
             for i in range(1,3):
@@ -400,3 +408,25 @@ class RateCardProcessor:
         self.df_final2_price_range = df_final
 
         return df_final
+
+
+
+class CombineRates:
+    """Combine rates data output by the DataProcessor and RateCardProcessor classes"""
+
+    def __init__(self):
+        """_summary_
+        """            
+        pass
+
+    def get_rates_data(self):
+        """_summary_
+        """        
+        latest_scrape_filepath = sf.get_filepath('database', 'bronze', 'company_service_rates', 'company_info_last_run.csv')
+        process_data = DataProcessor(filepath=latest_scrape_filepath)
+        process_data.clean_cost_desc()
+        process_data.create_metadata_and_derived_cols()
+        df_dict = process_data.create_array_of_dfs()
+        dict_of_dfs = process_data.clean_dfs(dict_of_dfs=df_dict)
+
+        return dict_of_dfs, process_data.df
