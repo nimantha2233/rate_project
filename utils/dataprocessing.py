@@ -13,11 +13,13 @@ from time import time
 
 
 class DataProcessor:
-    '''Process data from scraping via reading csv file'''
+    '''Process data from scraping via reading csv file
+    '''
 
     def __init__(self, filepath : str):
         self.filepath = filepath
         self.df = pd.read_csv(filepath_or_buffer = filepath)
+        self.dict_of_rates = None
 
     def extract_numbers(self,lst : list) -> list:
         '''Extract numbers from an input list
@@ -83,20 +85,27 @@ class DataProcessor:
         col_2: df containing projects of a certain pricing scheme e.g. per unit/licence
 
         :Returns:
-            df_dict (dict): dict where entries based on whether the row is contains a cost that is a price range or a single price.                                         
+            df_dict (dict): A nested dict to store dataframe for easy accessibility
+
+                            {  
+                                'cost_type_1' : {'dataframe desc' : pd.DataFrame}  
+                                , 'cost_type_2' : {'dataframe desc' : pd.DataFrame}  
+                            }
+
+        NOTE: Improve the data structure to be a nested dict.                                      
         '''
 
-        df_dict = defaultdict(list)
+        df_dict = defaultdict(dict)
         # The number of numbers in price description
         nums_in_cost_cnt_dict = dict(self.df['num_of_nums_in_cost'].value_counts())
 
         # Filter For each type of pricing (1 number in desc, 2 nums, 3 nums etc) 
         for num_cnt in list(nums_in_cost_cnt_dict.keys()):
             # Filter for only number of numbers in price desc == num_cnt
-            df_num_cnt_filter = self.df[self.df['num_of_nums_in_cost'] == num_cnt]
+            df_num_cnt_filter = self.df.loc[self.df['num_of_nums_in_cost'] == num_cnt]
             # Reset idx and keep old idx vals incase of comparison
-            df_num_cnt_filter.reset_index(inplace=True)
-            df_num_cnt_filter.rename(inplace = True, columns = {'index' : 'original_idx'})
+            df_num_cnt_filter = df_num_cnt_filter.reset_index()
+            df_num_cnt_filter = df_num_cnt_filter.rename( columns = {'index' : 'original_idx'})
 
             num_words_in_desc_dict = df_num_cnt_filter['cost_split'].apply(lambda x: len(x[num_cnt:])).value_counts()
             
@@ -109,21 +118,30 @@ class DataProcessor:
 
                 for price_type in list(price_type_dict.keys()):
                     mask_single_price_type = df_num_cnt_filter[word_cnt_mask]['cost_split'].apply(lambda x: x[num_cnt]) == price_type
-                    df_dict['cost_type_' + str(num_cnt)].append(['price_type_' + price_type, df_num_cnt_filter[word_cnt_mask][mask_single_price_type]])        
+                    filtered_df = df_num_cnt_filter[word_cnt_mask][mask_single_price_type]
+
+                    df_dict['cost_type_' + str(num_cnt)]['price_type_' + price_type] = filtered_df
+                    # df_dict['cost_type_' + str(num_cnt)].append(['price_type_' + price_type, df_num_cnt_filter[word_cnt_mask][mask_single_price_type]])        
 
         return df_dict
 
-    def clean_dfs(self, dict_array_of_dfs):
+    def clean_dfs(self, dict_of_dfs):
         '''Remove unncessary rows etc to produce final DFs for Output to xlsx files
         
         NOTE: Unfinished -> Need to reassign the clean dfs into the dict.
         '''
-        for df_array in list(dict_array_of_dfs.values()):
-            for list_element in df_array:
-                df = list_element[1]
+        # Values are dicts themselves
+        for price_type, df_dict in list(dict_of_dfs.items()):
+            # Iterate through dfs and reassign transformed df to same k-v pair
+            for df_name, df in df_dict.items():
+                # Cols were only used during formation of dict of dfs
                 df_clean = df.drop(columns=['original_idx', 'cost_split', 'cost_len', 'cost_numbers', 'num_of_nums_in_cost'])
-                # display(df_clean.iloc[0:5])
-        return 0
+                dict_of_dfs[price_type][df_name] = df_clean
+        
+        # Assign final dict to class attribute
+        self.dict_of_rates = dict_of_dfs
+
+        return dict_of_dfs
     
 
 

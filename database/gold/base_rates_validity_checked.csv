@@ -1,0 +1,37 @@
+,company,base,validity,valid_price,comment
+0,Testhouse Ltd,140,n,400,140 is offshore
+1,Ernst & Young LLP (EY),200,n,400,"200 is offshore, rate card found in pricing document"
+2,Equal Experts UK Limited,250,n,600,"250 not seen on SFIA card, no follow offering, lowest is level 3 (Apply) for development and implementation"
+3,Sparta Global Limited (formerly Testing Circle Limited),250,y,250,range given 250-325
+4,Capita Business Services Limited,267,y,267,other categories priced higher
+5,Ten10 Solutions Limited,285,y,285,range given 285-425
+6,FDM GROUP,290,y,290,
+7,CGI,292,n,372,base is from wrong column in rate card
+8,KubrickGroup,350,y,350,
+9,BJSSLimited,350,y,350,
+10,KPMG LLP,360,y,360,
+11,Infosys Limited,369,y,369,"have many different rate cards, prices slightly vary"
+12,CREDERA LIMITED,375,y,375,rate card found in pricing document
+13,Cognizant Worldwide Limited,400,y,400,
+14,Alchemmy Consulting Ltd,590,y,590,
+15,PROJECTIVEGROUPUKLIMITED,450,y,450,
+16,Mosaic Island,450,y,450,range given 450 -550
+17,Clarasys Limited,450,y,450,price dependent on contract length
+18,PricewaterhouseCoopers (LLP) PwC,450,y,450,"base dependent on service, 650 day rate more common"
+19,Baringa Partners,465,n,975,"465 is offshore, rate card found in pricing document"
+20,North Highland,495,y,495,
+21,Adatis,495,y,495,
+22,NorthHighland,495,y,495,
+23,Mason Advisory Limited,500,n,595,wrong category
+24,PROJECTONECONSULTINGLIMITED,500,y,500,
+25,The Public Service Consultants (trading as The PSC),500,y,500,rate card has N/A for follow but site lists range min as 500
+26,Thoughtworks Limited,525,y,525,
+27,Wavestone Advisors UK Limited,550,y,550,
+28,InfosysLimited,567,y,567,
+29,Slalom Consulting,636,y,636,
+30,Capgemini UK plc,650,n,312,"offshore also available, webpage site does not give range and rate card cant be read in python"
+31,KainosSoftwareLtd,695,y,695,
+32,Softwire Technology Limited,750,y,750,no price for follow
+33,Eden McCallum LLP,850,y,850,
+34,The Berkeley Partnership,1000,y,1000,
+35,IQVIA LTD.,1200,y,1200,
