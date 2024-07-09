@@ -162,3 +162,50 @@ def get_filepath(*args) -> str:
     return resultant_path
 
 
+
+def hash_file(file_path):
+    """Generate SHA-256 hash of the file."""
+    hasher = hashlib.sha256()
+    with open(file_path, 'rb') as f:
+        buf = f.read()
+        hasher.update(buf)
+    return hasher.hexdigest()
+
+def find_and_remove_duplicates(folder_path : str) -> dict:
+    """Find and remove duplicate files in the given folder. Delete duplicate files and 
+    return a dict mapping the rate card ids of the removed files to the dupe file we keep.
+    
+    :Params:
+        folder_path (str): Path to directory containing pdf rate cards (duplicate files)
+
+    :Returns:
+        N/A: Removes duplicate rate cards from directory
+    """
+
+    file_hashes = {}
+    duplicates = []
+    duplicate_dict = {}
+
+    
+
+    for pdf_directory, _, files in os.walk(folder_path):
+        for filename in files:
+            if filename.lower().endswith('.pdf'):
+                file_path = os.path.join(pdf_directory, filename)
+                file_hash = hash_file(file_path)
+                # Get filename of first instance of this hash
+
+                if file_hash in file_hashes:
+                    dupe_file_to_keep = file_hashes[file_hash].split('\\')[-1]
+                    # Map the duplicate filename to the filename (rate_card_id we're keeping)
+                    duplicate_dict[filename] = dupe_file_to_keep
+                    duplicates.append(file_path)
+                else:
+                    file_hashes[file_hash] = file_path
+                    duplicate_dict[filename] = filename
+
+    # Removing duplicates
+    for duplicate in duplicates:
+        os.remove(duplicate)
+
+    return (duplicate_dict, duplicates)

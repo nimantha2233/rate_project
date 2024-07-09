@@ -1,0 +1,43 @@
+site_name: Kubrick Competitor Profiling (Consultant Rates)
+nav:
+  - Home: index.md
+  - Overview: 
+    - Introduction: overview_intro.md
+    - Data Sources: data_sources.md
+
+  - Planned Features : future_work.md
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: indigo
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: indigo
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - search.highlight
+    - content.code.annotate
+    - palette.toggle
+
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
