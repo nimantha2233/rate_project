@@ -1,21 +1,21 @@
 ,company_name,num_rate_cards
-0,AND Digital Limited,
-1,Wipro Limited,
-2,Dufrain,
-3,Fjord Consulting Group,
+0,Fjord Consulting Group,
+1,Dufrain,
+2,Wipro Limited,
+3,AND Digital Limited,
 4,Mesh AI,
 5,Infinite Lambda,
-6,Sparta Global,1.0
+6,Sparta Global,2.0
 7,Cambridge Consultants Limited,
-8,Capco Limited,
-9,FDM Group,1.0
+8,FDM Group,1.0
+9,Capco Limited,
 10,Ten10,1.0
-11,BetterGov,3.0
+11,BetterGov,4.0
 12,Kubrick Group,1.0
 13,11:FS,
 14,a1qa,
 15,Accenture PLC,
-16,IQVIA LTD.,5.0
+16,IQVIA LTD.,6.0
 17,Afiniti,
 18,Airwalk Reply,
 19,Credera,
@@ -26,8 +26,8 @@
 24,Atos SE,
 25,Avanade Inc.,
 26,Bain %26 Company,
-27,Slalom,1.0
-28,Adatis,1.0
+27,Adatis,1.0
+28,Slalom,1.0
 29,Billigence,
 30,Blueberry Consultants Ltd.,
 31,Booz Allen Hamilton Holding Corp,
@@ -37,22 +37,22 @@
 35,Canon Inc.,
 36,Boston Consulting Group,
 37,Centric Consulting,
-38,Infosys Limited,11.0
-39,Baringa,
-40,CIGNITI Technologies Ltd,
+38,Baringa,
+39,CIGNITI Technologies Ltd,
+40,Infosys Limited,20.0
 41,Cognifide,
 42,Contino Ltd.,
 43,Credo Consulting,
 44,Clarasys,1.0
 45,Designit,
-46,Capita,2.0
-47,Digital Workplace Group,
-48,Eclature Technologies,
-49,Tata Consultancy Services Limited,8.0
+46,Digital Workplace Group,
+47,Capita,3.0
+48,Tata Consultancy Services Limited,9.0
+49,Eclature Technologies,
 50,DXC Technology,
 51,Edge Testing Solutions,
-52,Elixirr International Plc,
-53,Eden McCallum,
+52,Eden McCallum,1.0
+53,Elixirr International Plc,
 54,EPAM Systems Inc,
 55,Faculty AI,
 56,Frog Design,
@@ -78,15 +78,15 @@
 76,Lovelytics,
 77,Lunar,
 78,Made Tech Group Plc,
-79,Equal Experts,2.0
-80,McKinsey,
-81,METRICSTREAM INC,
-82,MindTree Ltd,
-83,Mason Advisory,1.0
+79,Equal Experts,3.0
+80,Mason Advisory,1.0
+81,McKinsey,
+82,METRICSTREAM INC,
+83,MindTree Ltd,
 84,Mphasis Ltd,
 85,mthree,
-86,Neoris,
-87,Kainos,1.0
+86,Kainos,2.0
+87,Neoris,
 88,NexInfo,
 89,OC%26C Strategy Consultants,
 90,Oliver Wyman,
@@ -99,37 +99,37 @@
 97,PPD Inc,
 98,PRA Health Sciences Inc,
 99,Mosaic Island,9.0
-100,EY,2.0
-101,Project One,1.0
-102,Prolifics Inc,
+100,Project One,1.0
+101,Prolifics Inc,
+102,EY,2.0
 103,RICOH CO LTD,
 104,Roland Berger,
-105,Deloitte,
-106,SEIKO EPSON CORP,
-107,Simon Kutcher %26 Partners,
-108,SkillStorm,
+105,SEIKO EPSON CORP,
+106,Simon Kutcher %26 Partners,
+107,SkillStorm,
+108,Softwire,1.0
 109,Spring Studios,
-110,Strategy %26 London,
-111,Softwire,
-112,Switchfast Technologies,
-113,Sutherland,
+110,Deloitte,1.0
+111,Sutherland,
+112,Strategy %26 London,
+113,Switchfast Technologies,
 114,Syneos Health Inc,
 115,TAG Solutions,
-116,Terillium,
-117,Tech Mahindra Ltd,
+116,Tech Mahindra Ltd,
+117,Terillium,
 118,Testhouse Ltd,
-119,The Berkeley Partnership,
-120,The PSC,2.0
-121,Ultimus Fund Solutions,
-122,Verisk Analytics Inc,
-123,Capgemini UK plc,5.0
-124,KPMG,3.0
-125,Xerox Corp,
-126,ZS,
-127,North Highland,1.0
+119,North Highland,1.0
+120,Capgemini UK plc,6.0
+121,KPMG,3.0
+122,The Berkeley Partnership,
+123,The PSC,2.0
+124,Verisk Analytics Inc,
+125,Ultimus Fund Solutions,
+126,Xerox Corp,
+127,ZS,
 128,Thoughtworks,1.0
 129,Wavestone,2.0
 130,Zoonou,1.0
-131,Cognizant Worldwide Limited,14.0
+131,Cognizant Worldwide Limited,15.0
 132,PwC,
-133,Projective,
+133,Projective,1.0

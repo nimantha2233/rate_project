@@ -62,10 +62,10 @@ def main():
                 print(f"Error fetching data for {company}: {e}")
 
 
-    # If new pdfs were added log this.
-    for company, count in company_new_pdfs.items():
-        if count != 0:
-            logging.info(f'New PDFs added for {company}: {count}')
+    # # If new pdfs were added log this.
+    # for company, count in company_new_pdfs.items():
+    #     if count != 0:
+    #         logging.info(f'New PDFs added for {company}: {count}')
 
     company_names = list(company_rate_card_dict.keys())
     num_rate_cards = list(company_rate_card_dict.values())
@@ -91,8 +91,14 @@ def main():
 
     pdf_path = os.path.join(
             current_dir,'database', 'bronze', 'company_rate_cards')
-    find_and_remove_duplicates(folder_path=pdf_path)
+    
+    # Remove duplicated pdf files
+    folder_path = sf.get_filepath('database', 'bronze', 'company_rate_cards')
+    duplicate_dict, duplicates = find_and_remove_duplicates(folder_path=folder_path)
+    rename_duplicate_rate_card_ids(duplicate_dict=duplicate_dict)
+    
     return 0
+
 
 def scrape_company(company_name : str, writer : sf.WriteToCSV):
         '''Scraper logic for individual company'''
@@ -122,8 +128,12 @@ def hash_file(file_path):
         hasher.update(buf)
     return hasher.hexdigest()
 
-def find_and_remove_duplicates(folder_path) -> None:
-    """Find and remove duplicate files in the given folder.
+
+
+
+def find_and_remove_duplicates(folder_path : str) -> dict:
+    """Find and remove duplicate files in the given folder. Delete duplicate files and 
+    return a dict mapping the rate card ids of the removed files to the dupe file we keep.
     
     :Params:
         folder_path (str): Path to directory containing pdf rate cards (duplicate files)
@@ -131,22 +141,78 @@ def find_and_remove_duplicates(folder_path) -> None:
     :Returns:
         N/A: Removes duplicate rate cards from directory
     """
+
     file_hashes = {}
     duplicates = []
+    duplicate_dict = {}
+
+    
 
     for pdf_directory, _, files in os.walk(folder_path):
         for filename in files:
             if filename.lower().endswith('.pdf'):
                 file_path = os.path.join(pdf_directory, filename)
                 file_hash = hash_file(file_path)
+                # Get filename of first instance of this hash
 
                 if file_hash in file_hashes:
+                    dupe_file_to_keep = file_hashes[file_hash].split('\\')[-1]
+                    # Map the duplicate filename to the filename (rate_card_id we're keeping)
+                    duplicate_dict[filename] = dupe_file_to_keep
                     duplicates.append(file_path)
                 else:
                     file_hashes[file_hash] = file_path
+                    duplicate_dict[filename] = filename
+
     # Removing duplicates
     for duplicate in duplicates:
         os.remove(duplicate)
+
+    return (duplicate_dict, duplicates)
+
+
+def rename_duplicate_rate_card_ids(duplicate_dict : dict):
+    ''''''
+    transformed_df_filepath = sf.get_filepath('database', 'silver', 'company_services_transfomed_rates.csv')
+    
+    price_scrape_data_filepath = sf.get_filepath('database', 'bronze', 'company_service_rates','company_info_last_run.csv')
+    df_raw = pd.read_csv(price_scrape_data_filepath)
+
+    def get_new_rate_card_id(rate_card_id, duplicate_dict = dict) -> str:
+        if isinstance(rate_card_id,str):
+            return duplicate_dict[rate_card_id]
+        else:
+            return rate_card_id
+        
+    df_raw['rate_card_id'] = df_raw['rate_card_id'].apply(get_new_rate_card_id, duplicate_dict=duplicate_dict)
+    
+    df_raw.to_csv(transformed_df_filepath)
+
+# def find_and_remove_duplicates(folder_path) -> None:
+#     """Find and remove duplicate files in the given folder.
+    
+#     :Params:
+#         folder_path (str): Path to directory containing pdf rate cards (duplicate files)
+
+#     :Returns:
+#         N/A: Removes duplicate rate cards from directory
+#     """
+#     file_hashes = {}
+#     duplicates = []
+
+#     for pdf_directory, _, files in os.walk(folder_path):
+#         for filename in files:
+#             if filename.lower().endswith('.pdf'):
+#                 file_path = os.path.join(pdf_directory, filename)
+#                 file_hash = hash_file(file_path)
+
+#                 if file_hash in file_hashes:
+#                     duplicates.append(file_path)
+#                 else:
+#                     file_hashes[file_hash] = file_path
+#     # Removing duplicates
+#     for duplicate in duplicates:
+#         os.remove(duplicate)
 
 
 

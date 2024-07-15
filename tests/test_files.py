@@ -1,8 +1,19 @@
+"""
+Tests produced in this file.
+
+NOTE to users: Due to extraction of tables from pdfs using tabula, there may be 
+               a lot of activity in the cmd whhen pytest initiated, this couldnt
+               be minimised but also it isn't an issue
+
+NOTE TO SELF: run in cmd using 'py -m pytest'
+"""
+
+
 import pytest
 import pandas as pd
 import os
 
-from utils import dataprocessing
+from ..utils import dataprocessing
 
 def test_service_csv_has_no_na():
     '''Test to ensure that there are no rows with NA values in the CSV file.
@@ -42,10 +53,8 @@ def data_processor():
     '''
     # Setup fixture to instantiate DataProcessor with sample data
     process_rate_cards = dataprocessing.RateCardProcessor()
-
     process_rate_cards.proccess_rate_cards()
-    df_concat = process_rate_cards.concat_all_dfs(clean_rate_cards_dict=process_rate_cards.cleaned_rate_card_dict)
-    process_rate_cards.separate_and_clean_unique_rate_cards(df_concat=df_concat)
+
     return process_rate_cards
 
 
@@ -97,7 +106,21 @@ def test_str_types_in_df(data_processor):
     assert list_of_unique_strs_prices == ['Number', 'N/A']
 
 
+@pytest.mark.rate_cards
+def test_for_column_values(data_processor):
+    """Test column values are expected after the data cleaning process.
 
+    :Params:
+        data_processor (dataprocessing.DataProcessor): data_processor 
+        object instantiated in fixture
+    """
+    output_unique_vals = data_processor.df_final1['level_name'].unique().tolist()
+    # Expected unique values following cleaning process
+    expected_unique_vals = ['Follow','Assist','Apply','Enable','Ensure or advise'
+                ,'Initiate or influence','Set strategy or inspire']
+    
+    # If True then all cols are as expected
+    assert output_unique_vals == expected_unique_vals
 
 
 def detect_new_column_names(clean_rate_cards_dict : dict) -> dict:
