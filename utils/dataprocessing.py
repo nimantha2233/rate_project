@@ -165,6 +165,7 @@ class RateCardProcessor:
         self.df_final1 = None
         self.df_final2_price_range = None
         self.cleaned_rate_card_dict = None
+        self.cleaned_and_enriched_rate_card_dict = None
 
 
     def proccess_rate_cards(self) -> pd.DataFrame:
@@ -185,6 +186,12 @@ class RateCardProcessor:
         print('Cleaning rate card dfs...')
         cleaned_rate_card_dict = self.clean_rate_card_dfs(rate_cards_dict)
         self.cleaned_rate_card_dict = cleaned_rate_card_dict 
+        # Add new attribute (column) to data
+        cleaned_and_enriched_rate_card_dict = self.onshore_offshore_enrichment(
+                                                            cleaned_rate_card_dict=cleaned_rate_card_dict
+                                                                                   )
+        self.cleaned_and_enriched_rate_card_dict = cleaned_and_enriched_rate_card_dict
+        # concatenate all dfs together
         df_concat = self.concat_all_dfs(cleaned_rate_card_dict=cleaned_rate_card_dict)
         self.separate_and_clean_unique_rate_cards(df_concat=df_concat)
 
@@ -286,8 +293,7 @@ class RateCardProcessor:
                 transformed_rate_cards_dict[rate_card_id].append(df_rate_card_final)
                 
         return transformed_rate_cards_dict
-
-
+    
     def rename_columns(self, df_rate_card):
         '''For rate card dfs from a single pdf clean and standardise column names.
         
@@ -296,6 +302,7 @@ class RateCardProcessor:
         
         :Returns:
             df_rate_card (pd.DataFrame): column names have been cleaned and standardise
+            new_cols (list[str]): new_cols to use when referencing cols in other methods
         '''
         # Some rate cards dont use the correct SFIA categorys 
         # (for some reason they use categories) and The below mapping will correct this
@@ -307,7 +314,7 @@ class RateCardProcessor:
             ,'procurement_and_management_support' : 'people_and_skills'
             ,'client_interface' : 'relationships_and_engagement'
                         }
-
+    
         old_cols = df_rate_card.columns
         new_cols = ['level']
 
@@ -352,6 +359,94 @@ class RateCardProcessor:
 
         return df_rate_card
     
+    def onshore_offshore_enrichment(self, cleaned_rate_card_dict : dict[list[pd.DataFrame]]) -> dict[list[pd.DataFrame]]:
+        """Enriches rate card dfs by assigning onshore/offshore to each df via a new column. 
+
+        Arguments:
+            cleaned_rate_card_dict (Dict): Dict of the form {rate card ID : list of rate card dfs}
+
+        Returns:
+            cleaned_and_enriched_rate_card_dict (Dict): same dict as before but each df has new column.
+        """
+        cleaned_and_enriched_rate_card_dict = {}
+        # levels = ['Apply', 'Assist', 'Enable', 'Ensure or advise', 'Follow', 'Initiate or influence']
+        for rate_card_id, l_rate_card_dfs in cleaned_rate_card_dict.items():
+            if len(l_rate_card_dfs) > 1:
+                df1 = l_rate_card_dfs[0]
+                df2 = l_rate_card_dfs[1]
+
+                df1_price_for_comparison, df2_price_for_comparison = self.onshore_offshore_helper(df1=df1, df2=df2)
+
+                # first rate card has higher day rate for same sfia level
+                if df1_price_for_comparison > df2_price_for_comparison:
+                    df1['on_off_shore'] = 'onshore'
+                    df2['on_off_shore'] = 'offshore'
+                # Second rate card has higher day rate for same sfia level
+                else:
+                    df1['on_off_shore'] = 'offshore'
+                    df2['on_off_shore'] = 'onshore'
+
+                l_rate_card_dfs = [df1, df2]
+                
+            # Only one rate card therefore must be onshore
+            else:
+                df = l_rate_card_dfs[0]
+                df['on_off_shore'] = 'onshore'
+                l_rate_card_dfs = [df]
+
+            # Place newly enriched dfs into dict
+            cleaned_and_enriched_rate_card_dict[rate_card_id] = l_rate_card_dfs
+            
+        return cleaned_and_enriched_rate_card_dict
+
+    def onshore_offshore_helper(self, df1 : pd.DataFrame, df2 : pd.DataFrame) -> tuple[int]:
+        """ Takes two rate cards from a single pdf and outputs prices from each  
+        for the same SFIA category and level to determine which rate card is offshore.  
+
+        Intakes two DataFrames:  
+        
+        -> limits columns to show ['level_name', 'development_and_implementation']  
+        
+        -> converts string digits to integers  
+        
+        -> filters for only digit (integer) rows   
+        
+        -> merges both dfs to obtain for which levels both rate cards have numbers present  
+        
+        -> gets first common level for price comparison  
+        
+        -> makes price comparison and assigns onshore/offshore labels accordingly  
+
+            
+        Arguments:
+            df1 (pd.DataFrame) -- Input df of rate card data  
+
+            df2 (pd.DataFrame) -- Input df of rate card data
+
+        Returns:
+            df1_price_for_comparison (int): Day rate for comparison 
+
+            df2_price_for_comparison (int): Day rate for comparison
+        """
+        # Remove unused cols
+        df1 = df1.loc[:, ['level_name', 'development_and_implementation']]
+        df2 = df2.loc[:, ['level_name', 'development_and_implementation']]
+
+        # Masks/Filters to have only rows with a number (day-rate)
+        mask_digit_strings1 = df1['development_and_implementation'].apply(lambda x: x.isdigit() if x.isdigit() else x.isdigit())
+        mask_digit_strings2 = df2['development_and_implementation'].apply(lambda x: x.isdigit() if x.isdigit() else x.isdigit())
+
+        # find shared sfia levels to compare two day-rates against
+        day_rate_comparison_level = pd.merge(df1[mask_digit_strings1]['level_name'], df2[mask_digit_strings2]['level_name'], on='level_name').loc[0]['level_name']
+
+        # Get same category and level values to enable accurate comparison
+        df1_price_for_comparison = int(df1[df1['level_name'] == day_rate_comparison_level].iloc[0]['development_and_implementation'])
+        df2_price_for_comparison = int(df2[df2['level_name'] == day_rate_comparison_level].iloc[0]['development_and_implementation'])
+
+        return (df1_price_for_comparison, df2_price_for_comparison)
+
+
+    
 
     def concat_all_dfs(self, cleaned_rate_card_dict = None) -> pd.DataFrame:
         '''Intake a dict where the values are a list of dfs. Unravel these and concatenate them together
@@ -375,25 +470,39 @@ class RateCardProcessor:
         ''''''
         # cleaner func to clean cells in df
         def non_digit_cleaner(s):
-            return s.replace(['nan','NA', '-'], 'N/A')
+            # only put 'N/A' if cell doesnt have price range
+            if len(s) > 3:
+                return s.replace(['nan','NA', '-'], 'N/A')
+            else:
+                return s
+            
         # Quantitative columns
-        cols_with_prices = df_concat.columns[1:len(df_concat.columns)-2]
+        cols_with_prices = [
+                            'strategy_and_architecture', 'change_and_transformation', 'development_and_implementation'
+                            , 'delivery_and_operation', 'people_and_skills', 'relationships_and_engagement'
+                           ]
+        
         
         # Filter for cells which aren't pure digits (e.g. has a hypen)
         mask_not_digit_string = df_concat[cols_with_prices]['strategy_and_architecture'].apply(lambda x: not x.isdigit())
 
         # Remove decimal point and digits after it (2 digits) & replace cells without digits with 'N/A'
-        df = df_concat[mask_not_digit_string].map(lambda x: str(x[:len(x)-3]) if '.' in str(x) else x).apply(non_digit_cleaner)
-
-        # Clean and assign df_final (1 price)
-        df_concat[cols_with_prices] = df_concat[~mask_not_digit_string][cols_with_prices].map(lambda x: x.replace('-', 'N/A'))
-        self.df_final1 = df_concat
-        self.df_final1[cols_with_prices] = self.df_final1[cols_with_prices].fillna('N/A')
+        df_concat.loc[mask_not_digit_string] = df_concat[mask_not_digit_string].map(lambda x: str(x[:len(x)-3]) if '.' in str(x) else x).apply(non_digit_cleaner)
         
-        # Filter to obtain cells with a hyphen (price range)
-        mask_price_range = df['strategy_and_architecture'].map(lambda x: '-' in x)
-        df_price_range_rate_card = df[mask_price_range].reset_index(drop = True)
+        # Removed decimals above so these cells won't be included in below mask anymore
+        mask_not_digit_string = df_concat[cols_with_prices]['strategy_and_architecture'].apply(lambda x: not x.isdigit())
+        
+        # Separate dataframe for rate cards showing price range for each rate card
+        mask_price_range = df_concat['strategy_and_architecture'].map(lambda x: '-' in x and x[0].isdigit() and x[-1].isdigit())
+        df_price_range_rate_card = df_concat[mask_price_range].reset_index(drop = True)
 
+        self.df_final1 = df_concat.loc[~mask_price_range].reset_index(drop=True)
+        # Clean and assign df_final (1 price)
+        # df_concat.loc[:, cols_with_prices] = df_concat[~mask_not_digit_string][cols_with_prices].map(lambda x: x.replace('-', 'N/A'))
+        self.df_final1.loc[:, cols_with_prices] = self.df_final1[cols_with_prices].map(lambda x: x.replace('-', 'N/A'))
+        self.df_final1.loc[:, cols_with_prices] = self.df_final1[cols_with_prices].fillna('N/A')
+
+        # For rate cards showing a price range in each cell separate these into two new cols min and max
         for col in cols_with_prices:
             # Iterate thorugh list elements
             for i in range(1,3):

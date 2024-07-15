@@ -13,7 +13,7 @@ import pytest
 import pandas as pd
 import os
 
-from utils import dataprocessing
+from ..utils import dataprocessing
 
 def test_service_csv_has_no_na():
     '''Test to ensure that there are no rows with NA values in the CSV file.
