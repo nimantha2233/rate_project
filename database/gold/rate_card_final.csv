@@ -1,0 +1,74 @@
+,company,rate_card_id,on_off_shore,Follow,Assist,Apply,Enable,Ensure or advise,Initiate or influence,Set strategy or inspire,comment
+0,Adatis,0,onshore,495,890,990,1120,1250,1470,1595,
+1,Alchemmy Consulting Ltd,1,onshore,590,840,1080,1380,1760,1760,2420,
+2,BetterGov,2,onshore,245,345,420,545,670,720,895,not read in via python
+3,BJSS Limited,3,onshore,350,695,920,1100,1250,1400,1650,
+4,Capgemini UK plc,4,onshore,407,503,645,875,1031,1285,1616,
+5,Capgemini UK plc,4,offshore,71,134,180,254,313,480,574,
+6,Capita Business Services Limited,5,onshore,267,447,606,841,947,1107,1447,
+7,CGI,6,onshore,372,517,668,858,1140,1202,1498,not read in via python
+8,Credera Limited,N/A,onshore,375,640,855,1065,1340,1660,2195,pricing document
+9,Clarasys Limited,7,onshore,500,600,807,1045,1300,1525,1850,not read in via python
+10,Cognizant Worldwide Limited,8,onshore,400,500,600,700,850,1200,1700,not read in via python
+11,Cognizant Worldwide Limited,9,onshore,1008,1104,1184,1384,1544,1632,1856,not read in via python
+12,Cognizant Worldwide Limited,10,onshore,400,500,600,700,800,1200,1700,not read in via python
+13,Cognizant Worldwide Limited,11,onshore,600,800,1000,1200,1400,1700,2000,not read in via python
+14,Deloitte LLP,12,onshore,390,730,1080,1250,1740,2040,2200,not read in via python
+15,Eden McCallum LLP,13,onshore,950,1225,1650,2150,2750,3400,4350,not read in via python
+16,Equal Experts UK Limited,14,onshore,N/A,N/A,600,830,975,1275,1500,
+17,Equal Experts UK Limited,15,onshore,N/A,N/A,1000,1000,1000,1275,N/A,
+18,Ernst & Young LLP (EY),16,onshore,400,600,1000,1400,1800,2200,2600,not read in via python
+19,FDM Group,17,onshore,290,325,360,420,470,525,600,not read in via python
+20,Infosys Limited,18,offshore,205,205,234,289,351,351,466,
+21,Infosys Limited,18,onshore,487,487,488,502,586,586,810,
+22,Infosys Limited,19,offshore,152,167,189,203,254,276,314,
+23,Infosys Limited,19,onshore,519,519,519,586,732,832,999,
+24,Infosys Limited,20,offshore,142,142,160,213,242,297,360,
+25,Infosys Limited,20,onshore,369,369,502,507,508,490,609,
+26,Infosys Limited,21,offshore,197,197,197,197,211,253,268,
+27,Infosys Limited,21,onshore,512,512,512,512,563,614,672,
+28,Infosys Limited,22,offshore,194,194,202,214,261,290,315,
+29,Infosys Limited,22,onshore,513,513,513,640,689,813,995,
+30,Infosys Limited,23,offshore,202,202,202,214,261,290,342,
+31,Infosys Limited,23,onshore,513,513,513,640,689,813,1046,
+32,Infosys Limited,24,offshore,239,253,282,282,296,324,507,not read in during processing
+33,Infosys Limited,24,onshore,742,800,877,877,986,1082,1792,
+34,Infosys Limited,25,offshore,145,159,180,193,242,262,298,
+35,Infosys Limited,25,onshore,429,445,480,525,675,760,875,
+36,Infosys Limited,26,offshore,205,205,205,205,220,234,255,
+37,Infosys Limited,26,onshore,567,567,567,567,581,609,843,
+38,Infosys Limited,27,offshore,200,230,230,289,309,343,450,
+39,Infosys Limited,27,onshore,300,515,540,630,720,799,995,
+40,Infosys Limited,28,offshore,197,197,197,197,232,278,294,
+41,Infosys Limited,28,onshore,538,538,538,538,591,645,705,
+42,Infosys Limited,29,offshore,200,230,230,289,309,343,450,
+43,Infosys Limited,29,onshore,300,515,540,630,720,792,880,
+44,Infosys Limited,30,offshore,184,205,231,256,307,359,461,
+45,Infosys Limited,30,onshore,457,482,507,558,660,792,914,
+46,Infosys Limited,31,offshore,157,157,157,186,213,324,432,
+47,Infosys Limited,31,onshore,500,500,500,518,548,601,833,
+48,Infosys Limited,32,offshore,110,118,135,172,214,254,324,
+49,Infosys Limited,32,onshore,323,371,511,516,537,600,625,
+50,IQVIA LTD,33,onshore,1200,1200,1200,1200,1200,1500,1500,not read in via python
+51,Kainos Software Ltd,34,onshore,690,748,799,924,1058,1430,1610,
+52,Kainos Software Ltd,35,onshore,695,825,995,1140,1345,1545,1740,
+53,KPMG LLP,36,onshore,360,890,1100,1450,1920,2145,2550,not read in via python
+54,KPMG LLP,37,onshore,360,890,1100,1450,1920,2145,2550,not read in via python
+55,Kubrick Group,38,onshore,350,350,390,465,800,995,1350,
+56,Mason Advisory Limited,39,onshore,595,775,985,1175,1300,1450,1575,not read in via python
+57,Mosaic Island,40,onshore,500,650,800,950,1070,1250,1500,
+58,North Highland,41,onshore,495,690,880,1170,1490,1860,2250,
+59,PricewaterhouseCoopers (LLP) PwC,N/A,onshore,650,995,1345,1630,1850,2100,2450,pricing document
+60,PROJECTIVE GROUP UK LIMITED,42,onshore,450,600,770,950,1050,1300,1500,
+61,PROJECT ONE CONSULTING LIMITED,43,onshore,500,700,950,1250,1500,1700,2100,
+62,Slalom Consulting,44,onshore,636,793,1028,1224,1449,1664,1860,not read in via python
+63,Softwire Technology Limited,45,onshore,N/A,750,850,1100,1250,1500,1750,not read in via python
+64,Sparta Global Limited,46,onshore,288,300,400,525,675,850,1000,not read in via python
+65,Sparta Global Limited,47,onshore,300,313,400,525,675,850,1000,not read in via python
+66,Tata Consultancy Services Limited,48,onshore,460,590,810,925,995,1175,1350,not read in via python
+67,Tata Consultancy Services Limited,48,offshore,127,140,229,239,340,426,748,not read in via python
+68,Ten10 Solutions Limited,49,onshore,355,385,520,615,720,800,1005,not read in via python
+69,The Public Service Consultants,50,onshore,N/A,880,1000,1250,1500,2250,2850,not read in via python
+70,Thought works Limited,51,onshore,525,660,790,995,1250,1590,1925,
+71,Wavestone Advisors UK Limited,52,onshore,550,775,1050,1275,1550,1700,1950,
+72,Zoonou Limited,53,onshore,420,420,550,600,700,750,1200,not read in via python
