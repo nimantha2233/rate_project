@@ -10,7 +10,7 @@ class ComputeStats:
     
     # TODO: In docs describe in more detail about deisions made in the code.
     """
-
+    # TODO: Too many attributes possibly?
     def __init__(self, l_day_rates : list[float]) -> None:
         
         self.l_day_rates = l_day_rates
@@ -20,6 +20,8 @@ class ComputeStats:
         self.min_day_rate = None
         self.max_day_rate = None
         self.num_bins = None
+        self.percentages = None
+        self.bins_centred = None
         self.bins = None
         self.counts = None
 
@@ -27,6 +29,8 @@ class ComputeStats:
         self.min_base_mc = None
         self.max_base_mc = None
         self.num_bins_mc = None
+        self.mc_percentages = None
+        self.mc_bins_centred = None
         self.mc_bins = None
         self.mc_counts = None
         
@@ -36,6 +40,13 @@ class ComputeStats:
         self.kubrick_rate_dict = {
                                     'min' : 350
                                     ,'max' : 1350
+                                    , 'Follow' : 350
+                                    , 'Assist' : 350
+                                    , 'Apply' : 390
+                                    , 'Enable' : 465
+                                    , 'Ensure or advise' : 800
+                                    , 'Initiate or influence' : 995
+                                    , 'Set strategy or inspire' : 1350
                                  }
         
         self.kubrick_rate_dict['delta'] = self.kubrick_rate_dict['max'] - self.kubrick_rate_dict['min']
@@ -47,7 +58,8 @@ class ComputeStats:
         self.compute_desc_stats()
         self.plot_histogram(title=title, rate_type=rate_type)
         self.monte_carlo()
-        self.plot_mc_data(title=title)
+        self.plot_mc_data(title=title, rate_type=rate_type)
+        # self.plot_both_distributions_together(title=title, rate_type=rate_type)
 
     def compute_desc_stats(self):
         """Compute descriptive stats to plot visuals and prepare data for MC.
@@ -110,21 +122,36 @@ class ComputeStats:
         # Obtain random day rates following distribution of day_rate_data
         self.mc_data = dist.rvs(sample_size)
 
-    def plot_mc_data(self, title: str):
+    def plot_mc_data(self, title: str, rate_type : str):
+        """Plot monte carlo data as a histogram
+
+        :Params:
+            title (str): Figure title
+            rate_type (str): SFIA level (Follow, Assist...) so Kubricks rate is seen in figure
+
+        :Returns:
+            None
+        """
         # Plotting the samples
-        plt.figure(figsize=(10, 6))
         counts, bins, _ = plt.hist(self.mc_data, bins=self.num_bins_mc, alpha=0.7, color='blue', edgecolor='black')
+
         # Calculate total count
         total_count = np.sum(counts)
         # Convert counts to percentages
         percentages = (counts / total_count) * 100
         bins_centred = [(bins[i] + bins[i+1])/2 for i in range(len(bins) - 1)]
+
+        self.mc_percentages = percentages
+        self.mc_bins_centred = bins_centred
         self.mc_bins = bins
         self.mc_counts = counts
 
+        # TODO: place new method to plot data
         # Plot histogram with percentages on y-axis
         plt.clf()  # Clear previous plot (if any)
         plt.bar(bins_centred, percentages, width=np.diff(bins), edgecolor='black', alpha=0.7, color = 'blue')
+        plt.axvline(x=self.kubrick_rate_dict[rate_type], color='r', linestyle='-.', label='Kubrick Group')
+        plt.legend()
         plt.title('MC for ' + title.replace(' distribution', ''))
         plt.xlabel('day rate / £')
         plt.ylabel('Percentage of total')
@@ -135,13 +162,13 @@ class ComputeStats:
 
 
     def plot_histogram(self, title : str, rate_type : str):
-        """Plot histogram using input data.
-        
-        Output is to display a histogram plot.
+        """Plot histogram using input data. Output is to display a histogram plot.
 
-        NOTE: Ultimately output should be to save a png file in plots folder.
+        :Params:
+            title (str): Figure title
+            rate_type (str): SFIA level (Follow, Assist...) so Kubricks rate is seen in figure
         """
-        plt.clf()  # Clear previous plot (if any)
+        
         # Create histogram
         counts, bins, _ = plt.hist(self.l_day_rates, bins=self.num_bins
                                    , edgecolor='black', alpha=0.7, color = 'blue'
@@ -149,13 +176,17 @@ class ComputeStats:
                                   )
         # Calculate total count
         total_count = np.sum(counts)
-        plt.xlim(left  = 0)
+        # plt.xlim(left  = 0)
         # Convert counts to percentages
         percentages = (counts / total_count) * 100
         bins_centred = [(bins[i] + bins[i+1])/2 for i in range(len(bins) - 1)]
+
+        self.percentages = percentages
+        self.bins_centred = bins_centred
         self.bins = bins
         self.counts = counts
 
+        # TODO: place new method to plot data
         # Plot histogram with percentages on y-axis
         plt.clf()  # Clear previous plot (if any)
         plt.bar(bins_centred, percentages, width=np.diff(bins), edgecolor='black', alpha=0.7)
@@ -163,12 +194,13 @@ class ComputeStats:
         plt.ylabel('Percentage of Total Companies')
         plt.xlim(left  = 0)
         plt.title(title)
-
         plt.axvline(x=self.kubrick_rate_dict[rate_type], color='r', linestyle='-.', label='Kubrick Group')
         plt.legend()
 
         plot_filepath = sf.get_filepath('database', 'gold', 'plots', title.replace(' ', '_'))
         plt.savefig(plot_filepath)
+
+    
 
     
         
