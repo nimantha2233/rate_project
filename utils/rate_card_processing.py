@@ -29,7 +29,6 @@ class RateCardFileHandler:
          1. extract_all_tables_from_pdfs
 
     """
-
     def __init__(self, path_to_rate_cards : str):
 
         self.path_to_rate_cards = path_to_rate_cards
@@ -62,17 +61,23 @@ class RateCardFilter:
     """
     @staticmethod
     def filter_for_rate_card_tables(rate_card_tables_dict : dict) -> dict:
-        """_summary_
+        """For input of tables extracted from rate card pdfs filter for only 
+        tables describing day rates.
 
-        Arguments:
-            rate_card_tables_dict -- _description_
+        :Params:
+            rate_card_tables_dict (dict): 
+                dict where key = filename, values = list of all tables (dfs) 
+                from corresponding pdf.
 
         :Returns:
-            rate_cards_dict (dict): Dict containing only tables which outline day rates.
+            rate_cards_dict (dict): 
+                Dict containing only tables which outline day rates.
         """
         rate_cards_dict = defaultdict(list)
+
         for rate_card_file, table_list in rate_card_tables_dict.items():
             for df_table in table_list:
+                # Rate card tables contain the following
                 if 'Unnamed: 0' in df_table.columns and 'Strategy and\rarchitecture' in df_table.columns:
                     if not df_table['Unnamed: 0'].isna().any() and df_table['Unnamed: 0'].str.contains('.follow', case=False).any():
                         rate_cards_dict[rate_card_file].append(df_table)
@@ -89,7 +94,20 @@ class RateCardCleaner:
         create_and_transform_column_values(rate_card_file, df_rate_card, new_cols)
     """
     @staticmethod
-    def rename_columns(df_rate_card):
+    def rename_columns(df_rate_card : pd.DataFrame) -> tuple:
+        """For each rate card df each column name will be cleaned/renamed to common standard
+
+        :Params:
+            df_rate_card (pd.DataFrame):
+                A single rate card.
+
+        :Returns:
+            tuple: A tuple containing the updated DataFrame and the list of new column names.
+                - pd.DataFrame: The updated DataFrame after processing.
+                - list of str: The list of new column names.
+                
+        """
+        # Some rate cards use incorrect sfia category labels, fix them using below dict
         cols_mapping = {
             'level': 'level', 
             'strategy_and_architecture': 'strategy_and_architecture',
@@ -99,23 +117,52 @@ class RateCardCleaner:
             'procurement_and_management_support': 'people_and_skills',
             'client_interface': 'relationships_and_engagement'
         }
+
         old_cols = df_rate_card.columns
         new_cols = ['level']
+
+        # First col name is cleaned manually above (has to be renamed not transformed like others)
         for col_name in old_cols[1:]:
+            # clean col names
             new_col_name = col_name.replace('\r', ' ').replace(' ', '_').lower()
             new_cols.append(new_col_name)
             df_rate_card[col_name] = df_rate_card[col_name].apply(lambda x: str(x).replace('£', '').replace(',', ''))
+        
+        # Map old to new to use in rename cols method
         cols_dict = {old: new for old, new in zip(old_cols, new_cols)}
         df_rate_card = df_rate_card.rename(columns=cols_dict)
+
+        # for dfs with incorrect sfia category labels
         if new_cols == list(cols_mapping.keys()):
             df_rate_card = df_rate_card.rename(columns=cols_mapping)
+
         return df_rate_card, new_cols
 
     @staticmethod
-    def create_and_transform_column_values(rate_card_file, df_rate_card, new_cols):
+    def create_and_transform_column_values(rate_card_file : str, df_rate_card : pd.DataFrame, new_cols : list[str]) -> pd.DataFrame:
+        """Add new cols ('level_name' and 'rate_card_file') 
+
+        :Params:
+            rate_card_file (str): 
+                Rate card filename as in database/bronze/company_rate_cards dir.
+
+            df_rate_card (pd.DataFrame):
+                Single rate card dataframe.
+            new_cols (list[str]):
+                List of new col names.
+
+        Returns:
+            df_rate_card (pd.DataFrame):
+                DataFrame with cleaned and common column names. New cols 
+                ('level_name' and 'rate_card_file') added to identify where 
+                rate card originates from (filename).
+        """
+
+        # Create separate first col in two with one have (sfia) level name and pdf filename 
         df_rate_card['level_name'] = df_rate_card[new_cols[0]].apply(lambda x: x[2:].replace('\r', ' ').replace('.', '').strip())
         df_rate_card[new_cols[0]] = df_rate_card[new_cols[0]].apply(lambda x: x[0])
         df_rate_card['rate_card_file'] = rate_card_file
+
         return df_rate_card
 
 class RateCardEnricher:
@@ -128,7 +175,16 @@ class RateCardEnricher:
 
     """
     @staticmethod
-    def onshore_offshore_enrichment(cleaned_rate_card_dict):
+    def onshore_offshore_enrichment(cleaned_rate_card_dict : dict) -> dict:
+        """Adds new column ('location_type') to each dataframe describing consultant location 
+
+        :Params:
+            cleaned_rate_card_dict (dict):
+                Dict where keys are rate card file IDs and values are lists of DataFrames.
+
+        Returns:
+            dict: Dictwith the same keys, but DataFrames have new col 'location_type'.
+        """
         cleaned_and_enriched_rate_card_dict = {}
         for rate_card_file, l_rate_card_dfs in cleaned_rate_card_dict.items():
             if len(l_rate_card_dfs) > 1:
@@ -146,10 +202,21 @@ class RateCardEnricher:
                 df['location_type'] = 'onshore'
                 l_rate_card_dfs = [df]
             cleaned_and_enriched_rate_card_dict[rate_card_file] = l_rate_card_dfs
+
         return cleaned_and_enriched_rate_card_dict
 
     @staticmethod
-    def onshore_offshore_helper(df1, df2):
+    def onshore_offshore_helper(df1 : pd.DataFrame, df2 : pd.DataFrame) -> tuple:
+        """Extracts relevant day rate for comparison to determine which rate card (from same file) is offshore. 
+
+        :Params:
+            df1 (pd.DataFrame): A rate card DataFrame.
+            df2 (pd.DataFrame): A rate card DataFrame from same file as df1.
+
+        :Returns:
+            tuple: Day rate from same category.
+
+        """
         df1 = df1.loc[:, ['level_name', 'development_and_implementation']]
         df2 = df2.loc[:, ['level_name', 'development_and_implementation']]
         mask_digit_strings1 = df1['development_and_implementation'].apply(lambda x: x.isdigit())
@@ -157,6 +224,7 @@ class RateCardEnricher:
         day_rate_comparison_level = pd.merge(df1[mask_digit_strings1]['level_name'], df2[mask_digit_strings2]['level_name'], on='level_name').iloc[0]['level_name']
         df1_price_for_comparison = int(df1[df1['level_name'] == day_rate_comparison_level].iloc[0]['development_and_implementation'])
         df2_price_for_comparison = int(df2[df2['level_name'] == day_rate_comparison_level].iloc[0]['development_and_implementation'])
+        
         return df1_price_for_comparison, df2_price_for_comparison
 
 class RateCardAggregator:
@@ -167,14 +235,35 @@ class RateCardAggregator:
         separate_and_clean_unique_rate_cards
     """
     @staticmethod
-    def concat_all_dfs(cleaned_rate_card_dict):
+    def concat_all_dfs(cleaned_rate_card_dict : dict) -> pd.DataFrame:
+        """Concatenate all dfs from dict to form one large dataframe.
+
+        :Params:
+            cleaned_rate_card_dict (dict):
+                Dict of form {rate card filename (str) : list of rate cards (pd.DataFrame)}
+
+        :Returns:
+            pd.DataFrame: Concatenated DataFrame contianing all rate cards
+        """
         list_of_final_rate_card_dfs = []
         for df_list in cleaned_rate_card_dict.values():
             list_of_final_rate_card_dfs.extend(df_list)
+        
         return pd.concat(list_of_final_rate_card_dfs).reset_index(drop=True)
 
     @staticmethod
-    def separate_and_clean_unique_rate_cards(df_concat):
+    def separate_and_clean_unique_rate_cards(df_concat : pd.DataFrame) -> tuple:
+        """ Seprate rate cards containing price range for each day rate.
+
+        Arguments:
+            df_concat (pd.DataFrame): DataFrame containing all rate card data.
+
+        :Returns:
+            tuple:
+                - df_final1 (pd.DataFrame): contains rate cards with single price.
+                - df_final2 (pd.DataFrame): contains rate cards with price range.
+        """
+
         def non_digit_cleaner(s):
             if len(s) > 3:
                 return s.replace(['nan', 'NA', '-'], 'N/A')
@@ -184,7 +273,7 @@ class RateCardAggregator:
         cols_with_prices = [
             'strategy_and_architecture', 'change_and_transformation', 'development_and_implementation',
             'delivery_and_operation', 'people_and_skills', 'relationships_and_engagement'
-        ]
+                           ]
         
         mask_not_digit_string = df_concat[cols_with_prices]['strategy_and_architecture'].apply(lambda x: not x.isdigit())
         df_concat.loc[mask_not_digit_string] = df_concat[mask_not_digit_string].map(lambda x: str(x[:len(x)-3]) if '.' in str(x) else x).apply(non_digit_cleaner)
@@ -292,8 +381,13 @@ class RateCardTransformer:
         # sfia table gold layer location
         self.gold_rate_card_path = sf.get_filepath('database', 'gold', 'dim_ratecard.csv')
 
-    def transform_rate_card_data(self):
-        
+    def transform_rate_card_data(self) -> pd.DataFrame:
+        """Execute transform and pivot method with correct filepath to rate card (silver layer).
+
+        :Returns:
+            pd.DataFrame: rate card data ready for reporting layer.
+            
+        """
         # Add columns: company and rate_card_id then pivot df
         df_rate_card_gold = self.transform_and_pivot(df_rate_card_silver=self.df_rate_card_silver)
         
@@ -303,6 +397,16 @@ class RateCardTransformer:
 
     
     def  transform_and_pivot(self, df_rate_card_silver : pd.DataFrame) -> pd.DataFrame:
+        """Filter for only development_and_implementation out of all categories. Add 2 new columns
+        ('rate_card_id', 'company'), and pivot on 'level_name' column.
+
+        Arguments:
+            df_rate_card_silver (pd.DataFrame):
+                Rate card DataFrame from database/silver/rate_cards directory.
+
+        Returns:
+            pd.DataFrame: Filtered, pivoted, and new columns added ('rate_card_id', 'company')
+        """
 
         # Filter out unncecessary cols - 'development_and_implementation' is only category relevant for Kubrick Group
         cols = ['company', 'location_type', 'level_name', 'development_and_implementation', 'rate_card_id']
