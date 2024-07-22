@@ -12,7 +12,7 @@ class ComputeStats:
     """
     # TODO: Too many attributes possibly?
     def __init__(self, l_day_rates : list[float]) -> None:
-        
+       
         self.l_day_rates = l_day_rates
         # descriptive stats
         self.std_day_rates = None
@@ -52,6 +52,7 @@ class ComputeStats:
         self.kubrick_rate_dict['delta'] = self.kubrick_rate_dict['max'] - self.kubrick_rate_dict['min']
 
 
+
     def compute_stats_and_plot(self, title : str, rate_type : str) -> None:
         """Calling this method will call the methods compute_desc_stats and plot_histogram."""
 
@@ -60,6 +61,8 @@ class ComputeStats:
         self.monte_carlo()
         self.plot_mc_data(title=title, rate_type=rate_type)
         # self.plot_both_distributions_together(title=title, rate_type=rate_type)
+
+
 
     def compute_desc_stats(self):
         """Compute descriptive stats to plot visuals and prepare data for MC.
@@ -203,4 +206,55 @@ class ComputeStats:
     
 
     
+class Plotter:
+
+    def __init__(self):
+
+        self.gold_rate_card_filepath = sf.get_filepath(
+                                  'database', 'gold', 'rate_card_final.csv'
+                                                      )
+
+    def plot_for_sfia_level(self, df_rate_card_level, sfia_level : str):
+
+        # Compute mean level price for each company
+        df_level = df_rate_card_level.groupby(by='company').mean().reset_index()
+        # Convert rates column into list of rates from each company (mean rate)
+        l_level_day_rates = df_level[sfia_level].to_list()
+        # instantiate stats class
+        compute_stats = ComputeStats(l_day_rates=l_level_day_rates)
+        # compute stats and plot for specific level
+        compute_stats.compute_stats_and_plot(title=f'{sfia_level} day rates distribution', rate_type=sfia_level)
+
+
+
+
+    def filter_by_location_compute_and_plot(self, gold_rate_card_filepath : str = None, location_type : str = 'onshore'):
+
+        # Define levels
+        sfia_levels = ['Follow', 'Assist', 'Apply', 'Enable', 'Ensure or advise'
+                       , 'Initiate or influence', 'Set strategy or inspire']
+
+        if gold_rate_card_filepath is None:
+            gold_rate_card_filepath = self.gold_rate_card_filepath
         
+        df_rate_card_gold = pd.read_csv(filepath_or_buffer=gold_rate_card_filepath)
+
+        # Filter for onshore
+        df_rate_card_location = df_rate_card_gold[df_rate_card_gold['location_type'] == location_type]
+
+        # Iterate through each sfia level and produce stats for each
+        for sfia_level in sfia_levels:
+            
+            # Remove NaN and filter for one sfia levelbefore computing mean
+            mask_notna = df_rate_card_location[sfia_level].notna()
+            df_level = df_rate_card_location.loc[mask_notna, ['company', sfia_level]]
+
+            self.plot_for_sfia_level(df_rate_card_level=df_level, sfia_level=sfia_level)
+
+            # # Compute mean level price for each company
+            # df_level.groupby(by='company').mean().reset_index()
+            # df_level = df_level.groupby(by='company').mean().reset_index()
+
+            # l_level_day_rates = df_level[level].to_list()
+            # compute_stats = self.ComputeStats(l_day_rates=l_level_day_rates)
+            # compute_stats.compute_stats_and_plot(title=f'{level} day rates distribution', rate_type=level)
