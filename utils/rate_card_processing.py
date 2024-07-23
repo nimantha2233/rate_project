@@ -1,11 +1,10 @@
 '''Rate card operations: 
 
 RateCardProccesor:
--> Extract rate card tables from pdf files
+ 
+- Extract rate card tables from pdf files
 
--> Clean and transform rate card dataframes
-
-
+- Clean and transform rate card dataframes
 
 '''
 
@@ -20,13 +19,12 @@ class RateCardFileHandler:
     """
     Extracts all tables from rate card pdfs in database/bronze/company_rate_cards directory.
 
-    :Attrs:
-        path_to_rate_cards (str): self-explanatory
-        rate_card_filenames (list[str]): list of all rate card filenames in the 
-                                         database/bronze/company_rate_cards directory.
+    Attributes:
+        path_to_rate_cards (str): self-explanatory.
+        rate_card_filenames (list[str]): list of all rate card filenames in the database/bronze/company_rate_cards directory.
 
-    :Methods:
-         1. extract_all_tables_from_pdfs
+    Methods:
+         extract_all_tables_from_pdfs: -
 
     """
     def __init__(self, path_to_rate_cards : str):
@@ -37,7 +35,7 @@ class RateCardFileHandler:
     def extract_all_tables_from_pdfs(self):
         """ Iterates through each rate card pdf and uses tabula to extract all tables in pdf. 
         
-        :Returns:
+        Returns:
             rate_card_raw_tables_dict (dict): dict of all tables extracted via tabula.
                                             {'rate card filename' : list of tables from file}
         """
@@ -56,20 +54,20 @@ class RateCardFileHandler:
 class RateCardFilter:
     """Iterate through tables and extract only those that are rate cards.
 
-    :Methods:
-        filter_for_rate_card_tables(rate_card_tables_dict)
+    Methods:
+        filter_for_rate_card_tables(rate_card_tables_dict): -
     """
     @staticmethod
     def filter_for_rate_card_tables(rate_card_tables_dict : dict) -> dict:
         """For input of tables extracted from rate card pdfs filter for only 
         tables describing day rates.
 
-        :Params:
+        Params:
             rate_card_tables_dict (dict): 
                 dict where key = filename, values = list of all tables (dfs) 
                 from corresponding pdf.
 
-        :Returns:
+        Returns:
             rate_cards_dict (dict): 
                 Dict containing only tables which outline day rates.
         """
@@ -88,21 +86,22 @@ class RateCardCleaner:
     """For an individual rate card clean/rename column names, clean values 
     in each column, and introduce new columns. 
 
-    :Methods:
-        rename_columns(df_rate_card)
+    Methods:
+        rename_columns(df_rate_card): -
 
-        create_and_transform_column_values(rate_card_file, df_rate_card, new_cols)
+        create_and_transform_column_values(rate_card_file, df_rate_card, new_cols): -
     """
     @staticmethod
     def rename_columns(df_rate_card : pd.DataFrame) -> tuple:
         """For each rate card df each column name will be cleaned/renamed to common standard
 
-        :Params:
+        Params:
             df_rate_card (pd.DataFrame):
                 A single rate card.
 
-        :Returns:
+        Returns:
             tuple: A tuple containing the updated DataFrame and the list of new column names.
+
                 - pd.DataFrame: The updated DataFrame after processing.
                 - list of str: The list of new column names.
                 
@@ -142,7 +141,7 @@ class RateCardCleaner:
     def create_and_transform_column_values(rate_card_file : str, df_rate_card : pd.DataFrame, new_cols : list[str]) -> pd.DataFrame:
         """Add new cols ('level_name' and 'rate_card_file') 
 
-        :Params:
+        Params:
             rate_card_file (str): 
                 Rate card filename as in database/bronze/company_rate_cards dir.
 
@@ -169,16 +168,16 @@ class RateCardEnricher:
     """Add a new column 'location_type' describing whether rate card is for 
     onshore or offshore consultants.
 
-    :Methods:
-        onshore_offshore_enrichment(cleaned_rate_card_dict)
-        onshore_offshore_helper(df1, df2)
+    Methods:
+        onshore_offshore_enrichment(cleaned_rate_card_dict): -
+        onshore_offshore_helper(df1, df2): -
 
     """
     @staticmethod
     def onshore_offshore_enrichment(cleaned_rate_card_dict : dict) -> dict:
         """Adds new column ('location_type') to each dataframe describing consultant location 
 
-        :Params:
+        Params:
             cleaned_rate_card_dict (dict):
                 Dict where keys are rate card file IDs and values are lists of DataFrames.
 
@@ -209,11 +208,11 @@ class RateCardEnricher:
     def onshore_offshore_helper(df1 : pd.DataFrame, df2 : pd.DataFrame) -> tuple:
         """Extracts relevant day rate for comparison to determine which rate card (from same file) is offshore. 
 
-        :Params:
+        Params:
             df1 (pd.DataFrame): A rate card DataFrame.
             df2 (pd.DataFrame): A rate card DataFrame from same file as df1.
 
-        :Returns:
+        Returns:
             tuple: Day rate from same category.
 
         """
@@ -230,19 +229,19 @@ class RateCardEnricher:
 class RateCardAggregator:
     """Concatenate all separate rate card dataframs into one single dataframe.
 
-    :Methods:
-        concat_all_dfs
-        separate_and_clean_unique_rate_cards
+    Methods:
+        concat_all_dfs: -
+        separate_and_clean_unique_rate_cards: -
     """
     @staticmethod
     def concat_all_dfs(cleaned_rate_card_dict : dict) -> pd.DataFrame:
         """Concatenate all dfs from dict to form one large dataframe.
 
-        :Params:
+        Params:
             cleaned_rate_card_dict (dict):
                 Dict of form {rate card filename (str) : list of rate cards (pd.DataFrame)}
 
-        :Returns:
+        Returns:
             pd.DataFrame: Concatenated DataFrame contianing all rate cards
         """
         list_of_final_rate_card_dfs = []
@@ -255,10 +254,10 @@ class RateCardAggregator:
     def separate_and_clean_unique_rate_cards(df_concat : pd.DataFrame) -> tuple:
         """ Seprate rate cards containing price range for each day rate.
 
-        Arguments:
+        Params:
             df_concat (pd.DataFrame): DataFrame containing all rate card data.
 
-        :Returns:
+        Returns:
             tuple:
                 - df_final1 (pd.DataFrame): contains rate cards with single price.
                 - df_final2 (pd.DataFrame): contains rate cards with price range.
@@ -303,8 +302,8 @@ class RateCardProcessor:
     """Pipeline of rate card processing method calls. Start via extracting raw tables from 
     pdfs and output is one large dataframe of all rate card data written to csv file in silver layer.
 
-    :Methods:
-        process_rate_cards
+    Methods:
+        process_rate_cards: -
     """
     def __init__(self):
         self.file_handler = RateCardFileHandler(['database', 'bronze', 'company_rate_cards'])
@@ -368,9 +367,9 @@ class RateCardTransformer:
     
     """Prepare dataframes to extract statistical measures from them and to produce Monte Carlos.
     
-    :Methods:
-        transform_rate_card_data
-        transform_and_pivot
+    Methods:
+        transform_rate_card_data: -
+        transform_and_pivot: -
     """
 
     def __init__(self, silver_rate_card_filepath : str = sf.get_filepath(
@@ -384,7 +383,7 @@ class RateCardTransformer:
     def transform_rate_card_data(self) -> pd.DataFrame:
         """Execute transform and pivot method with correct filepath to rate card (silver layer).
 
-        :Returns:
+        Returns:
             pd.DataFrame: rate card data ready for reporting layer.
             
         """
@@ -400,7 +399,7 @@ class RateCardTransformer:
         """Filter for only development_and_implementation out of all categories. Add 2 new columns
         ('rate_card_id', 'company'), and pivot on 'level_name' column.
 
-        Arguments:
+        Params:
             df_rate_card_silver (pd.DataFrame):
                 Rate card DataFrame from database/silver/rate_cards directory.
 

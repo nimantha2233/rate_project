@@ -2,6 +2,8 @@
 
 import pandas as pd
 from . import supportfunctions as sf
+from . import dataprocessing
+frok . import rate_card_processing
 
 
 class CombineRates:
@@ -22,7 +24,7 @@ class CombineRates:
         # Process service prices from service page data
         latest_scrape_filepath = sf.get_filepath('database', 'bronze', 'company_service_rates', 'company_info_last_run.csv')
         # TODO: Modify so data read in from csv file (file is output from DataProcessor class)
-        process_data = DataProcessor(filepath=latest_scrape_filepath)
+        process_data = dataprocessing.DataProcessor(filepath=latest_scrape_filepath)
         process_data.clean_cost_desc()
         process_data.create_metadata_and_derived_cols()
         df_dict = process_data.create_array_of_dfs()
@@ -66,7 +68,7 @@ class CombineRates:
         """
 
         # TODO: Should read in rate data (the output from RateCardProcessor)
-        extract_ratecard_data = RateCardProcessor()
+        extract_ratecard_data = rate_card_processing.RateCardProcessor()
         df_ratecard_rates = extract_ratecard_data.proccess_rate_cards()
 
         # Masks for the most junior and most senior consultant day rates and not 'N/A' values

@@ -18,10 +18,10 @@ class DataProcessor:
     def extract_numbers(self,lst : list) -> list:
         '''Extract numbers from an input list
         
-        :Params:
+        Params:
             lst (list): list of strings containing numbers and words
         
-        :Returns:
+        Returns:
             (list): List of number recast as floats
 
         '''
@@ -31,11 +31,9 @@ class DataProcessor:
     
     def clean_cost_desc(self):
         '''Transform cost column: 
+
                 1. Remove unnecessary words and characters
                 2. split remaining words/numbers (both currently strings)   
-
-        :Returns:
-            N/A as the dataframe is modified so no output.
         '''
 
         # Remove non-useful words
@@ -50,10 +48,10 @@ class DataProcessor:
         ''' Create new columns used for later processing of the data as well
             as for end-user useage (base and max)
         
-        :Params:
+        Params:
             None: Cleaning of main DataFrame
 
-        :Returns:
+        Returns:
             None: Class attribute DataFrame is transformed after the method calll
         '''
 
@@ -78,7 +76,7 @@ class DataProcessor:
         col_1: df name (cost_split_["price type"]
         col_2: df containing projects of a certain pricing scheme e.g. per unit/licence
 
-        :Returns:
+        Returns:
             df_dict (dict): A nested dict to store dataframe for easy accessibility
 
                             {  
@@ -124,10 +122,10 @@ class DataProcessor:
 
         NOTE: The dicts in the params and returns are both nested dicts (same dimension).
 
-        :Params:
+        Params:
             dict_of_dfs (dict): Dict containg unclean DataFrames.
 
-        :Returns:
+        Returns:
             dict_of_dfs (dict): Dict containing clean DataFrames.
 
         

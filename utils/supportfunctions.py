@@ -19,7 +19,11 @@ company_service_rates_path = os.path.join(current_dir,'database', 'bronze', 'com
 
 
 class Service:
-    '''Project data structure'''
+    '''Service data structure
+    
+    Methods:
+        output_attrs_to_list: -    
+    '''
     def __init__(self, company : str):
         self.name = 'No name'
         self.cost = 'No cost'
@@ -36,6 +40,12 @@ class Service:
 
 
 class WriteToCSV:
+    """Custom CSV writer.
+
+    Methods:
+        write_headers: -
+        write_row: -
+    """
     def __init__(self, column_names = ['Company', 'Project', 'Cost', 'URL', 'rate_card_id'], 
                 filepath = company_service_rates_path):
         
@@ -43,13 +53,19 @@ class WriteToCSV:
         self.column_names = column_names
 
     def write_headers(self):
+        """Initialse csv file by writing column names.
+        """
         if self.column_names:
             with open(self.filepath, "w", newline="") as f:
                 writer = csv.writer(f)
                 writer.writerow(self.column_names)
 
-    def write_row(self, row):
-        '''Write row to csv file'''
+    def write_row(self, row : list):
+        '''Write row to csv file.
+        
+        Params:
+            row (list): data to be written as one row, should be in order of headers.
+        '''
         with write_lock:
             with open(self.filepath, "a",encoding='utf-8', newline="") as f:
                 writer = csv.writer(f)
@@ -62,6 +78,13 @@ class WriteToCSV:
 
 
 class RateCardDirectoryCleaner: 
+    """Computes hashes of each pdf file in database/gold/rate_card directory 
+    and keeps only unique hashes/files. A the contents of a file determine its hash.
+
+    Methods:
+        hash_file: -
+        find_and_remove_duplicates: -
+    """
 
     def __init__(self,filepath : str = os.path.join(
             current_dir,'database', 'bronze', 'company_rate_cards')):
@@ -71,7 +94,7 @@ class RateCardDirectoryCleaner:
     def hash_file(self):
         '''Generate SHA-256 hash of the file.
 
-        :Params:
+        Params:
             file_path (str): Path to directory containing pdfs.        
         '''
 
@@ -81,13 +104,14 @@ class RateCardDirectoryCleaner:
             hasher.update(buf)
         return hasher.hexdigest()
 
+
     def find_and_remove_duplicates(self) -> None:
         """Find and remove duplicate files in the given folder.
         
-        :Params:
+        Params:
             folder_path (str): Path to directory containing pdf rate cards (duplicate files)
 
-        :Returns:
+        Returns:
             N/A: Removes duplicate rate cards from directory
         """
         file_hashes = {}
@@ -125,13 +149,13 @@ def filter_company_df(company_list : list[str], df_all_companies : pd.DataFrame)
     '''Output company_df for comapnies in company list to   
     scrape for these only. Useful for testing purposes
 
-    :Params:
+    Params:
         company_list (list[str]): List of companies to scrape service
         information for. Names should be the govt company name
 
         df_all_companies (pd.DataFrame): DataFrame of all company metadata 
 
-    :Returns:
+    Returns:
         filtered_company_df (pd.DataFrame): company_df 
         containing only companies in company_list.    
     '''
@@ -147,10 +171,10 @@ def get_filepath(*args) -> str:
     '''Generate a file path in the current working directory
     using additional path components provided as arguments.
 
-    :Params:
+    Params:
         *args: Additional path components to be joined.
 
-    :Returns:
+    Returns:
         str: Resultant file path.
     '''
     current_dir = os.getcwd()
@@ -164,7 +188,10 @@ def get_filepath(*args) -> str:
 
 
 def hash_file(file_path):
-    """Generate SHA-256 hash of the file."""
+    """Generate SHA-256 hash of the file.
+
+    Params:
+        file_path (str): Path to directory containing pdfs. """
     hasher = hashlib.sha256()
     with open(file_path, 'rb') as f:
         buf = f.read()
@@ -175,10 +202,10 @@ def find_and_remove_duplicates(folder_path : str) -> dict:
     """Find and remove duplicate files in the given folder. Delete duplicate files and 
     return a dict mapping the rate card ids of the removed files to the dupe file we keep.
     
-    :Params:
+    Params:
         folder_path (str): Path to directory containing pdf rate cards (duplicate files)
 
-    :Returns:
+    Returns:
         N/A: Removes duplicate rate cards from directory
     """
 
