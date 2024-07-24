@@ -7,12 +7,18 @@ from scipy.stats import truncnorm
 
 class ComputeStats:
     """For a given rate type (e.g. Junior rates) compute descriptive stats and run monte carlos. Finally plot distribution of rates and monte carlos.
+
+    Methods:
+        compute_stats_and_plot: -
+        compute_desc_stats: -
+        monte_carlo: -
+        plot_mc_data: -
+        plot_histogram: -
     
-    # TODO: In docs describe in more detail about deisions made in the code.
     """
-    # TODO: Too many attributes possibly?
+
     def __init__(self, l_day_rates : list[float]) -> None:
-        
+       
         self.l_day_rates = l_day_rates
         # descriptive stats
         self.std_day_rates = None
@@ -52,8 +58,14 @@ class ComputeStats:
         self.kubrick_rate_dict['delta'] = self.kubrick_rate_dict['max'] - self.kubrick_rate_dict['min']
 
 
+
     def compute_stats_and_plot(self, title : str, rate_type : str) -> None:
-        """Calling this method will call the methods compute_desc_stats and plot_histogram."""
+        """Calling this method will call the methods compute_desc_stats and plot_histogram.
+        
+        Params: 
+            title (str): Figure titles
+            rate_type (str): SFIA level
+        """
 
         self.compute_desc_stats()
         self.plot_histogram(title=title, rate_type=rate_type)
@@ -61,15 +73,11 @@ class ComputeStats:
         self.plot_mc_data(title=title, rate_type=rate_type)
         # self.plot_both_distributions_together(title=title, rate_type=rate_type)
 
+
+
     def compute_desc_stats(self):
         """Compute descriptive stats to plot visuals and prepare data for MC.
         
-        :Params:
-            None: Use day rates list available post-instantiation.
-
-        :Returns:
-            N/A: Descriptive stats computed and stored as attributes & params for MC prepared.
-
         """
 
         # Get std of rates
@@ -101,13 +109,8 @@ class ComputeStats:
 
 
     def monte_carlo(self):
-        """Execute monte carlo
+        """Execute monte carlo using descriptive stats from competitor rates.
         
-        :Params:
-            None: Use attribute variables.
-
-        :Returns:
-            None: assigns mc data samples to attribute.
         """
         # bounds in standard deviations from the mean
         a = (self.min_base_mc - self.mean_day_rates) / self.std_day_rates  
@@ -125,12 +128,9 @@ class ComputeStats:
     def plot_mc_data(self, title: str, rate_type : str):
         """Plot monte carlo data as a histogram
 
-        :Params:
+        Params:
             title (str): Figure title
             rate_type (str): SFIA level (Follow, Assist...) so Kubricks rate is seen in figure
-
-        :Returns:
-            None
         """
         # Plotting the samples
         counts, bins, _ = plt.hist(self.mc_data, bins=self.num_bins_mc, alpha=0.7, color='blue', edgecolor='black')
@@ -164,7 +164,7 @@ class ComputeStats:
     def plot_histogram(self, title : str, rate_type : str):
         """Plot histogram using input data. Output is to display a histogram plot.
 
-        :Params:
+        Params:
             title (str): Figure title
             rate_type (str): SFIA level (Follow, Assist...) so Kubricks rate is seen in figure
         """
@@ -203,4 +203,69 @@ class ComputeStats:
     
 
     
+class Plotter:
+    """Plot distribution for real rate data and monte carlo data.
+
+    Methods:
+        plot_for_sfia_level: -
+        filter_by_location_compute_and_plot: -
+    """
+
+    def __init__(self):
+
+        self.gold_rate_card_filepath = sf.get_filepath(
+                                  'database', 'gold', 'rate_card_final.csv'
+                                                      )
+
+    def plot_for_sfia_level(self, df_rate_card_level, sfia_level : str):
+        """For a DataFrame containing single SFIA level rate data, plot histogram of
+        competitor rate distribution and corresponding monte carlo. 
+
+        Params:
+            df_rate_card_level (pd.DataFrame):
+                DataFrame with only a single sfia level column.
+            sfia_level (str):
+                SFIA level name.
+        """
+
+        # Compute mean level price for each company
+        df_level = df_rate_card_level.groupby(by='company').mean().reset_index()
+        # Convert rates column into list of rates from each company (mean rate)
+        l_level_day_rates = df_level[sfia_level].to_list()
+        # instantiate stats class
+        compute_stats = ComputeStats(l_day_rates=l_level_day_rates)
+        # compute stats and plot for specific level
+        compute_stats.compute_stats_and_plot(title=f'{sfia_level} day rates distribution', rate_type=sfia_level)
+
+
+
+
+    def filter_by_location_compute_and_plot(self, gold_rate_card_filepath : str = None, location_type : str = 'onshore'):
+        """Iterate through SFIA levels and plot histogram of real world data and MC data.
+
+        Params:
+            gold_rate_card_filepath (str): Filepath to gold level rate card csv (default: {None})
+            location_type (str): Location type, either 'onshore' or 'offshore'(default: {'onshore'})
+        """
+
+        # Define levels
+        sfia_levels = ['Follow', 'Assist', 'Apply', 'Enable', 'Ensure or advise'
+                       , 'Initiate or influence', 'Set strategy or inspire']
+
+        if gold_rate_card_filepath is None:
+            gold_rate_card_filepath = self.gold_rate_card_filepath
         
+        df_rate_card_gold = pd.read_csv(filepath_or_buffer=gold_rate_card_filepath)
+
+        # Filter for onshore
+        df_rate_card_location = df_rate_card_gold[df_rate_card_gold['location_type'] == location_type]
+
+        # Iterate through each sfia level and produce stats for each
+        for sfia_level in sfia_levels:
+            
+            # Remove NaN and filter for one sfia levelbefore computing mean
+            mask_notna = df_rate_card_location[sfia_level].notna()
+            df_level = df_rate_card_location.loc[mask_notna, ['company', sfia_level]]
+
+            self.plot_for_sfia_level(df_rate_card_level=df_level, sfia_level=sfia_level)
+

@@ -1,8 +1,4 @@
-# Overview
 
-## Problem Statement
-
-*We want to understand the landscape of rates charged by our competitors to ultimately provide stakeholders with data to aide their decision making.* 
 
 
 

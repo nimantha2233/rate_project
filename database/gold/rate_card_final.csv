@@ -1,4 +1,4 @@
-,company,rate_card_id,on_off_shore,Follow,Assist,Apply,Enable,Ensure or advise,Initiate or influence,Set strategy or inspire,comment
+,company,rate_card_id,location_type,Follow,Assist,Apply,Enable,Ensure or advise,Initiate or influence,Set strategy or inspire,comment
 0,Adatis,0,onshore,495,890,990,1120,1250,1470,1595,
 1,Alchemmy Consulting Ltd,1,onshore,590,840,1080,1380,1760,1760,2420,
 2,BetterGov,2,onshore,245,345,420,545,670,720,895,not read in via python

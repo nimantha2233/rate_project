@@ -2,10 +2,20 @@ site_name: Kubrick Competitor Profiling (Consultant Rates)
 nav:
   - Home: index.md
   - Overview: 
-    - Introduction: overview_intro.md
     - Data Sources: data_sources.md
-
+  - Technical:
+      - Technical Overview: tech_overview.md 
+      - Extractor: extractor.md
+      - Rate Card Processor: rate_card_processing.md
+      - Stats: stats.md
+      - Support Functions: support_functions.md
+      - Data Processing: dataprocessing.md
+      - Apps: app.md
   - Planned Features : future_work.md
+  - Issues Log: issues.md
+
+extra_css:
+  - docs/extra.css
 
 theme:
   name: material
@@ -34,6 +44,16 @@ theme:
 
 plugins:
   - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            allow_inspection: true
+            show_source: true
+
+mkdocstrings:
+  default:
+    show_root: true
 
 markdown_extensions:
   - admonition
@@ -41,3 +61,5 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
+
+

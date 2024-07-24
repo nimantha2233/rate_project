@@ -16,7 +16,26 @@ pdfs_file_path = os.path.join(current_dir,'database', 'bronze', 'company_rate_ca
 
 
 class Extractor:
-    '''For a given company will search for projects on government site and write project data to csv'''
+    '''For a given company will search for projects on government site and write project data to csv
+    
+    Methods:
+        check_page_num_produce_url: -
+
+        soup_from_url: -
+
+        loop_through_all_pages_for_company_search: -
+        
+        loop_through_projects: -
+        
+        extract_project_data: -
+        
+        parse_and_extract: -
+        
+        govt_name_extractor: -
+        
+        has_ratecard: -
+
+    '''
 
     def __init__(self, company_name : str, writer : sf.WriteToCSV = None, mode : int = 0):
         # Either Legal name or govt name (sometimes they are different)
@@ -40,10 +59,10 @@ class Extractor:
     def check_page_num_produce_url(self, page : int) -> str:
         '''Check if page 1 or not as URL format is slighly different
         
-        :Params:
+        Params:  
             page (int): page number to insert into URL
 
-        :Returns: 
+        Returns: 
             URL (Str): URL to be used for GET request
         '''
 
@@ -59,10 +78,10 @@ class Extractor:
     def soup_from_url(self, URL : str) -> BeautifulSoup:
         '''For URL input Do GET request and produce soup object
         
-        :Params:
-            URL(str): the URL of page to fetch
+        Params:
+            URL (str): the URL of page to fetch
 
-        :Returns:
+        Returns:
             BeatifulSoup: Soup object from page    
         '''
         r = requests.get(URL)
@@ -74,8 +93,8 @@ class Extractor:
         '''For a given given initial webpage soup for a given company search 
         loop through pages containing search results until reaching page limit
 
-        :Params:
-            webpage (BeautifulSoup): soup from page 1 of search results
+        Params:  
+            webpage_soup (BeautifulSoup): soup from page 1 of search results
             page (int): starting page_number
         '''
         # Check existing PDFs before scraping
@@ -113,7 +132,7 @@ class Extractor:
     def loop_through_projects(self, webpage_soup : BeautifulSoup):
         '''Loop through each project in list of project soups
         
-        :Params:
+        Params:  
             webpage_soup (BeautifulSoup): soup object for whole page.
         '''
         # service_soup is HTML content of a service on the service search page
@@ -130,14 +149,12 @@ class Extractor:
     def extract_project_data(self, webpage_soup : BeautifulSoup, service_soup : BeautifulSoup):
         '''Parse HTML, store project data, and then write row to CSV file.
 
-        :Params:
+        Params: 
             webpage_soup (BeautifulSoup): soup object for whole page.
 
             service_soup (BeautifulSoup): Soup object for service in search
                                           page containing multiple services.
 
-        :Returns: 
-            Nothing, but parses soup and assigns values to object attrs.
         
         '''
         # Instantiate project object for new project with company name
@@ -147,17 +164,15 @@ class Extractor:
             # Write row to csv file
             self.writer.write_row(self.service.output_attrs_to_list())
         else:
-            # Number of data points not what is required
+            # Number of data points not what is required (should be equal to num columns)
             self.incomplete_service_data.append(self.service.name)
 
 
     def parse_and_extract(self, service_soup : BeautifulSoup):
         '''Assign values to attributes of class instance
         
-        :Params:
-            page_soup (BeautifulSoup): soup from page containing services (service search results page)
-
-        :Returns: Nothing but assigns value to object attrs.
+        Params:  
+            service_soup (BeautifulSoup): soup from page containing services (service search results page)
         '''
         # Assign attributes values (service details)
         self.service.name = service_soup.select('a')[0].text.strip()
@@ -166,7 +181,6 @@ class Extractor:
         # Access service page to obtain rates
         self.service.page_soup = BeautifulSoup(requests.get(self.service.url).content, 'html5lib')
         # Find rate card if exists and if unique add to the database
-        # Service cost
         self.service.cost = self.service.page_soup.select(
             'div[id="meta"] > p[class = "govuk-!-font-weight-bold govuk-!-margin-bottom-1"]'
                                         )[0].text.strip().replace('£','')
@@ -197,7 +211,7 @@ class Extractor:
     def govt_name_extractor(self, webpage_soup : BeautifulSoup):
         '''Loop through each project in list of project soups
         
-        :Params:
+        Params:  
             webpage_soup (BeautifulSoup): soup object for whole page.
         '''
         for project_soup in webpage_soup.select('li.app-search-result'):
@@ -206,15 +220,12 @@ class Extractor:
             if self.company_name in project_soup.select('p')[0].text.strip():
                 self.writer.write_row([self.company_name, project_soup.select('p')[0].text.strip()])  
 
-    def has_ratecard(self):
+    def has_ratecard(self) -> int:
         '''Outputs Number of ratecards downloaded (unique URL and filename) 
         along with company name
-        
-        :Params:
-            None
-        
-        :Returns:
-            num_rate_cards: Number of unique rate cards downloaded                            
+                
+        Returns:  
+            num_rate_cards (int): Number of unique rate cards downloaded                            
         '''
 
         if self.ratecard_handler.cost_to_ratecard_dict:
@@ -225,25 +236,38 @@ class Extractor:
 
             
 def contains_unit_or_person(text : str) -> bool:
-    '''Checks if unit or paerson str in input 
+    '''Checks if unit or person str in input 
     str and returns corresponding bool
+
+    Params:
+        text (str): string describing rate type.
     '''
     return 'unit' in text or 'person' in text
 
 
 
 class RateCardHandler:
+    """Instantiated once per company. Used in Extractor class to check if a webpage contains a rate car and if the rate card already exists
+    in database/bronze/rate_cards directory.
+
+    Methods:
+        check_rate_card_exists: -
+
+        get_ratecard_details: -
+
+        download_ratecard_if_unique: -
+    """
     def __init__(self):
         self.cost_to_ratecard_dict = {}
         self.__ratecard_element = None
         self.service = None
 
             
-    def check_rate_card_exists(self):
+    def check_rate_card_exists(self) -> bool:
         '''Check if a rate card exists for service
         
-        :Returns:
-            None: This function operates by side-effect, downloading a PDF file.
+        Returns:  
+            bool: This function operates by side-effect, downloading a PDF file.
         '''
         service_doc_elements = self.service.page_soup.select(
                                     'div[id="meta"] > ul > li[class*="gouk-!-margin-bottom-2"]'
@@ -270,7 +294,7 @@ class RateCardHandler:
     def get_ratecard_details(self) -> tuple:
         '''Output ratecard filename and url
         
-        :Returns:
+        Returns:
             ratecard_filename (str): filename of ratecard in local dir.
             ratecard_url (str): URL to download ratecard
         '''
@@ -283,11 +307,15 @@ class RateCardHandler:
         return (ratecard_filename, ratecard_url)
 
 
-    def download_ratecard_if_unique(self, ratecard_filename, ratecard_url):
+    def download_ratecard_if_unique(self, ratecard_filename : str, ratecard_url : str):
         '''If rate card exists download to bronze layer
+
+        Params:
+            ratecard_filename (str):
+                Filename of ratecard on service webpage.
+            ratecard_url (str):
+                URL to download rate card pdf.
         
-        :Returns:
-            None: This function operates by side-effect, downloading a PDF file.
         '''
         if ratecard_filename not in cf.Config.PDF_FILES_LIST:
 
