@@ -1,4 +1,4 @@
-'''Main application runs from here'''
+'''Main web-scraping carried out in this python file'''
 
 from utils import supportfunctions as sf
 from utils import config as conf

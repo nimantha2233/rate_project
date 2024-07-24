@@ -4,9 +4,12 @@ This section outlines the sile structure and process flow of the project. An obj
 
 ### Quick links to module pages
 
-1. [Module: extractor](extractor.md)
-2. [Module: rate_card_processing](rate_card_processing.md)
-2. [Module: stats](stats.md)
+1. [Module: extractor.py](extractor.md)
+2. [Module: rate_card_processing.py](rate_card_processing.md)
+3. [Module: stats](stats.md)
+4. [Module: supportfunctions.py](support_functions.md)
+5. [Module: dataprocessing.py](dataprocessing.md)
+6. [Main applications](app.md)
 
 ## File structure
 

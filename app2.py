@@ -5,6 +5,8 @@ extract rate card data from pdfs and output to a csv file to be used in app3.py
 from utils import rate_card_processing
 
 def main():
+    """Main function to process and transform rate card data. 
+    """
     # Extract, clean, and transform rate card tables 
     processor = rate_card_processing.RateCardProcessor()
     df_rate_card_silver = processor.process_rate_cards()

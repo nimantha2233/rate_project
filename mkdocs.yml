@@ -2,7 +2,6 @@ site_name: Kubrick Competitor Profiling (Consultant Rates)
 nav:
   - Home: index.md
   - Overview: 
-    - Introduction: overview_intro.md
     - Data Sources: data_sources.md
   - Technical:
       - Technical Overview: tech_overview.md 
@@ -10,6 +9,8 @@ nav:
       - Rate Card Processor: rate_card_processing.md
       - Stats: stats.md
       - Support Functions: support_functions.md
+      - Data Processing: dataprocessing.md
+      - Apps: app.md
   - Planned Features : future_work.md
   - Issues Log: issues.md
 

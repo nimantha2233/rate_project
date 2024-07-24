@@ -9,8 +9,7 @@ current_dir = os.getcwd()
 pdfs_file_path = os.path.join(current_dir,'database', 'bronze', 'company_rate_cards')
 
 class Config:
-
-
+        
         BASE_URL = r'https://www.applytosupply.digitalmarketplace.service.gov.uk'
         TEST_COMPANY = 'Infosys%20Limited'
         PDF_FILES_LIST = os.listdir(pdfs_file_path)

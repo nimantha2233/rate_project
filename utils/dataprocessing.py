@@ -1,4 +1,8 @@
-'''Module containing functions to read in and transform data into a useable form'''
+'''Module to extract clean and transform unstructured data from the 
+database/bronze/company_service_rates/company_info_service_rates.csv 
+file into a dataframe.Initially this data is used to extract minimum
+ and maximum consultant day rates for companies who do not display a rate card.
+ '''
 
 import pandas as pd
 import re
@@ -7,7 +11,15 @@ from . import supportfunctions as sf
 
 
 class DataProcessor:
-    '''Process data from scraping via reading csv file
+    '''Process data from scraping.
+
+    Methods:
+        extract_numbers: -
+        clean_cost_desc: -
+        create_metadata_and_derived_cols: -
+        create_array_of_dfs:- 
+        clean_dfs: -
+
     '''
 
     def __init__(self, filepath : str):
@@ -47,12 +59,7 @@ class DataProcessor:
     def create_metadata_and_derived_cols(self):
         ''' Create new columns used for later processing of the data as well
             as for end-user useage (base and max)
-        
-        Params:
-            None: Cleaning of main DataFrame
 
-        Returns:
-            None: Class attribute DataFrame is transformed after the method calll
         '''
 
         # Determine number of words in the cost desc. (len(x))
@@ -67,19 +74,20 @@ class DataProcessor:
 
 
     def create_array_of_dfs(self) -> dict:
-        '''Output an dict with two entries based on whether the row is contains a cost that is a price range or not:  
-        1. Not a price range just 1 price.
-        2. Two prices and so indicative of a price range with a base and max.
+        '''Output an dict with two entries based on whether the row is contains a cost that is a price range or not: 
+
+            1. Not a price range just 1 price.
+            2. Two prices and so indicative of a price range with a base and max.
 
         Each dict entry has an array as a value, where the array has 2 cols:  
 
-        col_1: df name (cost_split_["price type"]
-        col_2: df containing projects of a certain pricing scheme e.g. per unit/licence
+            - col_1: df name (cost_split_["price type"]
+            - col_2: df containing projects of a certain pricing scheme e.g. per unit/licence
 
         Returns:
-            df_dict (dict): A nested dict to store dataframe for easy accessibility
+            df_dict (dict): A nested dict to store dataframe for easy accessibility.
 
-                            {  
+                        -  {  
                                 'cost_type_1' : {'dataframe desc' : pd.DataFrame}  
                                 , 'cost_type_2' : {'dataframe desc' : pd.DataFrame}  
                             }

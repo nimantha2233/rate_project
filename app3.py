@@ -6,6 +6,9 @@ from utils import stats
 
 
 def main():
+    """Main function to execute plotting logic uses class Plotter located 
+    in stats.py module.
+    """
 
     plotter = stats.Plotter()
     plotter.filter_by_location_compute_and_plot()
